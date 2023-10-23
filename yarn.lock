@@ -41,19 +41,6 @@
     html-janitor "^2.0.4"
     nanoid "^3.1.22"
 
-"@frappe/esbuild-plugin-postcss2@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@frappe/esbuild-plugin-postcss2/-/esbuild-plugin-postcss2-0.1.3.tgz#523a5cc32788f184bb78c7b946c9f132ef386508"
-  integrity sha512-/kPz/NJki2GFFtcgTnvdkkjgPEU1uHmaN7/OI2Ysc2tEZ7dcL7FYEEV72a5Fv8cniJbmH8UUjItZmHixFCT1Dg==
-  dependencies:
-    autoprefixer "^10.2.5"
-    fs-extra "^9.1.0"
-    less "^4.x"
-    postcss-modules "^4.0.0"
-    resolve-file "^0.3.0"
-    sass "^1.x"
-    stylus "^0.x"
-    tmp "^0.2.1"
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
