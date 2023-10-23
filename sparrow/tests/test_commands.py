@@ -763,7 +763,7 @@ class TestBenchBuild(BaseTestCommands):
 
 class TestCommandUtils(FrappeTestCase):
 	def test_bench_helper(self):
-		from sparrow.utils.bench_helper import get_app_groups
+		from sparrow.utils.snova_helper import get_app_groups
 
 		app_groups = get_app_groups()
 		self.assertIn("sparrow", app_groups)
