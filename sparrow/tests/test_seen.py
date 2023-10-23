@@ -1,12 +1,12 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import json
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestSeen(SparrowTestCase):
+class TestSeen(FrappeTestCase):
 	def tearDown(self):
 		sparrow.set_user("Administrator")
 

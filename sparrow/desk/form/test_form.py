@@ -1,12 +1,12 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
 from sparrow.desk.form.linked_with import get_linked_docs, get_linked_doctypes
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestForm(SparrowTestCase):
+class TestForm(FrappeTestCase):
 	def test_linked_with(self):
 		results = get_linked_docs("Role", "System Manager", linkinfo=get_linked_doctypes("Role"))
 		self.assertTrue("User" in results)

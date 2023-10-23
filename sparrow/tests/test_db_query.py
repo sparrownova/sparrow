@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import datetime
 from contextlib import contextmanager
@@ -14,7 +14,7 @@ from sparrow.handler import execute_cmd
 from sparrow.model.db_query import DatabaseQuery
 from sparrow.permissions import add_user_permission, clear_user_permissions_for_doctype
 from sparrow.query_builder import Column
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils.testutils import add_custom_field, clear_custom_fields
 
 test_dependencies = ["User", "Blog Post", "Blog Category", "Blogger"]
@@ -53,7 +53,7 @@ def enable_permlevel_restrictions():
 	sparrow.db.set_single_value("System Settings", "apply_perm_level_on_api_calls", 0)
 
 
-class TestReportview(SparrowTestCase):
+class TestReportview(FrappeTestCase):
 	def setUp(self):
 		sparrow.set_user("Administrator")
 		return super().setUp()
@@ -1033,7 +1033,7 @@ class TestReportview(SparrowTestCase):
 		self.assertIn("ifnull", sparrow.get_all("User", {"name": ("not in", [""])}, run=0))
 
 
-class TestReportView(SparrowTestCase):
+class TestReportView(FrappeTestCase):
 	def setUp(self) -> None:
 		sparrow.set_user("Administrator")
 		return super().setUp()

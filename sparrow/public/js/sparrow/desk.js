@@ -1,4 +1,4 @@
-// Copyright (c) 2015, Sparrownova Technologies and Contributors
+// Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 /* eslint-disable no-console */
 
@@ -34,7 +34,7 @@ sparrow.Application = class Application {
 		sparrow.socketio.init();
 		sparrow.model.init();
 
-		this.setup_sparrow_vue();
+		this.setup_frappe_vue();
 		this.load_bootinfo();
 		this.load_user_permissions();
 		this.make_nav_bar();
@@ -167,7 +167,7 @@ sparrow.Application = class Application {
 		});
 	}
 
-	setup_sparrow_vue() {
+	setup_frappe_vue() {
 		Vue.prototype.__ = window.__;
 		Vue.prototype.sparrow = window.sparrow;
 	}
@@ -405,7 +405,7 @@ sparrow.Application = class Application {
 	make_nav_bar() {
 		// toolbar
 		if (sparrow.boot && sparrow.boot.home_page !== "setup-wizard") {
-			sparrow.sparrow_toolbar = new sparrow.ui.toolbar.Toolbar();
+			sparrow.frappe_toolbar = new sparrow.ui.toolbar.Toolbar();
 		}
 	}
 	logout() {

@@ -6,7 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "ldap_group",
-  "shopper_role"
+  "erpnext_role"
  ],
  "fields": [
   {
@@ -17,7 +17,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "shopper_role",
+   "fieldname": "erpnext_role",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "User Role",

@@ -3,8 +3,8 @@ from unittest.mock import mock_open, patch
 
 import sparrow
 from sparrow.modules import patch_handler
-from sparrow.tests.utils import SparrowTestCase
-from sparrow.utils import get_snova_path
+from sparrow.tests.utils import FrappeTestCase
+from sparrow.utils import get_bench_path
 
 EMTPY_FILE = ""
 EMTPY_SECTION = """
@@ -49,7 +49,7 @@ app.module.patch4
 """
 
 
-class TestPatches(SparrowTestCase):
+class TestPatches(FrappeTestCase):
 	def test_patch_module_names(self):
 		sparrow.flags.final_patches = []
 		sparrow.flags.in_install = True
@@ -79,7 +79,7 @@ class TestPatches(SparrowTestCase):
 		self.assertGreaterEqual(finished_patches, len(all_patches))
 
 
-class TestPatchReader(SparrowTestCase):
+class TestPatchReader(FrappeTestCase):
 	def get_patches(self):
 		return (
 			patch_handler.get_patches_from_app("sparrow"),
@@ -169,7 +169,7 @@ def check_patch_files(app):
 
 
 def _get_dotted_path(file: Path, app) -> str:
-	app_path = Path(get_snova_path()) / "apps" / app
+	app_path = Path(get_bench_path()) / "apps" / app
 
 	*path, filename = file.relative_to(app_path).parts
 	base_filename = Path(filename).stem

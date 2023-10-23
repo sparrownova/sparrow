@@ -5,10 +5,10 @@ from sparrow.core.doctype.session_default_settings.session_default_settings impo
 	clear_session_defaults,
 	set_session_default_values,
 )
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestSessionDefaultSettings(SparrowTestCase):
+class TestSessionDefaultSettings(FrappeTestCase):
 	def test_set_session_default_settings(self):
 		sparrow.set_user("Administrator")
 		settings = sparrow.get_single("Session Default Settings")

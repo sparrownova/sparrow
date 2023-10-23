@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import json
 import mimetypes
@@ -238,8 +238,8 @@ def get_next_link(route, url_prefix=None, app=None):
 		if next_item.route and next_item.title:
 			html = (
 				'<p class="btn-next-wrapper">'
-				+ sparrow._("Next")
-				+ ': <a class="btn-next" href="{url_prefix}{route}">{title}</a></p>'
+                + sparrow._("Next")
+                + ': <a class="btn-next" href="{url_prefix}{route}">{title}</a></p>'
 			).format(**next_item)
 
 			return html

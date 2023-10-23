@@ -1,13 +1,13 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from cryptography.fernet import Fernet
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils.password import check_password, decrypt, encrypt, passlibctx, update_password
 
 
-class TestPassword(SparrowTestCase):
+class TestPassword(FrappeTestCase):
 	def setUp(self):
 		sparrow.delete_doc("Email Account", "Test Email Account Password")
 		sparrow.delete_doc("Email Account", "Test Email Account Password-new")

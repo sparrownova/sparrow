@@ -26,7 +26,7 @@ DATA_IMPORT_DEPRECATION = (
 	is_flag=True,
 	default=False,
 	help="Copy the files instead of symlinking",
-	envvar="SPARROW_HARD_LINK_ASSETS",
+	envvar="FRAPPE_HARD_LINK_ASSETS",
 )
 @click.option(
 	"--make-copy",
@@ -56,7 +56,7 @@ def build(
 	force=False,
 ):
 	"Compile JS and CSS source files"
-	from sparrow.build import bundle, download_sparrow_assets
+	from sparrow.build import bundle, download_frappe_assets
 
 	sparrow.init("")
 
@@ -66,9 +66,9 @@ def build(
 	# dont try downloading assets if force used, app specified or running via CI
 	if not (force or apps or os.environ.get("CI")):
 		# skip building sparrow if assets exist remotely
-		skip_sparrow = download_sparrow_assets(verbose=verbose)
+		skip_frappe = download_frappe_assets(verbose=verbose)
 	else:
-		skip_sparrow = False
+		skip_frappe = False
 
 	# don't minify in developer_mode for faster builds
 	development = sparrow.local.conf.developer_mode or sparrow.local.dev_server
@@ -83,7 +83,7 @@ def build(
 			fg="yellow",
 		)
 
-	bundle(mode, apps=apps, hard_link=hard_link, verbose=verbose, skip_sparrow=skip_sparrow)
+	bundle(mode, apps=apps, hard_link=hard_link, verbose=verbose, skip_frappe=skip_frappe)
 
 
 @click.command("watch")
@@ -538,7 +538,7 @@ def _mariadb():
 		f"-p{sparrow.conf.db_password}",
 		sparrow.conf.db_name,
 		"-h",
-		sparrow.conf.db_host or "localhost",
+        sparrow.conf.db_host or "localhost",
 		"--pager=less -SFX",
 		"--safe-updates",
 		"-A",

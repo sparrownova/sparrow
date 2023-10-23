@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # MIT License. See LICENSE
 
 """
@@ -269,8 +269,8 @@ class CustomizeForm(Document):
 
 		elif prop == "reqd" and (
 			(
-				sparrow.db.get_value("DocField", {"parent": self.doc_type, "fieldname": df.fieldname}, "reqd")
-				== 1
+                    sparrow.db.get_value("DocField", {"parent": self.doc_type, "fieldname": df.fieldname}, "reqd")
+                    == 1
 			)
 			and (df.get(prop) == 0)
 		):
@@ -301,12 +301,12 @@ class CustomizeForm(Document):
 			self.flags.update_db = True
 
 		elif (
-			prop == "read_only"
-			and cint(df.get("read_only")) == 0
-			and sparrow.db.get_value(
+                prop == "read_only"
+                and cint(df.get("read_only")) == 0
+                and sparrow.db.get_value(
 				"DocField", {"parent": self.doc_type, "fieldname": df.fieldname}, "read_only"
 			)
-			== 1
+                == 1
 		):
 			# if docfield has read_only checked and user is trying to make it editable, don't allow it
 			sparrow.msgprint(_("You cannot unset 'Read Only' for field {0}").format(df.label))

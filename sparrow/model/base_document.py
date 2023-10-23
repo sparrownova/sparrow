@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import datetime
 import json
@@ -786,10 +786,10 @@ class BaseDocument:
 						invalid_links.append((df.fieldname, docname, get_msg(df, docname)))
 
 					elif (
-						df.fieldname != "amended_from"
-						and (is_submittable or self.meta.is_submittable)
-						and sparrow.get_meta(doctype).is_submittable
-						and cint(sparrow.db.get_value(doctype, docname, "docstatus")) == DocStatus.cancelled()
+                            df.fieldname != "amended_from"
+                            and (is_submittable or self.meta.is_submittable)
+                            and sparrow.get_meta(doctype).is_submittable
+                            and cint(sparrow.db.get_value(doctype, docname, "docstatus")) == DocStatus.cancelled()
 					):
 
 						cancelled_links.append((df.fieldname, docname, get_msg(df, docname)))

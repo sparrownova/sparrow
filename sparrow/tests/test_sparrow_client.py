@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import base64
@@ -8,18 +8,18 @@ import requests
 
 import sparrow
 from sparrow.core.doctype.user.user import generate_keys
-from sparrow.sparrowclient import AuthError, SparrowClient, SparrowException
+from sparrow.frappeclient import AuthError, FrappeClient, FrappeException
 from sparrow.utils.data import get_url
 
 
-class TestSparrowClient(unittest.TestCase):
+class TestFrappeClient(unittest.TestCase):
 	PASSWORD = sparrow.conf.admin_password or "admin"
 
 	@classmethod
 	def setUpClass(cls) -> None:
 		site_url = get_url()
 		try:
-			SparrowClient(site_url, "Administrator", cls.PASSWORD, verify=False)
+			FrappeClient(site_url, "Administrator", cls.PASSWORD, verify=False)
 		except AuthError:
 			raise unittest.SkipTest(
 				f"AuthError raised for {site_url} [usr=Administrator, pwd={cls.PASSWORD}]"
@@ -28,7 +28,7 @@ class TestSparrowClient(unittest.TestCase):
 		return super().setUpClass()
 
 	def test_insert_many(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Note", {"title": ("in", ("Sing", "a", "song", "of", "sixpence"))})
 		sparrow.db.commit()
 
@@ -49,7 +49,7 @@ class TestSparrowClient(unittest.TestCase):
 		self.assertTrue(sparrow.db.get_value("Note", {"title": "sixpence"}))
 
 	def test_create_doc(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Note", {"title": "test_create"})
 		sparrow.db.commit()
 
@@ -58,13 +58,13 @@ class TestSparrowClient(unittest.TestCase):
 		self.assertTrue(sparrow.db.get_value("Note", {"title": "test_create"}))
 
 	def test_list_docs(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		doc_list = server.get_list("Note")
 
 		self.assertTrue(len(doc_list))
 
 	def test_get_doc(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Note", {"title": "get_this"})
 		sparrow.db.commit()
 
@@ -77,7 +77,7 @@ class TestSparrowClient(unittest.TestCase):
 		self.assertTrue(doc)
 
 	def test_get_value(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Note", {"title": "get_value"})
 		sparrow.db.commit()
 
@@ -97,7 +97,7 @@ class TestSparrowClient(unittest.TestCase):
 		self.assertEqual(server.get_value("Note", "content", name).get("content"), test_content)
 
 		self.assertRaises(
-			SparrowException,
+			FrappeException,
 			server.get_value,
 			"Note",
 			"(select (password) from(__Auth) order by name desc limit 1)",
@@ -105,7 +105,7 @@ class TestSparrowClient(unittest.TestCase):
 		)
 
 	def test_get_single(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		server.set_value("Website Settings", "Website Settings", "title_prefix", "test-prefix")
 		self.assertEqual(
 			server.get_value("Website Settings", "title_prefix", "Website Settings").get("title_prefix"),
@@ -117,7 +117,7 @@ class TestSparrowClient(unittest.TestCase):
 		sparrow.db.set_value("Website Settings", None, "title_prefix", "")
 
 	def test_update_doc(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Note", {"title": ("in", ("Sing", "sing"))})
 		sparrow.db.commit()
 
@@ -129,7 +129,7 @@ class TestSparrowClient(unittest.TestCase):
 		self.assertTrue(doc["title"] == changed_title)
 
 	def test_update_child_doc(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Contact", {"first_name": "George", "last_name": "Steevens"})
 		sparrow.db.delete("Contact", {"first_name": "William", "last_name": "Shakespeare"})
 		sparrow.db.delete("Communication", {"reference_doctype": "Event"})
@@ -171,7 +171,7 @@ class TestSparrowClient(unittest.TestCase):
 		self.assertTrue(sparrow.db.exists("Communication Link", {"link_name": "William Shakespeare"}))
 
 	def test_delete_doc(self):
-		server = SparrowClient(get_url(), "Administrator", self.PASSWORD, verify=False)
+		server = FrappeClient(get_url(), "Administrator", self.PASSWORD, verify=False)
 		sparrow.db.delete("Note", {"title": "delete"})
 		sparrow.db.commit()
 

@@ -1,9 +1,9 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 # test_records = sparrow.get_test_records('Patch Log')
 
 
-class TestPatchLog(SparrowTestCase):
+class TestPatchLog(FrappeTestCase):
 	pass

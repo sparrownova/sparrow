@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Sparrownova Technologies and Contributors
+// Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 
 sparrow.provide("sparrow.dashboards");

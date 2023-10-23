@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 def get_jenv():
 	import sparrow
@@ -11,7 +11,7 @@ def get_jenv():
 
 		UNSAFE_ATTRIBUTES = UNSAFE_ATTRIBUTES - {"format", "format_map"}
 
-		class SparrowSandboxedEnvironment(SandboxedEnvironment):
+		class FrappeSandboxedEnvironment(SandboxedEnvironment):
 			def is_safe_attribute(self, obj, attr, *args, **kwargs):
 				if attr in UNSAFE_ATTRIBUTES:
 					return False
@@ -19,7 +19,7 @@ def get_jenv():
 				return super().is_safe_attribute(obj, attr, *args, **kwargs)
 
 		# sparrow will be loaded last, so app templates will get precedence
-		jenv = SparrowSandboxedEnvironment(loader=get_jloader(), undefined=DebugUndefined)
+		jenv = FrappeSandboxedEnvironment(loader=get_jloader(), undefined=DebugUndefined)
 		set_filters(jenv)
 
 		jenv.globals.update(get_safe_globals())
@@ -120,7 +120,7 @@ def get_jloader():
 		apps = sparrow.get_hooks("template_apps")
 		if not apps:
 			apps = list(
-				reversed(sparrow.local.flags.web_pages_apps or sparrow.get_installed_apps(_ensure_on_snova=True))
+				reversed(sparrow.local.flags.web_pages_apps or sparrow.get_installed_apps(_ensure_on_bench=True))
 			)
 
 		if "sparrow" not in apps:

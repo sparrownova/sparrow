@@ -1,4 +1,4 @@
-// Copyright (c) 2015, Sparrownova Technologies and Contributors
+// Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 
 sparrow.ui.form.save = function (frm, action, callback, btn) {

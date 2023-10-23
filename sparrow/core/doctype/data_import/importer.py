@@ -1,4 +1,4 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import io
@@ -90,13 +90,13 @@ class Importer:
 
 		# setup import log
 		import_log = (
-			sparrow.get_all(
+                sparrow.get_all(
 				"Data Import Log",
 				fields=["row_indexes", "success", "log_index"],
 				filters={"data_import": self.data_import.name},
 				order_by="log_index",
 			)
-			or []
+                or []
 		)
 
 		log_index = 0
@@ -206,13 +206,13 @@ class Importer:
 
 		# Logs are db inserted directly so will have to be fetched again
 		import_log = (
-			sparrow.get_all(
+                sparrow.get_all(
 				"Data Import Log",
 				fields=["row_indexes", "success", "log_index"],
 				filters={"data_import": self.data_import.name},
 				order_by="log_index",
 			)
-			or []
+                or []
 		)
 
 		# set status
@@ -299,13 +299,13 @@ class Importer:
 			return
 
 		import_log = (
-			sparrow.get_all(
+                sparrow.get_all(
 				"Data Import Log",
 				fields=["row_indexes", "success"],
 				filters={"data_import": self.data_import.name},
 				order_by="log_index",
 			)
-			or []
+                or []
 		)
 
 		failures = [log for log in import_log if not log.get("success")]

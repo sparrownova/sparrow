@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import datetime
 import json
@@ -353,13 +353,13 @@ def is_prepared_report_disabled(report):
 
 def get_report_module_dotted_path(module, report_name):
 	return (
-		sparrow.local.module_app[scrub(module)]
-		+ "."
-		+ scrub(module)
-		+ ".report."
-		+ scrub(report_name)
-		+ "."
-		+ scrub(report_name)
+            sparrow.local.module_app[scrub(module)]
+            + "."
+            + scrub(module)
+            + ".report."
+            + scrub(report_name)
+            + "."
+            + scrub(report_name)
 	)
 
 

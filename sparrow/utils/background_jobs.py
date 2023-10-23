@@ -18,7 +18,7 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fi
 import sparrow
 import sparrow.monitor
 from sparrow import _
-from sparrow.utils import cint, cstr, get_snova_id
+from sparrow.utils import cint, cstr, get_bench_id
 from sparrow.utils.commands import log
 from sparrow.utils.redis_queue import RedisQueue
 
@@ -379,7 +379,7 @@ def get_redis_conn(username=None, password=None):
 			cred["username"] = username
 			cred["password"] = password
 		else:
-			cred["username"] = sparrow.get_site_config().rq_username or get_snova_id()
+			cred["username"] = sparrow.get_site_config().rq_username or get_bench_id()
 			cred["password"] = sparrow.get_site_config().rq_password
 
 	elif os.environ.get("RQ_ADMIN_PASWORD"):
@@ -418,7 +418,7 @@ def generate_qname(qtype: str) -> str:
 	"""
 	if isinstance(qtype, list):
 		qtype = ",".join(qtype)
-	return f"{get_snova_id()}:{qtype}"
+	return f"{get_bench_id()}:{qtype}"
 
 
 def is_queue_accessible(qobj: Queue) -> bool:

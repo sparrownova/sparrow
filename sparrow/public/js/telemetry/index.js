@@ -49,7 +49,7 @@ class TelemetryManager {
 
 		if (!last || moment(now).diff(moment(last), "hours") > 12) {
 			localStorage.setItem(KEY, now.toISOString());
-			this.capture("heartbeat", "sparrow", { sparrow_version: sparrow.boot?.versions?.sparrow });
+			this.capture("heartbeat", "sparrow", { frappe_version: sparrow.boot?.versions?.sparrow });
 		}
 	}
 

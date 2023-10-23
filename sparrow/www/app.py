@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 no_cache = 1
 
@@ -19,7 +19,7 @@ def get_context(context):
 	if sparrow.session.user == "Guest":
 		sparrow.throw(_("Log in to access this page."), sparrow.PermissionError)
 	elif (
-		sparrow.db.get_value("User", sparrow.session.user, "user_type", order_by=None) == "Website User"
+            sparrow.db.get_value("User", sparrow.session.user, "user_type", order_by=None) == "Website User"
 	):
 		sparrow.throw(_("You are not permitted to access this page."), sparrow.PermissionError)
 

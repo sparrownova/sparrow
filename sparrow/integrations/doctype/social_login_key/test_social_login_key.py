@@ -7,13 +7,13 @@ from rauth import OAuth2Service
 import sparrow
 from sparrow.auth import CookieManager, LoginManager
 from sparrow.integrations.doctype.social_login_key.social_login_key import BaseUrlNotSetError
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.utils.oauth import login_via_oauth2
 
 
-class TestSocialLoginKey(SparrowTestCase):
-	def test_adding_sparrow_social_login_provider(self):
+class TestSocialLoginKey(FrappeTestCase):
+	def test_adding_frappe_social_login_provider(self):
 		provider_name = "Sparrow"
 		social_login_key = make_social_login_key(social_login_provider=provider_name)
 		social_login_key.get_social_login_provider(provider_name, initialize=True)

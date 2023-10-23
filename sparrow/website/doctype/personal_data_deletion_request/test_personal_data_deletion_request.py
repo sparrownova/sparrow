@@ -3,7 +3,7 @@
 from datetime import datetime, timedelta
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.website.doctype.personal_data_deletion_request.personal_data_deletion_request import (
 	process_data_deletion_request,
 	remove_unverified_record,
@@ -13,7 +13,7 @@ from sparrow.website.doctype.personal_data_download_request.test_personal_data_d
 )
 
 
-class TestPersonalDataDeletionRequest(SparrowTestCase):
+class TestPersonalDataDeletionRequest(FrappeTestCase):
 	def setUp(self):
 		create_user_if_not_exists(email="test_delete@example.com")
 		self.delete_request = sparrow.get_doc(

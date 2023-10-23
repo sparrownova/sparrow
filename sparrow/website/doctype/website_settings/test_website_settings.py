@@ -2,11 +2,11 @@
 # License: MIT. See LICENSE
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.website.doctype.website_settings.website_settings import get_website_settings
 
 
-class TestWebsiteSettings(SparrowTestCase):
+class TestWebsiteSettings(FrappeTestCase):
 	def test_child_items_in_top_bar(self):
 		ws = sparrow.get_doc("Website Settings")
 		ws.append(

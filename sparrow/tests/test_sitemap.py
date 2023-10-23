@@ -1,9 +1,9 @@
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import get_html_for_route
 
 
-class TestSitemap(SparrowTestCase):
+class TestSitemap(FrappeTestCase):
 	def test_sitemap(self):
 		from sparrow.test_runner import make_test_records
 

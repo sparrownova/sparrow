@@ -239,12 +239,12 @@ def get_user_linked_doctypes(doctype, txt, searchfield, start, page_len, filters
 @sparrow.whitelist()
 def get_user_id(parent):
 	data = (
-		sparrow.get_all(
+            sparrow.get_all(
 			"DocField",
 			fields=["label", "fieldname as value"],
 			filters={"options": "User", "fieldtype": "Link", "parent": parent},
 		)
-		or []
+            or []
 	)
 
 	data.extend(

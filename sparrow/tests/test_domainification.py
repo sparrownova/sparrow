@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.core.doctype.domain_settings.domain_settings import get_active_modules
@@ -8,10 +8,10 @@ from sparrow.desk.doctype.desktop_icon.desktop_icon import (
 	clear_desktop_icons_cache,
 	get_desktop_icons,
 )
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDomainification(SparrowTestCase):
+class TestDomainification(FrappeTestCase):
 	def setUp(self):
 		# create test domain
 		self.new_domain("_Test Domain 1")

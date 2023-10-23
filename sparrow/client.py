@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import json
 import os
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 """
 Handle RESTful requests that are mapped to the `/api/resource` route.
 
-Requests via SparrowClient are also handled here.
+Requests via FrappeClient are also handled here.
 """
 
 
@@ -425,7 +425,7 @@ def validate_link(doctype: str, docname: str, fields=None):
 		sparrow.throw(_("Document Name must be a string"))
 
 	if doctype != "DocType" and not (
-		sparrow.has_permission(doctype, "select") or sparrow.has_permission(doctype, "read")
+            sparrow.has_permission(doctype, "select") or sparrow.has_permission(doctype, "read")
 	):
 		sparrow.throw(
 			_("You do not have Read or Select Permissions for {}").format(sparrow.bold(doctype)),

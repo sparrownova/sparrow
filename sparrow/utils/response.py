@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import datetime
@@ -90,12 +90,12 @@ def as_txt():
 def as_raw():
 	response = Response()
 	response.mimetype = (
-		sparrow.response.get("content_type")
-		or mimetypes.guess_type(sparrow.response["filename"])[0]
-		or "application/unknown"
+            sparrow.response.get("content_type")
+            or mimetypes.guess_type(sparrow.response["filename"])[0]
+            or "application/unknown"
 	)
 	response.headers["Content-Disposition"] = (
-		f'{sparrow.response.get("display_content_as","attachment")}; filename="{sparrow.response["filename"].replace(" ", "_")}"'
+		f'{sparrow.response.get("display_content_as", "attachment")}; filename="{sparrow.response["filename"].replace(" ", "_")}"'
 	).encode()
 	response.data = sparrow.response["filecontent"]
 	return response
@@ -120,7 +120,7 @@ def as_pdf():
 	encoded_filename = quote(sparrow.response["filename"].replace(" ", "_"))
 	response.headers["Content-Disposition"] = (
 		'filename="%s"' % sparrow.response["filename"].replace(" ", "_")
-		+ ";filename*=utf-8''%s" % encoded_filename
+        + ";filename*=utf-8''%s" % encoded_filename
 	).encode("utf-8")
 	response.data = sparrow.response["filecontent"]
 	return response

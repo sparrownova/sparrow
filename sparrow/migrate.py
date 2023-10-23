@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -23,7 +23,7 @@ from sparrow.utils.dashboard import sync_dashboards
 from sparrow.utils.fixtures import sync_fixtures
 from sparrow.website.utils import clear_website_cache
 
-SNOVA_START_MESSAGE = dedent(
+BENCH_START_MESSAGE = dedent(
 	"""
 	Cannot run snova migrate without the services running.
 	If you are running snova in development mode, make sure that snova is running:
@@ -154,7 +154,7 @@ class SiteMigration:
 			for service in service_status:
 				if not service_status.get(service, True):
 					print(f"Service {service} is not running.")
-			print(SNOVA_START_MESSAGE)
+			print(BENCH_START_MESSAGE)
 
 		return are_services_running
 

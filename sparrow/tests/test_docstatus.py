@@ -1,8 +1,8 @@
 from sparrow.model.docstatus import DocStatus
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDocStatus(SparrowTestCase):
+class TestDocStatus(FrappeTestCase):
 	def test_draft(self):
 		self.assertEqual(DocStatus(0), DocStatus.draft())
 

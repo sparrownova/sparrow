@@ -208,10 +208,10 @@ def apply(doc=None, method=None, doctype=None, name=None):
 	doctype = doctype or doc.doctype
 
 	skip_assignment_rules = (
-		sparrow.flags.in_patch
-		or sparrow.flags.in_install
-		or sparrow.flags.in_setup_wizard
-		or doctype in log_types
+            sparrow.flags.in_patch
+            or sparrow.flags.in_install
+            or sparrow.flags.in_setup_wizard
+            or doctype in log_types
 	)
 
 	if skip_assignment_rules:
@@ -304,11 +304,11 @@ def apply(doc=None, method=None, doctype=None, name=None):
 def update_due_date(doc, state=None):
 	"""Run on_update on every Document (via hooks.py)"""
 	skip_document_update = (
-		sparrow.flags.in_migrate
-		or sparrow.flags.in_patch
-		or sparrow.flags.in_import
-		or sparrow.flags.in_setup_wizard
-		or sparrow.flags.in_install
+            sparrow.flags.in_migrate
+            or sparrow.flags.in_patch
+            or sparrow.flags.in_import
+            or sparrow.flags.in_setup_wizard
+            or sparrow.flags.in_install
 	)
 
 	if skip_document_update:

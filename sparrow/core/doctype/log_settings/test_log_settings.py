@@ -5,11 +5,11 @@ from datetime import datetime
 
 import sparrow
 from sparrow.core.doctype.log_settings.log_settings import _supports_log_clearing, run_log_clean_up
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import add_to_date, now_datetime
 
 
-class TestLogSettings(SparrowTestCase):
+class TestLogSettings(FrappeTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

@@ -4,10 +4,10 @@ from random import choice
 import sparrow
 from sparrow.model import core_doctypes_list, get_permitted_fields, is_default_field
 from sparrow.model.utils import get_fetch_values
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestModelUtils(SparrowTestCase):
+class TestModelUtils(FrappeTestCase):
 	def test_get_fetch_values(self):
 		doctype = "ToDo"
 

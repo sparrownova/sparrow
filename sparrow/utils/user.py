@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 from email.utils import formataddr
@@ -264,12 +264,12 @@ class UserPermissions:
 def get_user_fullname(user: str) -> str:
 	user_doctype = DocType("User")
 	return (
-		sparrow.get_value(
+            sparrow.get_value(
 			user_doctype,
 			filters={"name": user},
 			fieldname=Concat_ws(" ", user_doctype.first_name, user_doctype.last_name),
 		)
-		or ""
+            or ""
 	)
 
 

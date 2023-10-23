@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 """
 Sparrow - Low Code Open Source Framework in Python and JS
@@ -8,7 +8,7 @@ framework written in Python and Javascript with MariaDB as the database.
 It is the framework which powers Shopper. It is pretty generic and can
 be used to build database driven apps.
 
-Read the documentation: https://sparrownova.com/docs
+Read the documentation: https://frappeframework.com/docs
 """
 import functools
 import gc
@@ -57,7 +57,7 @@ re._MAXCACHE = (
 	50  # reduced from default 512 given we are already maintaining this on parent worker
 )
 
-_tune_gc = bool(sbool(os.environ.get("SPARROW_TUNE_GC", True)))
+_tune_gc = bool(sbool(os.environ.get("FRAPPE_TUNE_GC", True)))
 
 if _dev_server:
 	warnings.simplefilter("always", DeprecationWarning)
@@ -1413,13 +1413,13 @@ def get_all_apps(with_internal_apps=True, sites_path=None):
 
 
 @request_cache
-def get_installed_apps(sort=False, sparrow_last=False, *, _ensure_on_snova=False):
+def get_installed_apps(sort=False, frappe_last=False, *, _ensure_on_bench=False):
 	"""
 	Get list of installed apps in current site.
 
 	:param sort: [DEPRECATED] Sort installed apps based on the sequence in sites/apps.txt
-	:param sparrow_last: [DEPRECATED] Keep sparrow last. Do not use this, reverse the app list instead.
-	:param ensure_on_snova: Only return apps that are present on snova.
+	:param frappe_last: [DEPRECATED] Keep sparrow last. Do not use this, reverse the app list instead.
+	:param ensure_on_bench: Only return apps that are present on snova.
 	"""
 	from sparrow.utils.deprecations import deprecation_warning
 
@@ -1438,12 +1438,12 @@ def get_installed_apps(sort=False, sparrow_last=False, *, _ensure_on_snova=False
 		deprecation_warning("`sort` argument is deprecated and will be removed in v15.")
 		installed = [app for app in local.all_apps if app in installed]
 
-	if _ensure_on_snova:
+	if _ensure_on_bench:
 		all_apps = cache().get_value("all_apps", get_all_apps)
 		installed = [app for app in installed if app in all_apps]
 
-	if sparrow_last:
-		deprecation_warning("`sparrow_last` argument is deprecated and will be removed in v15.")
+	if frappe_last:
+		deprecation_warning("`frappe_last` argument is deprecated and will be removed in v15.")
 		if "sparrow" in installed:
 			installed.remove("sparrow")
 		installed.append("sparrow")
@@ -1473,7 +1473,7 @@ def _load_app_hooks(app_name: str | None = None):
 	import types
 
 	hooks = {}
-	apps = [app_name] if app_name else get_installed_apps(_ensure_on_snova=True)
+	apps = [app_name] if app_name else get_installed_apps(_ensure_on_bench=True)
 
 	for app in apps:
 		try:

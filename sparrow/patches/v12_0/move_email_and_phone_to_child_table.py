@@ -26,16 +26,16 @@ def execute():
 		if contact_detail.email_id:
 			email_values.append(
 				(
-					1,
-					sparrow.generate_hash(length=10),
-					contact_detail.email_id,
+                    1,
+                    sparrow.generate_hash(length=10),
+                    contact_detail.email_id,
 					"email_ids",
 					"Contact",
-					contact_detail.name,
-					1,
-					contact_detail.creation,
-					contact_detail.modified,
-					contact_detail.modified_by,
+                    contact_detail.name,
+                    1,
+                    contact_detail.creation,
+                    contact_detail.modified,
+                    contact_detail.modified_by,
 				)
 			)
 
@@ -43,17 +43,17 @@ def execute():
 			is_primary_phone = 1 if phone_counter == 1 else 0
 			phone_values.append(
 				(
-					phone_counter,
-					sparrow.generate_hash(length=10),
-					contact_detail.phone,
+                    phone_counter,
+                    sparrow.generate_hash(length=10),
+                    contact_detail.phone,
 					"phone_nos",
 					"Contact",
-					contact_detail.name,
-					is_primary_phone,
-					0,
-					contact_detail.creation,
-					contact_detail.modified,
-					contact_detail.modified_by,
+                    contact_detail.name,
+                    is_primary_phone,
+                    0,
+                    contact_detail.creation,
+                    contact_detail.modified,
+                    contact_detail.modified_by,
 				)
 			)
 			phone_counter += 1
@@ -62,17 +62,17 @@ def execute():
 			is_primary_mobile_no = 1 if phone_counter == 1 else 0
 			phone_values.append(
 				(
-					phone_counter,
-					sparrow.generate_hash(length=10),
-					contact_detail.mobile_no,
+                    phone_counter,
+                    sparrow.generate_hash(length=10),
+                    contact_detail.mobile_no,
 					"phone_nos",
 					"Contact",
-					contact_detail.name,
-					0,
-					is_primary_mobile_no,
-					contact_detail.creation,
-					contact_detail.modified,
-					contact_detail.modified_by,
+                    contact_detail.name,
+                    0,
+                    is_primary_mobile_no,
+                    contact_detail.creation,
+                    contact_detail.modified,
+                    contact_detail.modified_by,
 				)
 			)
 

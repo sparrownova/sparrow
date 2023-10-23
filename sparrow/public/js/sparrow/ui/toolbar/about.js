@@ -10,9 +10,9 @@ sparrow.ui.misc.about = function () {
 					__("Open Source Applications for the Web") +
 					"</p>  \
 		<p><i class='fa fa-globe fa-fw'></i>\
-			Website: <a href='https://sparrownova.com' target='_blank'>https://sparrownova.com</a></p>\
+			Website: <a href='https://frappeframework.com' target='_blank'>https://frappeframework.com</a></p>\
 		<p><i class='fa fa-github fa-fw'></i>\
-			Source: <a href='https://github.com/sparrownova' target='_blank'>https://github.com/sparrownova</a></p>\
+			Source: <a href='https://github.com/sparrow' target='_blank'>https://github.com/sparrow</a></p>\
 		<p><i class='fa fa-linkedin fa-fw'></i>\
 			Linkedin: <a href='https://linkedin.com/company/sparrow-tech' target='_blank'>https://linkedin.com/company/sparrow-tech</a></p>\
 		<p><i class='fa fa-facebook fa-fw'></i>\
@@ -23,7 +23,7 @@ sparrow.ui.misc.about = function () {
 		<h4>Installed Apps</h4>\
 		<div id='about-app-versions'>Loading versions...</div>\
 		<hr>\
-		<p class='text-muted'>&copy; Sparrownova Technologies and contributors </p> \
+		<p class='text-muted'>&copy; Sparrow Technologies Pvt. Ltd. and contributors </p> \
 		</div>",
 				sparrow.app
 			)

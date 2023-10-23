@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -308,7 +308,7 @@ def load_languages():
 		codes_to_names[d.language_code] = d.language_name
 	return {
 		"default_language": sparrow.db.get_value("Language", sparrow.local.lang, "language_name")
-		or sparrow.local.lang,
+                            or sparrow.local.lang,
 		"languages": sorted(sparrow.db.sql_list("select language_name from tabLanguage order by name")),
 		"codes_to_names": codes_to_names,
 	}

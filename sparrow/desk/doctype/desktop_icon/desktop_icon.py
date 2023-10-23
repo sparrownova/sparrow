@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and contributors
 # License: MIT. See LICENSE
 
 import json
@@ -147,10 +147,10 @@ def add_user_icon(_doctype, _report=None, label=None, link=None, type="link", st
 
 	else:
 		idx = (
-			sparrow.db.sql("select max(idx) from `tabDesktop Icon` where owner=%s", sparrow.session.user)[0][
+                sparrow.db.sql("select max(idx) from `tabDesktop Icon` where owner=%s", sparrow.session.user)[0][
 				0
 			]
-			or sparrow.db.sql("select count(*) from `tabDesktop Icon` where standard=1")[0][0]
+                or sparrow.db.sql("select count(*) from `tabDesktop Icon` where standard=1")[0][0]
 		)
 
 		if not sparrow.db.get_value("Report", _report):

@@ -3,10 +3,10 @@
 
 
 from sparrow.custom.report.audit_system_hooks.audit_system_hooks import execute
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestAuditSystemHooksReport(SparrowTestCase):
+class TestAuditSystemHooksReport(FrappeTestCase):
 	def test_basic_query(self):
 		_, data = execute()
 		for row in data:

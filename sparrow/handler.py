@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import os
@@ -209,7 +209,7 @@ def upload_file():
 	sparrow.local.uploaded_filename = filename
 
 	if content is not None and (
-		sparrow.session.user == "Guest" or (user and not user.has_desk_access())
+            sparrow.session.user == "Guest" or (user and not user.has_desk_access())
 	):
 		filetype = guess_type(filename)[0]
 		if filetype not in ALLOWED_MIMETYPES:

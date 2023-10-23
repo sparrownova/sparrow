@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import os
@@ -18,7 +18,7 @@ from sparrow.model.rename_doc import (
 	update_linked_doctypes,
 )
 from sparrow.modules.utils import get_doc_path
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import add_to_date, now
 
 
@@ -42,7 +42,7 @@ def patch_db(endpoints: list[str] = None):
 		sparrow.db.rollback(save_point=savepoint)
 
 
-class TestRenameDoc(SparrowTestCase):
+class TestRenameDoc(FrappeTestCase):
 	@classmethod
 	def setUpClass(self):
 		"""Setting Up data for the tests defined under TestRenameDoc"""

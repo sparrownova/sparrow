@@ -1,4 +1,4 @@
-# Copyright (c) 2019, Sparrownova Technologies and Contributors
+# Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import os
 from unittest.mock import patch
@@ -6,10 +6,10 @@ from unittest.mock import patch
 import sparrow
 import sparrow.utils
 from sparrow.desk.notifications import get_open_count
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDashboardConnections(SparrowTestCase):
+class TestDashboardConnections(FrappeTestCase):
 	@patch.dict(sparrow.conf, {"developer_mode": 1})
 	def setUp(self):
 		delete_test_data()

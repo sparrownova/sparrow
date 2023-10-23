@@ -2,8 +2,8 @@
 # See license.txt
 
 # import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDocumentShareKey(SparrowTestCase):
+class TestDocumentShareKey(FrappeTestCase):
 	pass

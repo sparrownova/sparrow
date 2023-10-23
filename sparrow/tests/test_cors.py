@@ -1,10 +1,10 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from werkzeug.wrappers import Response
 
 import sparrow
 from sparrow.app import process_response
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 HEADERS = (
 	"Access-Control-Allow-Origin",
@@ -15,7 +15,7 @@ HEADERS = (
 )
 
 
-class TestCORS(SparrowTestCase):
+class TestCORS(FrappeTestCase):
 	def make_request_and_test(self, origin="http://example.com", absent=False):
 		self.origin = origin
 

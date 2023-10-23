@@ -43,7 +43,7 @@ sparrow.views.FileView = class FileView extends sparrow.views.ListView {
 				${this.get_no_result_message()}
 			</div>
 		</div>`).hide();
-		this.$sparrow_list.append(this.$no_result);
+		this.$frappe_list.append(this.$no_result);
 	}
 
 	get_args() {

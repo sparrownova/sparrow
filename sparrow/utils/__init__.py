@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import functools
@@ -307,8 +307,8 @@ def get_traceback(with_context=False) -> str:
 		trace_list = traceback.format_exception(exc_type, exc_value, exc_tb)
 		tb = "".join(cstr(t) for t in trace_list)
 
-	snova_path = get_snova_path() + "/"
-	return tb.replace(snova_path, "")
+	bench_path = get_bench_path() + "/"
+	return tb.replace(bench_path, "")
 
 
 @functools.lru_cache(maxsize=1)
@@ -510,16 +510,16 @@ def get_files_path(*path, **kwargs):
 	return get_site_path("private" if kwargs.get("is_private") else "public", "files", *path)
 
 
-def get_snova_path():
+def get_bench_path():
 	return os.path.realpath(os.path.join(os.path.dirname(sparrow.__file__), "..", "..", ".."))
 
 
-def get_snova_id():
-	return sparrow.get_conf().get("snova_id", get_snova_path().strip("/").replace("/", "-"))
+def get_bench_id():
+	return sparrow.get_conf().get("bench_id", get_bench_path().strip("/").replace("/", "-"))
 
 
 def get_site_id(site=None):
-	return f"{site or sparrow.local.site}@{get_snova_id()}"
+	return f"{site or sparrow.local.site}@{get_bench_id()}"
 
 
 def get_backups_path():
@@ -995,7 +995,7 @@ def get_assets_json():
 	return sparrow.local.assets_json
 
 
-def get_snova_relative_path(file_path):
+def get_bench_relative_path(file_path):
 	"""Fixes paths relative to the snova root directory if exists and returns the absolute path
 
 	Args:
@@ -1088,10 +1088,10 @@ def dictify(arg):
 def add_user_info(user, user_info):
 	if user not in user_info:
 		info = (
-			sparrow.db.get_value(
+                sparrow.db.get_value(
 				"User", user, ["full_name", "user_image", "name", "email", "time_zone"], as_dict=True
 			)
-			or sparrow._dict()
+                or sparrow._dict()
 		)
 		user_info[user] = sparrow._dict(
 			fullname=info.full_name or user,

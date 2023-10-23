@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -56,7 +56,7 @@ def get_doctypes_with_global_search(with_child_tables=True):
 			d.name
 			for d in global_search_doctypes
 			if module_app.get(sparrow.scrub(d.module))
-			and module_app[sparrow.scrub(d.module)] in installed_apps
+               and module_app[sparrow.scrub(d.module)] in installed_apps
 		]
 
 		return doctypes

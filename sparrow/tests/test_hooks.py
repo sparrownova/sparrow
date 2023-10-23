@@ -1,13 +1,13 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
 from sparrow.cache_manager import clear_controller_cache
 from sparrow.desk.doctype.todo.todo import ToDo
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestHooks(SparrowTestCase):
+class TestHooks(FrappeTestCase):
 	def test_hooks(self):
 		hooks = sparrow.get_hooks()
 		self.assertTrue(isinstance(hooks.get("app_name"), list))

@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -107,7 +107,7 @@ def get_versions():
 	                }
 	        }"""
 	versions = {}
-	for app in sparrow.get_installed_apps(_ensure_on_snova=True):
+	for app in sparrow.get_installed_apps(_ensure_on_bench=True):
 		app_hooks = sparrow.get_hooks(app_name=app)
 		versions[app] = {
 			"title": app_hooks.get("app_title")[0],

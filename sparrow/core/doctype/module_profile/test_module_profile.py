@@ -1,10 +1,10 @@
 # Copyright (c) 2020, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestModuleProfile(SparrowTestCase):
+class TestModuleProfile(FrappeTestCase):
 	def test_make_new_module_profile(self):
 		if not sparrow.db.get_value("Module Profile", "_Test Module Profile"):
 			sparrow.get_doc(

@@ -3,12 +3,12 @@
 import hashlib
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = []
 
 
-class TestTransactionLog(SparrowTestCase):
+class TestTransactionLog(FrappeTestCase):
 	def test_validate_chaining(self):
 		sparrow.get_doc(
 			{
@@ -39,8 +39,8 @@ class TestTransactionLog(SparrowTestCase):
 
 		sha = hashlib.sha256()
 		sha.update(
-			sparrow.safe_encode(str(third_log.transaction_hash))
-			+ sparrow.safe_encode(str(second_log.chaining_hash))
+            sparrow.safe_encode(str(third_log.transaction_hash))
+            + sparrow.safe_encode(str(second_log.chaining_hash))
 		)
 
 		self.assertEqual(sha.hexdigest(), third_log.chaining_hash)

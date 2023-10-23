@@ -5,15 +5,15 @@ import json
 import sparrow
 from sparrow.core.doctype.user.user import generate_keys
 from sparrow.event_streaming.doctype.event_producer.event_producer import pull_from_node
-from sparrow.sparrowclient import SparrowClient
+from sparrow.frappeclient import FrappeClient
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 producer_url = "http://test_site_producer:8000"
 
 
-class TestEventProducer(SparrowTestCase):
+class TestEventProducer(FrappeTestCase):
 	def setUp(self):
 		create_event_producer(producer_url)
 
@@ -377,7 +377,7 @@ def reset_configuration(producer_url):
 
 def get_remote_site():
 	producer_doc = sparrow.get_doc("Event Producer", producer_url)
-	producer_site = SparrowClient(
+	producer_site = FrappeClient(
 		url=producer_doc.producer_url, username="Administrator", password="admin", verify=False
 	)
 	return producer_site
@@ -392,7 +392,7 @@ def unsubscribe_doctypes(producer_url):
 
 def connect():
 	def _connect():
-		return SparrowClient(url=producer_url, username="Administrator", password="admin", verify=False)
+		return FrappeClient(url=producer_url, username="Administrator", password="admin", verify=False)
 
 	try:
 		return _connect()

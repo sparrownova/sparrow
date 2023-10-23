@@ -1,14 +1,14 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import os
 
 import sparrow
 import sparrow.defaults
 from sparrow.core.doctype.data_import.data_import import export_csv
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDataImportFixtures(SparrowTestCase):
+class TestDataImportFixtures(FrappeTestCase):
 	def setUp(self):
 		pass
 

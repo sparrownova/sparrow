@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import base64
 import binascii
@@ -118,7 +118,7 @@ def handle():
 					# set limit of records for sparrow.get_list
 					sparrow.local.form_dict.setdefault(
 						"limit_page_length",
-						sparrow.local.form_dict.limit or sparrow.local.form_dict.limit_page_length or 20,
+                        sparrow.local.form_dict.limit or sparrow.local.form_dict.limit_page_length or 20,
 					)
 
 					# convert strings to native types - only as_dict and debug accept bool
@@ -245,9 +245,9 @@ def validate_auth_via_api_keys(authorization_header):
 		pass
 
 
-def validate_api_key_secret(api_key, api_secret, sparrow_authorization_source=None):
-	"""sparrow_authorization_source to provide api key and secret for a doctype apart from User"""
-	doctype = sparrow_authorization_source or "User"
+def validate_api_key_secret(api_key, api_secret, frappe_authorization_source=None):
+	"""frappe_authorization_source to provide api key and secret for a doctype apart from User"""
+	doctype = frappe_authorization_source or "User"
 	doc = sparrow.db.get_value(doctype=doctype, filters={"api_key": api_key}, fieldname=["name"])
 	form_dict = sparrow.local.form_dict
 	doc_secret = sparrow.utils.password.get_decrypted_password(doctype, doc, fieldname="api_secret")

@@ -13,7 +13,7 @@ from sparrow.utils import cint
 datetime_like_types = (datetime.datetime, datetime.date, datetime.time, datetime.timedelta)
 
 
-class SparrowTestCase(unittest.TestCase):
+class FrappeTestCase(unittest.TestCase):
 	"""Base test class for Sparrow tests.
 
 

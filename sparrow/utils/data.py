@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import base64
@@ -1036,7 +1036,7 @@ def rounded(num, precision=0, rounding_method=None):
 	precision = cint(precision)
 
 	rounding_method = (
-		rounding_method or sparrow.get_system_settings("rounding_method") or "Banker's Rounding (legacy)"
+            rounding_method or sparrow.get_system_settings("rounding_method") or "Banker's Rounding (legacy)"
 	)
 
 	if rounding_method == "Banker's Rounding (legacy)":
@@ -1325,9 +1325,9 @@ def money_in_words(
 		)
 
 	number_format = (
-		sparrow.db.get_value("Currency", main_currency, "number_format", cache=True)
-		or sparrow.db.get_default("number_format")
-		or "#,###.##"
+            sparrow.db.get_value("Currency", main_currency, "number_format", cache=True)
+            or sparrow.db.get_default("number_format")
+            or "#,###.##"
 	)
 
 	fraction_length = get_number_format_info(number_format)[2]

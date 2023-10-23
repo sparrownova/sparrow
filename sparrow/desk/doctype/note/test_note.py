@@ -1,13 +1,13 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Note")
 
 
-class TestNote(SparrowTestCase):
+class TestNote(FrappeTestCase):
 	def insert_note(self):
 		sparrow.db.delete("Version")
 		sparrow.db.delete("Note")

@@ -1,4 +1,4 @@
-# Copyright (c) 2017, Sparrownova Technologies and Contributors
+# Copyright (c) 2017, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import os
 from base64 import b32encode, b64encode
@@ -45,7 +45,7 @@ def two_factor_is_enabled(user=None):
 	enabled = int(sparrow.db.get_single_value("System Settings", "enable_two_factor_auth") or 0)
 	if enabled:
 		bypass_two_factor_auth = int(
-			sparrow.db.get_single_value("System Settings", "bypass_2fa_for_retricted_ip_users") or 0
+            sparrow.db.get_single_value("System Settings", "bypass_2fa_for_retricted_ip_users") or 0
 		)
 		if bypass_two_factor_auth and user:
 			user_doc = sparrow.get_doc("User", user)

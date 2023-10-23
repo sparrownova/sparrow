@@ -144,7 +144,7 @@ class SocialLoginKey(Document):
 			"enable_social_login": 1,
 			"custom_base_url": 1,
 			"icon": "/assets/sparrow/images/sparrow-favicon.svg",
-			"redirect_url": "/api/method/sparrow.integrations.oauth2_logins.login_via_sparrow",
+			"redirect_url": "/api/method/sparrow.integrations.oauth2_logins.login_via_frappe",
 			"api_endpoint": "/api/method/sparrow.integrations.oauth2.openid_profile",
 			"api_endpoint_args": None,
 			"authorize_url": "/api/method/sparrow.integrations.oauth2.authorize",

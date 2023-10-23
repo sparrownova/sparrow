@@ -1,13 +1,13 @@
-# Copyright (c) 2019, Sparrownova Technologies and Contributors
+# Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import json
 
 import sparrow
 from sparrow.desk.listview import get_group_by_count, get_list_settings, set_list_settings
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestListView(SparrowTestCase):
+class TestListView(FrappeTestCase):
 	def setUp(self):
 		if sparrow.db.exists("List View Settings", "DocType"):
 			sparrow.delete_doc("List View Settings", "DocType")

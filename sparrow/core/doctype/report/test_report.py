@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -11,13 +11,13 @@ from sparrow.custom.doctype.customize_form.customize_form import reset_customiza
 from sparrow.desk.query_report import add_total_row, run, save_report
 from sparrow.desk.reportview import delete_report
 from sparrow.desk.reportview import save_report as _save_report
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Report")
 test_dependencies = ["User"]
 
 
-class TestReport(SparrowTestCase):
+class TestReport(FrappeTestCase):
 	def test_report_builder(self):
 		if sparrow.db.exists("Report", "User Activity Report"):
 			sparrow.delete_doc("Report", "User Activity Report")

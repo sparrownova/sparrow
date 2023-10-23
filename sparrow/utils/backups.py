@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 # imports - standard imports
@@ -387,7 +387,7 @@ class BackupGenerator:
 
 		# escape reserved characters
 		args = sparrow._dict(
-			[item[0], sparrow.utils.esc(str(item[1]), "$ ")] for item in self.__dict__.copy().items()
+            [item[0], sparrow.utils.esc(str(item[1]), "$ ")] for item in self.__dict__.copy().items()
 		)
 
 		if self.backup_includes:

@@ -1,8 +1,8 @@
 import sparrow
-from sparrow.tests.utils import SparrowTestCase, change_settings
+from sparrow.tests.utils import FrappeTestCase, change_settings
 
 
-class TestTestUtils(SparrowTestCase):
+class TestTestUtils(FrappeTestCase):
 	SHOW_TRANSACTION_COMMIT_WARNINGS = True
 
 	def test_document_assertions(self):

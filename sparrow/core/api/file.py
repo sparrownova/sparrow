@@ -87,9 +87,9 @@ def get_files_by_search_text(text: str) -> list[dict]:
 @sparrow.whitelist(allow_guest=True)
 def get_max_file_size() -> int:
 	return (
-		cint(sparrow.get_system_settings("max_file_size")) * 1024 * 1024
-		or cint(sparrow.conf.get("max_file_size"))
-		or 25 * 1024 * 1024
+            cint(sparrow.get_system_settings("max_file_size")) * 1024 * 1024
+            or cint(sparrow.conf.get("max_file_size"))
+            or 25 * 1024 * 1024
 	)
 
 

@@ -50,7 +50,7 @@ class TemplatePage(BaseTemplatePage):
 		and /templates/pages folders and sets path if match is found
 		"""
 		folders = get_start_folders()
-		for app in sparrow.get_installed_apps(sparrow_last=True):
+		for app in sparrow.get_installed_apps(frappe_last=True):
 			app_path = sparrow.get_app_path(app)
 
 			for dirname in folders:

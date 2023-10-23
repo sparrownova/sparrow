@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import hashlib
 import hmac
@@ -29,7 +29,7 @@ def get_secret():
 def verify_request():
 	"""Verify if the incoming signed request if it is correct."""
 	query_string = sparrow.safe_decode(
-		sparrow.local.flags.signed_query_string or getattr(sparrow.request, "query_string", None)
+        sparrow.local.flags.signed_query_string or getattr(sparrow.request, "query_string", None)
 	)
 
 	signature_string = "&_signature="

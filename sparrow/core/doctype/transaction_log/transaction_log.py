@@ -31,16 +31,16 @@ class TransactionLog(Document):
 	def hash_line(self):
 		sha = hashlib.sha256()
 		sha.update(
-			sparrow.safe_encode(str(self.row_index))
-			+ sparrow.safe_encode(str(self.timestamp))
-			+ sparrow.safe_encode(str(self.data))
+            sparrow.safe_encode(str(self.row_index))
+            + sparrow.safe_encode(str(self.timestamp))
+            + sparrow.safe_encode(str(self.data))
 		)
 		return sha.hexdigest()
 
 	def hash_chain(self):
 		sha = hashlib.sha256()
 		sha.update(
-			sparrow.safe_encode(str(self.transaction_hash)) + sparrow.safe_encode(str(self.previous_hash))
+            sparrow.safe_encode(str(self.transaction_hash)) + sparrow.safe_encode(str(self.previous_hash))
 		)
 		return sha.hexdigest()
 

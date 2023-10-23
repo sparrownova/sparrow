@@ -38,9 +38,9 @@ class PersonalDataDownloadRequest(Document):
 		f.save(ignore_permissions=True)
 
 		file_link = (
-			sparrow.utils.get_url("/api/method/sparrow.utils.file_manager.download_file")
-			+ "?"
-			+ get_signed_params({"file_url": f.file_url})
+                sparrow.utils.get_url("/api/method/sparrow.utils.file_manager.download_file")
+                + "?"
+                + get_signed_params({"file_url": f.file_url})
 		)
 		host_name = sparrow.local.site
 		sparrow.sendmail(

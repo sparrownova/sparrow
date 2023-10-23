@@ -1,13 +1,13 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: The MIT License
 
 import sparrow
 from sparrow.email.doctype.email_account.email_account import EmailAccount
 from sparrow.email.smtp import SMTPServer
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestSMTP(SparrowTestCase):
+class TestSMTP(FrappeTestCase):
 	def test_smtp_ssl_session(self):
 		for port in [None, 0, 465, "465"]:
 			make_server(port, 1, 0)

@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import base64
 import json
@@ -18,7 +18,7 @@ from sparrow.core.api.file import (
 	unzip_file,
 )
 from sparrow.exceptions import ValidationError
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import get_files_path
 
 if TYPE_CHECKING:
@@ -54,7 +54,7 @@ def make_test_image_file():
 		_test_file.delete()
 
 
-class TestSimpleFile(SparrowTestCase):
+class TestSimpleFile(FrappeTestCase):
 	def setUp(self):
 		self.attached_to_doctype, self.attached_to_docname = make_test_doc()
 		self.test_content = test_content1
@@ -76,7 +76,7 @@ class TestSimpleFile(SparrowTestCase):
 		self.assertEqual(content, self.test_content)
 
 
-class TestBase64File(SparrowTestCase):
+class TestBase64File(FrappeTestCase):
 	def setUp(self):
 		self.attached_to_doctype, self.attached_to_docname = make_test_doc()
 		self.test_content = base64.b64encode(test_content1.encode("utf-8"))
@@ -99,7 +99,7 @@ class TestBase64File(SparrowTestCase):
 		self.assertEqual(content, test_content1)
 
 
-class TestSameFileName(SparrowTestCase):
+class TestSameFileName(FrappeTestCase):
 	def test_saved_content(self):
 		self.attached_to_doctype, self.attached_to_docname = make_test_doc()
 		self.test_content1 = test_content1
@@ -159,7 +159,7 @@ class TestSameFileName(SparrowTestCase):
 		self.assertEqual(_file.get_content(), test_content2)
 
 
-class TestSameContent(SparrowTestCase):
+class TestSameContent(FrappeTestCase):
 	def setUp(self):
 		self.attached_to_doctype1, self.attached_to_docname1 = make_test_doc()
 		self.attached_to_doctype2, self.attached_to_docname2 = make_test_doc()
@@ -227,7 +227,7 @@ class TestSameContent(SparrowTestCase):
 		sparrow.clear_cache(doctype="ToDo")
 
 
-class TestFile(SparrowTestCase):
+class TestFile(FrappeTestCase):
 	def setUp(self):
 		sparrow.set_user("Administrator")
 		self.delete_test_data()
@@ -550,7 +550,7 @@ def convert_to_symlink(directory):
 		shutil.move(new_directory, directory)
 
 
-class TestAttachment(SparrowTestCase):
+class TestAttachment(FrappeTestCase):
 	test_doctype = "Test For Attachment"
 
 	@classmethod
@@ -596,7 +596,7 @@ class TestAttachment(SparrowTestCase):
 		self.assertTrue(exists)
 
 
-class TestAttachmentsAccess(SparrowTestCase):
+class TestAttachmentsAccess(FrappeTestCase):
 	def setUp(self) -> None:
 		sparrow.db.delete("File", {"is_folder": 0})
 
@@ -708,7 +708,7 @@ class TestAttachmentsAccess(SparrowTestCase):
 		sparrow.db.rollback()
 
 
-class TestFileUtils(SparrowTestCase):
+class TestFileUtils(FrappeTestCase):
 	def test_extract_images_from_doc(self):
 		# with filename in data URI
 		todo = sparrow.get_doc(
@@ -736,7 +736,7 @@ class TestFileUtils(SparrowTestCase):
 		self.assertTrue(folder.is_folder)
 
 
-class TestFileOptimization(SparrowTestCase):
+class TestFileOptimization(FrappeTestCase):
 	def test_optimize_file(self):
 		with make_test_image_file() as test_file:
 			original_size = test_file.file_size
@@ -781,7 +781,7 @@ class TestFileOptimization(SparrowTestCase):
 			self.assertEqual(size_before_optimization, size_after_rollback)
 
 
-class TestGuestFileAndAttachments(SparrowTestCase):
+class TestGuestFileAndAttachments(FrappeTestCase):
 	def setUp(self) -> None:
 		sparrow.db.delete("File", {"is_folder": 0})
 		sparrow.get_doc(

@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 # metadata
@@ -734,12 +734,12 @@ def get_parent_dt(dt):
 		return ""
 
 	return (
-		sparrow.db.get_value(
+            sparrow.db.get_value(
 			"DocField",
 			{"fieldtype": ("in", sparrow.model.table_fields), "options": dt},
 			"parent",
 		)
-		or ""
+            or ""
 	)
 
 
@@ -761,10 +761,10 @@ def get_field_currency(df, doc=None):
 		sparrow.local.field_currency = sparrow._dict()
 
 	if not (
-		sparrow.local.field_currency.get((doc.doctype, doc.name), {}).get(df.fieldname)
-		or (
-			doc.get("parent")
-			and sparrow.local.field_currency.get((doc.doctype, doc.parent), {}).get(df.fieldname)
+            sparrow.local.field_currency.get((doc.doctype, doc.name), {}).get(df.fieldname)
+            or (
+                    doc.get("parent")
+                    and sparrow.local.field_currency.get((doc.doctype, doc.parent), {}).get(df.fieldname)
 		)
 	):
 
@@ -790,8 +790,8 @@ def get_field_currency(df, doc=None):
 			)
 
 	return sparrow.local.field_currency.get((doc.doctype, doc.name), {}).get(df.fieldname) or (
-		doc.get("parent")
-		and sparrow.local.field_currency.get((doc.doctype, doc.parent), {}).get(df.fieldname)
+            doc.get("parent")
+            and sparrow.local.field_currency.get((doc.doctype, doc.parent), {}).get(df.fieldname)
 	)
 
 

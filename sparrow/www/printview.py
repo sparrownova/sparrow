@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import contextlib
@@ -394,7 +394,7 @@ def get_letter_head(doc, no_letterhead, letterhead=None):
 		return sparrow.db.get_value("Letter Head", doc.letter_head, ["content", "footer"], as_dict=True)
 	else:
 		return (
-			sparrow.db.get_value("Letter Head", {"is_default": 1}, ["content", "footer"], as_dict=True) or {}
+                sparrow.db.get_value("Letter Head", {"is_default": 1}, ["content", "footer"], as_dict=True) or {}
 		)
 
 
@@ -408,7 +408,7 @@ def get_print_format(doctype, print_format):
 	module = print_format.module or sparrow.db.get_value("DocType", doctype, "module")
 	path = os.path.join(
 		get_module_path(module, "Print Format", print_format.name),
-		sparrow.scrub(print_format.name) + ".html",
+        sparrow.scrub(print_format.name) + ".html",
 	)
 
 	if os.path.exists(path):

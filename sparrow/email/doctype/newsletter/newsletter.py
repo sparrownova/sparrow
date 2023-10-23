@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # MIT License. See LICENSE
 
 

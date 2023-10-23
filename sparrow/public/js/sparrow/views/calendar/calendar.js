@@ -1,4 +1,4 @@
-// Copyright (c) 2018, Sparrownova Technologies and Contributors
+// Copyright (c) 2018, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 
 sparrow.provide("sparrow.views.calendar");

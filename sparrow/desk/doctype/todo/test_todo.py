@@ -1,15 +1,15 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.core.doctype.doctype.doctype import clear_permissions_cache
 from sparrow.model.db_query import DatabaseQuery
 from sparrow.permissions import add_permission, reset_perms
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_dependencies = ["User"]
 
 
-class TestToDo(SparrowTestCase):
+class TestToDo(FrappeTestCase):
 	def test_delete(self):
 		todo = sparrow.get_doc(
 			dict(doctype="ToDo", description="test todo", assigned_by="Administrator")

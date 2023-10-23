@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # MIT License. See LICENSE
 from urllib.parse import quote
 
@@ -269,7 +269,7 @@ class LoginManager:
 
 		if reset_pwd_after_days:
 			last_password_reset_date = (
-				sparrow.db.get_value("User", self.user, "last_password_reset_date") or today()
+                    sparrow.db.get_value("User", self.user, "last_password_reset_date") or today()
 			)
 
 			last_pwd_reset_days = date_diff(today(), last_password_reset_date)

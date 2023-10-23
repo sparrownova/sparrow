@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import gc
@@ -194,7 +194,7 @@ def setup_read_only_mode():
 
 
 def log_request(request, response):
-	if hasattr(sparrow.local, "conf") and sparrow.local.conf.enable_sparrow_logger:
+	if hasattr(sparrow.local, "conf") and sparrow.local.conf.enable_frappe_logger:
 		sparrow.logger("sparrow.web", allow_site=sparrow.local.site).info(
 			{
 				"site": get_site_name(request.host),
@@ -289,9 +289,9 @@ def handle_exception(e):
 	return_as_message = False
 	accept_header = sparrow.get_request_header("Accept") or ""
 	respond_as_json = (
-		sparrow.get_request_header("Accept")
-		and (sparrow.local.is_ajax or "application/json" in accept_header)
-		or (sparrow.local.request.path.startswith("/api/") and not accept_header.startswith("text"))
+            sparrow.get_request_header("Accept")
+            and (sparrow.local.is_ajax or "application/json" in accept_header)
+            or (sparrow.local.request.path.startswith("/api/") and not accept_header.startswith("text"))
 	)
 
 	if not sparrow.session.user:

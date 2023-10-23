@@ -15,10 +15,10 @@ import sparrow
 from sparrow.utils import cstr, encode
 
 EXCLUDE_EXCEPTIONS = (
-	sparrow.AuthenticationError,
-	sparrow.CSRFTokenError,  # CSRF covers OAuth too
-	sparrow.SecurityException,
-	sparrow.InReadOnlyMode,
+    sparrow.AuthenticationError,
+    sparrow.CSRFTokenError,  # CSRF covers OAuth too
+    sparrow.SecurityException,
+    sparrow.InReadOnlyMode,
 )
 
 LDAP_BASE_EXCEPTION = "LDAPException"

@@ -9,7 +9,7 @@ const cliui = require("cliui")();
 const chalk = require("chalk");
 const html_plugin = require("./sparrow-html");
 const rtlcss = require("rtlcss");
-const postCssPlugin = require("@frappe/esbuild-plugin-postcss2").default;
+const postCssPlugin = require("@sparrow/esbuild-plugin-postcss2").default;
 const ignore_assets = require("./ignore-assets");
 const sass_options = require("./sass_options");
 const build_cleanup_plugin = require("./build-cleanup");
@@ -24,7 +24,7 @@ const {
 	log,
 	log_warn,
 	log_error,
-	snova_path,
+	bench_path,
 	get_redis_subscriber,
 } = require("./utils");
 
@@ -34,7 +34,7 @@ const argv = yargs
 		type: "string",
 		description: "Run build for specific apps",
 	})
-	.option("skip_sparrow", {
+	.option("skip_frappe", {
 		type: "boolean",
 		description: "Skip building sparrow assets",
 	})
@@ -67,7 +67,7 @@ const argv = yargs
 	.version(false).argv;
 
 const APPS = (!argv.apps ? app_list : argv.apps.split(",")).filter(
-	(app) => !(argv.skip_sparrow && app == "sparrow")
+	(app) => !(argv.skip_frappe && app == "sparrow")
 );
 const FILES_TO_BUILD = argv.files ? argv.files.split(",") : [];
 const WATCH_MODE = Boolean(argv.watch);
@@ -454,7 +454,7 @@ async function notify_redis({ error, success, changed_files }) {
 			kind: "error",
 			terminalWidth: 100,
 		});
-		let stack = error.stack.replace(new RegExp(snova_path, "g"), "");
+		let stack = error.stack.replace(new RegExp(bench_path, "g"), "");
 		payload = {
 			error,
 			formatted,

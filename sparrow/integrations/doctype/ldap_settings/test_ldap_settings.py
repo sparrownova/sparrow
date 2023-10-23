@@ -368,15 +368,15 @@ class LDAP_TestCase:
 					"Users",
 					"Administrators",
 					"default_role",
-					"sparrow_default_all",
-					"sparrow_default_guest",
+					"frappe_default_all",
+					"frappe_default_guest",
 				],
 				"posix.user2": [
 					"Users",
 					"Group3",
 					"default_role",
-					"sparrow_default_all",
-					"sparrow_default_guest",
+					"frappe_default_all",
+					"frappe_default_guest",
 				],
 			}
 
@@ -386,25 +386,25 @@ class LDAP_TestCase:
 					"Domain Users",
 					"Domain Administrators",
 					"default_role",
-					"sparrow_default_all",
-					"sparrow_default_guest",
+					"frappe_default_all",
+					"frappe_default_guest",
 				],
 				"posix.user2": [
 					"Domain Users",
 					"Enterprise Administrators",
 					"default_role",
-					"sparrow_default_all",
-					"sparrow_default_guest",
+					"frappe_default_all",
+					"frappe_default_guest",
 				],
 			}
 
 		role_to_group_map = {
-			self.doc["ldap_groups"][0]["shopper_role"]: self.doc["ldap_groups"][0]["ldap_group"],
-			self.doc["ldap_groups"][1]["shopper_role"]: self.doc["ldap_groups"][1]["ldap_group"],
-			self.doc["ldap_groups"][2]["shopper_role"]: self.doc["ldap_groups"][2]["ldap_group"],
+			self.doc["ldap_groups"][0]["erpnext_role"]: self.doc["ldap_groups"][0]["ldap_group"],
+			self.doc["ldap_groups"][1]["erpnext_role"]: self.doc["ldap_groups"][1]["ldap_group"],
+			self.doc["ldap_groups"][2]["erpnext_role"]: self.doc["ldap_groups"][2]["ldap_group"],
 			"Newsletter Manager": "default_role",
-			"All": "sparrow_default_all",
-			"Guest": "sparrow_default_guest",
+			"All": "frappe_default_all",
+			"Guest": "frappe_default_guest",
 		}
 
 		# re-create user1 to ensure clean
@@ -443,8 +443,8 @@ class LDAP_TestCase:
 				"Users",
 				"Administrators",
 				"default_role",
-				"sparrow_default_all",
-				"sparrow_default_guest",
+				"frappe_default_all",
+				"frappe_default_guest",
 			],
 		}
 		test_user = "posix.user1"
@@ -605,10 +605,10 @@ class Test_OpenLDAP(LDAP_TestCase, TestCase):
 		{
 			"doctype": "LDAP Group Mapping",
 			"ldap_group": "Administrators",
-			"shopper_role": "System Manager",
+			"erpnext_role": "System Manager",
 		},
-		{"doctype": "LDAP Group Mapping", "ldap_group": "Users", "shopper_role": "Blogger"},
-		{"doctype": "LDAP Group Mapping", "ldap_group": "Group3", "shopper_role": "Accounts User"},
+		{"doctype": "LDAP Group Mapping", "ldap_group": "Users", "erpnext_role": "Blogger"},
+		{"doctype": "LDAP Group Mapping", "ldap_group": "Group3", "erpnext_role": "Accounts User"},
 	]
 	LDAP_USERNAME_FIELD = "uid"
 	LDAP_SCHEMA = OFFLINE_SLAPD_2_4
@@ -629,13 +629,13 @@ class Test_ActiveDirectory(LDAP_TestCase, TestCase):
 		{
 			"doctype": "LDAP Group Mapping",
 			"ldap_group": "Domain Administrators",
-			"shopper_role": "System Manager",
+			"erpnext_role": "System Manager",
 		},
-		{"doctype": "LDAP Group Mapping", "ldap_group": "Domain Users", "shopper_role": "Blogger"},
+		{"doctype": "LDAP Group Mapping", "ldap_group": "Domain Users", "erpnext_role": "Blogger"},
 		{
 			"doctype": "LDAP Group Mapping",
 			"ldap_group": "Enterprise Administrators",
-			"shopper_role": "Accounts User",
+			"erpnext_role": "Accounts User",
 		},
 	]
 	LDAP_USERNAME_FIELD = "samaccountname"

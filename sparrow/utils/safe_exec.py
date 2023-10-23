@@ -18,7 +18,7 @@ import sparrow.utils
 import sparrow.utils.data
 from sparrow import _
 from sparrow.core.utils import html2text
-from sparrow.sparrowclient import SparrowClient
+from sparrow.frappeclient import FrappeClient
 from sparrow.handler import execute_cmd
 from sparrow.model.delete_doc import delete_doc
 from sparrow.model.mapper import get_mapped_doc
@@ -50,7 +50,7 @@ class NamespaceDict(sparrow._dict):
 		return ret
 
 
-class SparrowTransformer(RestrictingNodeTransformer):
+class FrappeTransformer(RestrictingNodeTransformer):
 	def check_name(self, node, name, *args, **kwargs):
 		if name == "_dict":
 			return
@@ -83,7 +83,7 @@ def safe_exec(script, _globals=None, _locals=None, restrict_commit_rollback=Fals
 	with safe_exec_flags(), patched_qb():
 		# execute script compiled by RestrictedPython
 		exec(
-			compile_restricted(script, filename="<serverscript>", policy=SparrowTransformer),
+			compile_restricted(script, filename="<serverscript>", policy=FrappeTransformer),
 			exec_globals,
 			_locals,
 		)
@@ -105,7 +105,7 @@ def safe_eval(code, eval_globals=None, eval_locals=None):
 	eval_globals.update(WHITELISTED_SAFE_EVAL_GLOBALS)
 
 	return eval(
-		compile_restricted(code, filename="<safe_eval>", policy=SparrowTransformer, mode="eval"),
+		compile_restricted(code, filename="<safe_eval>", policy=FrappeTransformer, mode="eval"),
 		eval_globals,
 		eval_locals,
 	)
@@ -225,7 +225,7 @@ def get_safe_globals():
 			),
 			lang=getattr(sparrow.local, "lang", "en"),
 		),
-		SparrowClient=SparrowClient,
+		FrappeClient=FrappeClient,
 		style=sparrow._dict(border_color="#d1d8dd"),
 		get_toc=get_toc,
 		get_next_link=get_next_link,
@@ -380,7 +380,7 @@ def check_safe_sql_query(query: str, throw: bool = True) -> bool:
 	whitelisted_statements = ("select", "explain")
 
 	if query.startswith(whitelisted_statements) or (
-		query.startswith("with") and sparrow.db.db_type == "mariadb"
+            query.startswith("with") and sparrow.db.db_type == "mariadb"
 	):
 		return True
 

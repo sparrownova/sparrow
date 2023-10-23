@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import io
 import os
@@ -145,13 +145,13 @@ class FormMeta(Meta):
 		"""embed all require files"""
 		# custom script
 		client_scripts = (
-			sparrow.get_all(
+                sparrow.get_all(
 				"Client Script",
 				filters={"dt": self.name, "enabled": 1},
 				fields=["name", "script", "view"],
 				order_by="creation asc",
 			)
-			or ""
+                or ""
 		)
 
 		list_script = ""

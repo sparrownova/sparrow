@@ -1,14 +1,14 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import copy
 
 import sparrow
 from sparrow.core.doctype.version.version import get_diff
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestVersion(SparrowTestCase):
+class TestVersion(FrappeTestCase):
 	def test_get_diff(self):
 		sparrow.set_user("Administrator")
 		test_records = make_test_objects("Event", reset=True)

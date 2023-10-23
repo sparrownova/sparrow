@@ -13,10 +13,10 @@ def execute():
 		os.path.join("..", "apps", "sparrow", "sparrow", "**", "doctype", "**", "*.json")
 	)
 
-	sparrow_modules = sparrow.get_all("Module Def", filters={"app_name": "sparrow"}, pluck="name")
+	frappe_modules = sparrow.get_all("Module Def", filters={"app_name": "sparrow"}, pluck="name")
 	site_doctypes = sparrow.get_all(
 		"DocType",
-		filters={"module": ("in", sparrow_modules), "custom": False},
+		filters={"module": ("in", frappe_modules), "custom": False},
 		fields=["name", "creation"],
 	)
 

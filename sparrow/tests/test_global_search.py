@@ -1,15 +1,15 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
 from sparrow.custom.doctype.property_setter.property_setter import make_property_setter
 from sparrow.desk.page.setup_wizard.install_fixtures import update_global_search_doctypes
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import global_search, now_datetime
 
 
-class TestGlobalSearch(SparrowTestCase):
+class TestGlobalSearch(FrappeTestCase):
 	def setUp(self):
 		update_global_search_doctypes()
 		global_search.setup_global_search_table()

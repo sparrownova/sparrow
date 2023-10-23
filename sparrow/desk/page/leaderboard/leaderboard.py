@@ -1,4 +1,4 @@
-# Copyright (c) 2017, Sparrownova Technologies and Contributors
+# Copyright (c) 2017, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 

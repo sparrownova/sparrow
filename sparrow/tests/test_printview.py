@@ -1,9 +1,9 @@
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.www.printview import get_html_and_style
 
 
-class PrintViewTest(SparrowTestCase):
+class PrintViewTest(FrappeTestCase):
 	def test_print_view_without_errors(self):
 
 		user = sparrow.get_last_doc("User")

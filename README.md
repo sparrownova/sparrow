@@ -1,7 +1,7 @@
 <div align="center">
 	<h1>
 		<br>
-		<a href="https://sparrownova.com">
+		<a href="https://frappeframework.com">
 			<img src=".github/sparrow-framework-logo.svg" height="50">
 		</a>
 	</h1>
@@ -9,7 +9,7 @@
 		a web framework with <a href="https://www.youtube.com/watch?v=LOjk3m0wTwg">"batteries included"</a>
 	</h3>
 	<h5>
-		it's pronounced - <em>spa-row-nova</em>
+		it's pronounced - <em>fra-pay</em>
 	</h5>
 </div>
 
@@ -20,7 +20,7 @@
 	<a href="https://github.com/sparrownova/sparrow/actions/workflows/ui-tests.yml">
 		<img src="https://github.com/sparrownova/sparrow/actions/workflows/ui-tests.yml/badge.svg?branch=develop">
 	</a>
-	<a href='https://sparrownova.com/docs'>
+	<a href='https://frappeframework.com/docs'>
 		<img src='https://img.shields.io/badge/docs-📖-7575FF.svg?style=flat-square'/>
 	</a>
 	<a href='https://www.codetriage.com/sparrow/sparrow'>
@@ -32,10 +32,10 @@
 </div>
 
 
-Full-stack web application framework that uses Python and MariaDB on the server side and a tightly integrated client side library. Built for Shopper (https://sparrownova.com/shopper)
+Full-stack web application framework that uses Python and MariaDB on the server side and a tightly integrated client side library. Built for [Shopper](https://shopper.com)
 
 <div align="center" style="max-height: 40px;">
-	<a href="https://sparrowcloud.com/sparrow/signup">
+	<a href="https://frappecloud.com/sparrow/signup">
 		<img src=".github/try-on-f-cloud-button.svg" height="40">
 	</a>
 	<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/gavindsouza/install-scripts/main/sparrow/pwd.yml">
@@ -53,10 +53,10 @@ Full-stack web application framework that uses Python and MariaDB on the server 
 
 ## Installation
 
-* [Install via Docker](https://github.com/sparrownova/sparrow_docker)
+* [Install via Docker](https://github.com/sparrownova/frappe_docker)
 * [Install via Sparrow Snova](https://github.com/sparrownova/snova)
-* [Offical Documentation](https://sparrownova.com/docs/user/en/installation)
-* [Managed Hosting on Sparrow Cloud](https://sparrowcloud.com/sparrow/signup)
+* [Offical Documentation](https://frappeframework.com/docs/user/en/installation)
+* [Managed Hosting on Sparrow Cloud](https://frappecloud.com/sparrow/signup)
 
 ## Contributing
 
@@ -67,7 +67,7 @@ Full-stack web application framework that uses Python and MariaDB on the server 
 
 ## Resources
 
-1. [sparrownova.com](https://sparrownova.com) - Official documentation of the Sparrow Framework.
+1. [frappeframework.com](https://frappeframework.com) - Official documentation of the Sparrow Framework.
 1. [sparrow.school](https://sparrow.school) - Pick from the various courses by the maintainers or from the community.
 
 ## License

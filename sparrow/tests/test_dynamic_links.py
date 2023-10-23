@@ -1,10 +1,10 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDynamicLinks(SparrowTestCase):
+class TestDynamicLinks(FrappeTestCase):
 	def setUp(self):
 		sparrow.db.delete("Email Unsubscribe")
 

@@ -1,16 +1,16 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.core.page.permission_manager.permission_manager import add, reset, update
 from sparrow.custom.doctype.property_setter.property_setter import make_property_setter
 from sparrow.desk.form.load import get_docinfo, getdoc, getdoctype
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils.file_manager import save_file
 
 test_dependencies = ["Blog Category", "Blogger"]
 
 
-class TestFormLoad(SparrowTestCase):
+class TestFormLoad(FrappeTestCase):
 	def test_load(self):
 		getdoctype("DocType")
 		meta = list(filter(lambda d: d.name == "DocType", sparrow.response.docs))[0]

@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 from math import ceil
@@ -28,9 +28,9 @@ class BlogPost(WebsiteGenerator):
 	def make_route(self):
 		if not self.route:
 			return (
-				sparrow.db.get_value("Blog Category", self.blog_category, "route")
-				+ "/"
-				+ self.scrub(self.title)
+                    sparrow.db.get_value("Blog Category", self.blog_category, "route")
+                    + "/"
+                    + self.scrub(self.title)
 			)
 
 	def get_feed(self):
@@ -205,7 +205,7 @@ def get_list_context(context=None):
 	)
 
 	category = sparrow.utils.escape_html(
-		sparrow.local.form_dict.blog_category or sparrow.local.form_dict.category
+        sparrow.local.form_dict.blog_category or sparrow.local.form_dict.category
 	)
 	if category:
 		category_title = get_blog_category(category)
@@ -277,7 +277,7 @@ def get_blog_list(
 		category = filters.get("blog_category")
 	else:
 		category = sparrow.utils.escape_html(
-			sparrow.local.form_dict.blog_category or sparrow.local.form_dict.category
+            sparrow.local.form_dict.blog_category or sparrow.local.form_dict.category
 		)
 
 	if filters and filters.get("blogger"):

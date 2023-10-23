@@ -1,10 +1,10 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from sparrow.search.full_text_search import FullTextSearch
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestFullTextSearch(SparrowTestCase):
+class TestFullTextSearch(FrappeTestCase):
 	def setUp(self):
 		index = get_index()
 		index.build()
@@ -49,19 +49,19 @@ class TestFullTextSearch(SparrowTestCase):
 
 	def test_update_index(self):
 		# Update existing index
-		self.index.update_index({"name": "sw/shopper", "content": """AwesomeShopper"""})
+		self.index.update_index({"name": "sw/shopper", "content": """AwesomeERPNext"""})
 
 		res = self.index.search("CommonSearchTerm")
 		self.assertTrue("sw/shopper" not in res)
 
-		res = self.index.search("AwesomeShopper")
+		res = self.index.search("AwesomeERPNext")
 		self.assertEqual(res[0], "sw/shopper")
 
 		# Update new doc
-		self.index.update_index({"name": "sw/sparrowbooks", "content": """DesktopAccounting"""})
+		self.index.update_index({"name": "sw/frappebooks", "content": """DesktopAccounting"""})
 
 		res = self.index.search("DesktopAccounting")
-		self.assertEqual(res[0], "sw/sparrowbooks")
+		self.assertEqual(res[0], "sw/frappebooks")
 
 
 class TestWrapper(FullTextSearch):
@@ -79,7 +79,7 @@ class TestWrapper(FullTextSearch):
 
 
 def get_index():
-	return TestWrapper("test_sparrow_index")
+	return TestWrapper("test_frappe_index")
 
 
 def get_documents():
@@ -116,7 +116,7 @@ def get_documents():
 		{
 			"name": "sw/shopper",
 			"content": """Shopper is a free and open-source integrated Enterprise Resource Planning software developed by
-			Sparrownova Technologies and is built on MariaDB database system using a Python based server-side framework.
+			Sparrow Technologies Pvt. Ltd. and is built on MariaDB database system using a Python based server-side framework.
 			Shopper is a generic ERP software used by manufacturers, distributors and services companies. CommonSearchTerm""",
 		}
 	)

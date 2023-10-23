@@ -1,7 +1,7 @@
 # Copyright (c) 2017, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestSystemSettings(SparrowTestCase):
+class TestSystemSettings(FrappeTestCase):
 	pass

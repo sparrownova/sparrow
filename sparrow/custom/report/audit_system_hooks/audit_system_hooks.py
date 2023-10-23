@@ -17,7 +17,7 @@ def get_columns():
 	]
 
 	# Each app is shown in order as a column
-	installed_apps = sparrow.get_installed_apps(_ensure_on_snova=True)
+	installed_apps = sparrow.get_installed_apps(_ensure_on_bench=True)
 	columns += [
 		{"label": app, "fieldname": app, "fieldtype": values_field_type} for app in installed_apps
 	]
@@ -27,7 +27,7 @@ def get_columns():
 
 def get_data():
 	hooks = sparrow.get_hooks()
-	installed_apps = sparrow.get_installed_apps(_ensure_on_snova=True)
+	installed_apps = sparrow.get_installed_apps(_ensure_on_bench=True)
 
 	def fmt_hook_values(v):
 		"""Improve readability by discarding falsy values and removing containers when only 1

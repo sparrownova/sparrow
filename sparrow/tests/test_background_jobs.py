@@ -6,7 +6,7 @@ from rq import Queue
 
 import sparrow
 from sparrow.core.page.background_jobs.background_jobs import remove_failed_jobs
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils.background_jobs import (
 	RQ_JOB_FAILURE_TTL,
 	RQ_RESULTS_TTL,
@@ -16,7 +16,7 @@ from sparrow.utils.background_jobs import (
 )
 
 
-class TestBackgroundJobs(SparrowTestCase):
+class TestBackgroundJobs(FrappeTestCase):
 	def test_remove_failed_jobs(self):
 		sparrow.enqueue(method="sparrow.tests.test_background_jobs.fail_function", queue="short")
 		# wait for enqueued job to execute

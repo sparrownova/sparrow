@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and contributors
 # License: MIT. See LICENSE
 
 from os.path import abspath
@@ -152,17 +152,17 @@ def get_scss_paths():
 	"""
 	Return a set of SCSS import paths from all apps that provide `website.scss`.
 
-	If `$SNOVA_PATH/apps/sparrow/sparrow/public/scss/website[.bundle].scss` exists, the
+	If `$BENCH_PATH/apps/sparrow/sparrow/public/scss/website[.bundle].scss` exists, the
 	returned set will contain 'sparrow/public/scss/website[.bundle]'.
 	"""
 	import_path_list = []
-	snova_path = sparrow.utils.get_snova_path()
+	bench_path = sparrow.utils.get_bench_path()
 
 	scss_files = ["public/scss/website.scss", "public/scss/website.bundle.scss"]
 	for app in sparrow.get_installed_apps():
 		for scss_file in scss_files:
 			relative_path = join_path(app, scss_file)
-			full_path = get_path("apps", app, relative_path, base=snova_path)
+			full_path = get_path("apps", app, relative_path, base=bench_path)
 			if path_exists(full_path):
 				import_path = splitext(relative_path)[0]
 				import_path_list.append(import_path)

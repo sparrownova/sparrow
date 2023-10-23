@@ -60,14 +60,14 @@ def execute():
 					# Maintain sequence (name, user, allow, for_value, applicable_for, apply_to_all_doctypes, creation, modified)
 					new_user_permissions_list.append(
 						(
-							sparrow.generate_hash(length=10),
-							user_permission.user,
-							user_permission.allow,
-							user_permission.for_value,
-							doctype,
-							0,
-							user_permission.creation,
-							user_permission.modified,
+                            sparrow.generate_hash(length=10),
+                            user_permission.user,
+                            user_permission.allow,
+                            user_permission.for_value,
+                            doctype,
+                            0,
+                            user_permission.creation,
+                            user_permission.modified,
 						)
 					)
 		else:

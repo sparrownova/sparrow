@@ -1,14 +1,14 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 import sparrow.desk.form.assign_to
 from sparrow.automation.doctype.assignment_rule.test_assignment_rule import make_note
 from sparrow.desk.form.load import get_assignments
 from sparrow.desk.listview import get_group_by_count
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestAssign(SparrowTestCase):
+class TestAssign(FrappeTestCase):
 	def test_assign(self):
 		todo = sparrow.get_doc({"doctype": "ToDo", "description": "test"}).insert()
 		if not sparrow.db.exists("User", "test@example.com"):

@@ -1,9 +1,9 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import json
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.website.doctype.web_form.web_form import accept
 from sparrow.website.serve import get_response_content
@@ -11,7 +11,7 @@ from sparrow.website.serve import get_response_content
 test_dependencies = ["Web Form"]
 
 
-class TestWebForm(SparrowTestCase):
+class TestWebForm(FrappeTestCase):
 	def setUp(self):
 		sparrow.conf.disable_website_cache = True
 		sparrow.local.path = None

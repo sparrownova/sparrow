@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 """
 	sparrow.translate
@@ -24,7 +24,7 @@ from pypika.terms import PseudoColumn
 import sparrow
 from sparrow.model.utils import InvalidIncludePath, render_include
 from sparrow.query_builder import DocType, Field
-from sparrow.utils import cstr, get_snova_path, is_html, strip, strip_html_tags, unique
+from sparrow.utils import cstr, get_bench_path, is_html, strip, strip_html_tags, unique
 
 TRANSLATE_PATTERN = re.compile(
 	r"_\(\s*"  # starts with literal `_(`, ignore following whitespace/newlines
@@ -130,10 +130,10 @@ def get_user_lang(user: str = None) -> str:
 	if not lang:
 		# User.language => Session Defaults => sparrow.local.lang => 'en'
 		lang = (
-			sparrow.db.get_value("User", user, "language")
-			or sparrow.db.get_default("lang")
-			or sparrow.local.lang
-			or "en"
+                sparrow.db.get_value("User", user, "language")
+                or sparrow.db.get_default("lang")
+                or sparrow.local.lang
+                or "en"
 		)
 
 		sparrow.cache().hset("lang", user, lang)
@@ -308,7 +308,7 @@ def get_translations_from_apps(lang, apps=None):
 		return {}
 
 	translations = {}
-	for app in apps or sparrow.get_installed_apps(_ensure_on_snova=True):
+	for app in apps or sparrow.get_installed_apps(_ensure_on_bench=True):
 		path = os.path.join(sparrow.get_pymodule_path(app), "translations", lang + ".csv")
 		translations.update(get_translation_dict_from_file(path, lang, app) or {})
 	if "-" in lang:
@@ -682,7 +682,7 @@ def get_messages_from_include_files(app_name=None):
 def get_all_messages_from_js_files(app_name=None):
 	"""Extracts all translatable strings from app `.js` files"""
 	messages = []
-	for app in [app_name] if app_name else sparrow.get_installed_apps(_ensure_on_snova=True):
+	for app in [app_name] if app_name else sparrow.get_installed_apps(_ensure_on_bench=True):
 		if os.path.exists(sparrow.get_app_path(app, "public")):
 			for basepath, folders, files in os.walk(sparrow.get_app_path(app, "public")):
 				if "sparrow/public/js/lib" in basepath:
@@ -708,7 +708,7 @@ def get_messages_from_file(path: str) -> list[tuple[str, str, str | None, int]]:
 
 	sparrow.flags.scanned_files.add(path)
 
-	snova_path = get_snova_path()
+	bench_path = get_bench_path()
 	if not os.path.exists(path):
 		return []
 
@@ -732,7 +732,7 @@ def get_messages_from_file(path: str) -> list[tuple[str, str, str | None, int]]:
 			messages += extract_messages_from_javascript_code(file_contents)
 
 		return [
-			(os.path.relpath(path, snova_path), message, context, line)
+			(os.path.relpath(path, bench_path), message, context, line)
 			for (line, message, context) in messages
 		]
 
@@ -1228,9 +1228,9 @@ def get_translations(source_text):
 
 @sparrow.whitelist()
 def get_messages(language, start=0, page_length=100, search_text=""):
-	from sparrow.sparrowclient import SparrowClient
+	from sparrow.frappeclient import FrappeClient
 
-	translator = SparrowClient(get_translator_url())
+	translator = FrappeClient(get_translator_url())
 	translated_dict = translator.post_api(
 		"translator.api.get_strings_for_translation", params=locals()
 	)
@@ -1240,9 +1240,9 @@ def get_messages(language, start=0, page_length=100, search_text=""):
 
 @sparrow.whitelist()
 def get_source_additional_info(source, language=""):
-	from sparrow.sparrowclient import SparrowClient
+	from sparrow.frappeclient import FrappeClient
 
-	translator = SparrowClient(get_translator_url())
+	translator = FrappeClient(get_translator_url())
 	return translator.post_api("translator.api.get_source_additional_info", params=locals())
 
 
@@ -1259,10 +1259,10 @@ def get_contributions(language):
 
 @sparrow.whitelist()
 def get_contribution_status(message_id):
-	from sparrow.sparrowclient import SparrowClient
+	from sparrow.frappeclient import FrappeClient
 
 	doc = sparrow.get_doc("Translation", message_id)
-	translator = SparrowClient(get_translator_url())
+	translator = FrappeClient(get_translator_url())
 	contributed_translation = translator.get_api(
 		"translator.api.get_contribution_status", params={"translation_id": doc.contribution_docname}
 	)

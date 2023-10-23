@@ -1,10 +1,10 @@
 # Copyright (c) 2015, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestAddressTemplate(SparrowTestCase):
+class TestAddressTemplate(FrappeTestCase):
 	def setUp(self):
 		self.make_default_address_template()
 

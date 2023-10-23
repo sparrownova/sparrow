@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import base64
@@ -286,7 +286,7 @@ def update_oauth_user(user: str, data: dict, provider: str):
 				user.set_social_login_userid(provider, userid="/".join(data["sub"].split("/")[-2:]))
 			case _:
 				user_id_property = (
-					sparrow.db.get_value("Social Login Key", provider, "user_id_property") or "sub"
+                        sparrow.db.get_value("Social Login Key", provider, "user_id_property") or "sub"
 				)
 				user.set_social_login_userid(provider, userid=data[user_id_property])
 

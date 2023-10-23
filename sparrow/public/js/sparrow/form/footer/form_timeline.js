@@ -1,4 +1,4 @@
-// Copyright (c) 2020, Sparrownova Technologies and Contributors
+// Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 import BaseTimeline from "./base_timeline";
 import { get_version_timeline_content } from "./version_timeline_content_builder";

@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import io
@@ -17,7 +17,7 @@ from PIL import Image
 
 import sparrow
 from sparrow.installer import parse_app_name
-from sparrow.tests.utils import SparrowTestCase, change_settings
+from sparrow.tests.utils import FrappeTestCase, change_settings
 from sparrow.utils import (
 	ceil,
 	evaluate_filters,
@@ -25,7 +25,7 @@ from sparrow.utils import (
 	floor,
 	flt,
 	format_timedelta,
-	get_snova_path,
+	get_bench_path,
 	get_file_timestamp,
 	get_site_info,
 	get_sites,
@@ -58,7 +58,7 @@ from sparrow.utils.response import json_handler
 from sparrow.utils.synchronization import LockTimeoutError, filelock
 
 
-class TestFilters(SparrowTestCase):
+class TestFilters(FrappeTestCase):
 	def test_simple_dict(self):
 		self.assertTrue(evaluate_filters({"doctype": "User", "status": "Open"}, {"status": "Open"}))
 		self.assertFalse(evaluate_filters({"doctype": "User", "status": "Open"}, {"status": "Closed"}))
@@ -143,7 +143,7 @@ class TestFilters(SparrowTestCase):
 		)
 
 
-class TestMoney(SparrowTestCase):
+class TestMoney(FrappeTestCase):
 	def test_money_in_words(self):
 		nums_bhd = [
 			(5000, "BHD Five Thousand only."),
@@ -176,7 +176,7 @@ class TestMoney(SparrowTestCase):
 			)
 
 
-class TestDataManipulation(SparrowTestCase):
+class TestDataManipulation(FrappeTestCase):
 	def test_scrub_urls(self):
 		html = """
 			<p>You have a new message from: <b>John</b></p>
@@ -205,7 +205,7 @@ class TestDataManipulation(SparrowTestCase):
 		self.assertTrue('<a href="mailto:test@example.com">email</a>' in html)
 
 
-class TestFieldCasting(SparrowTestCase):
+class TestFieldCasting(FrappeTestCase):
 	def test_str_types(self):
 		STR_TYPES = (
 			"Data",
@@ -252,7 +252,7 @@ class TestFieldCasting(SparrowTestCase):
 		self.assertIsInstance(cast("Time", value="12:03:34"), timedelta)
 
 
-class TestMathUtils(SparrowTestCase):
+class TestMathUtils(FrappeTestCase):
 	def test_floor(self):
 		from decimal import Decimal
 
@@ -274,7 +274,7 @@ class TestMathUtils(SparrowTestCase):
 		self.assertEqual(ceil(Decimal(29.45)), 30)
 
 
-class TestHTMLUtils(SparrowTestCase):
+class TestHTMLUtils(FrappeTestCase):
 	def test_clean_email_html(self):
 		from sparrow.utils.html_utils import clean_email_html
 
@@ -301,7 +301,7 @@ class TestHTMLUtils(SparrowTestCase):
 		self.assertNotIn("xyz", clean)
 
 
-class TestValidationUtils(SparrowTestCase):
+class TestValidationUtils(FrappeTestCase):
 	def test_valid_url(self):
 		# Edge cases
 		self.assertFalse(validate_url(""))
@@ -347,7 +347,7 @@ class TestValidationUtils(SparrowTestCase):
 		)
 
 
-class TestImage(SparrowTestCase):
+class TestImage(FrappeTestCase):
 	def test_strip_exif_data(self):
 		original_image = Image.open("../apps/sparrow/sparrow/tests/data/exif_sample_image.jpg")
 		original_image_content = open(
@@ -374,7 +374,7 @@ class TestImage(SparrowTestCase):
 		self.assertLess(len(optimized_content), len(original_content))
 
 
-class TestPythonExpressions(SparrowTestCase):
+class TestPythonExpressions(FrappeTestCase):
 	def test_validation_for_good_python_expression(self):
 		valid_expressions = [
 			"foo == bar",
@@ -401,7 +401,7 @@ class TestPythonExpressions(SparrowTestCase):
 			self.assertRaises(sparrow.ValidationError, validate_python_code, expr)
 
 
-class TestDiffUtils(SparrowTestCase):
+class TestDiffUtils(FrappeTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()
@@ -443,7 +443,7 @@ class TestDiffUtils(SparrowTestCase):
 		self.assertIn("+42;", diff)
 
 
-class TestDateUtils(SparrowTestCase):
+class TestDateUtils(FrappeTestCase):
 	def test_first_day_of_week(self):
 		# Monday as start of the week
 		with patch.object(sparrow.utils.data, "get_first_day_of_the_week", return_value="Monday"):
@@ -522,7 +522,7 @@ class TestDateUtils(SparrowTestCase):
 			self.assertEqual(d, add_to_date(start_date, years=idx, days=-1))
 
 
-class TestResponse(SparrowTestCase):
+class TestResponse(FrappeTestCase):
 	def test_json_handler(self):
 		class TEST(Enum):
 			ABC = "!@)@)!"
@@ -563,7 +563,7 @@ class TestResponse(SparrowTestCase):
 			json.dumps(BAD_OBJECT, default=json_handler)
 
 
-class TestTimeDeltaUtils(SparrowTestCase):
+class TestTimeDeltaUtils(FrappeTestCase):
 	def test_format_timedelta(self):
 		self.assertEqual(format_timedelta(timedelta(seconds=0)), "0:00:00")
 		self.assertEqual(format_timedelta(timedelta(hours=10)), "10:00:00")
@@ -582,7 +582,7 @@ class TestTimeDeltaUtils(SparrowTestCase):
 		self.assertEqual(parse_timedelta("7 days, 0:32:18"), timedelta(days=7, seconds=1938))
 
 
-class TestXlsxUtils(SparrowTestCase):
+class TestXlsxUtils(FrappeTestCase):
 	def test_unescape(self):
 		from sparrow.utils.xlsxutils import handle_html
 
@@ -591,7 +591,7 @@ class TestXlsxUtils(SparrowTestCase):
 		self.assertEqual("abc", handle_html("abc"))
 
 
-class TestLinkTitle(SparrowTestCase):
+class TestLinkTitle(FrappeTestCase):
 	def test_link_title_doctypes_in_boot_info(self):
 		"""
 		Test that doctypes are added to link_title_map in boot_info
@@ -682,18 +682,18 @@ class TestLinkTitle(SparrowTestCase):
 		prop_setter.delete()
 
 
-class TestAppParser(SparrowTestCase):
+class TestAppParser(FrappeTestCase):
 	def test_app_name_parser(self):
-		snova_path = get_snova_path()
-		sparrow_app = os.path.join(snova_path, "apps", "sparrow")
-		self.assertEqual("sparrow", parse_app_name(sparrow_app))
+		bench_path = get_bench_path()
+		frappe_app = os.path.join(bench_path, "apps", "sparrow")
+		self.assertEqual("sparrow", parse_app_name(frappe_app))
 		self.assertEqual("healthcare", parse_app_name("healthcare"))
 		self.assertEqual("healthcare", parse_app_name("https://github.com/sparrownova/healthcare.git"))
 		self.assertEqual("healthcare", parse_app_name("git@github.com:sparrow/healthcare.git"))
 		self.assertEqual("healthcare", parse_app_name("sparrow/healthcare@develop"))
 
 
-class TestIntrospectionMagic(SparrowTestCase):
+class TestIntrospectionMagic(FrappeTestCase):
 	"""Test utils that inspect live objects"""
 
 	def test_get_newargs(self):
@@ -719,7 +719,7 @@ class TestIntrospectionMagic(SparrowTestCase):
 		self.assertEqual(sparrow.get_newargs(lambda: None, args), {})
 
 
-class TestLocks(SparrowTestCase):
+class TestLocks(FrappeTestCase):
 	def test_locktimeout(self):
 		lock_name = "test_lock"
 		with filelock(lock_name):
@@ -735,7 +735,7 @@ class TestLocks(SparrowTestCase):
 					self.fail("Global locks not working")
 
 
-class TestMiscUtils(SparrowTestCase):
+class TestMiscUtils(FrappeTestCase):
 	def test_get_file_timestamp(self):
 		self.assertIsInstance(get_file_timestamp(__file__), str)
 
@@ -767,7 +767,7 @@ class TestMiscUtils(SparrowTestCase):
 			self.assertEqual(output, expand_relative_urls(input))
 
 
-class TestTBSanitization(SparrowTestCase):
+class TestTBSanitization(FrappeTestCase):
 	def test_traceback_sanitzation(self):
 		try:
 			password = "42"
@@ -782,7 +782,7 @@ class TestTBSanitization(SparrowTestCase):
 			self.assertIn("safe_value", traceback)
 
 
-class TestRounding(SparrowTestCase):
+class TestRounding(FrappeTestCase):
 	@change_settings("System Settings", {"rounding_method": "Commercial Rounding"})
 	def test_normal_rounding(self):
 		self.assertEqual(flt("what"), 0)

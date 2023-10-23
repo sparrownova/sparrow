@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import copy
@@ -602,8 +602,8 @@ class DocType(Document):
 
 		# check if atleast 1 record exists
 		if not (
-			sparrow.db.table_exists(self.name)
-			and sparrow.get_all(self.name, fields=["name"], limit=1, as_list=True)
+                sparrow.db.table_exists(self.name)
+                and sparrow.get_all(self.name, fields=["name"], limit=1, as_list=True)
 		):
 			return
 

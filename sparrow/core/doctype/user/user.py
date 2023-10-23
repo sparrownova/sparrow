@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from datetime import timedelta
 
@@ -382,7 +382,7 @@ class User(Document):
 		args.update(add_args)
 
 		sender = (
-			sparrow.session.user not in STANDARD_USERS and get_formatted_email(sparrow.session.user) or None
+                sparrow.session.user not in STANDARD_USERS and get_formatted_email(sparrow.session.user) or None
 		)
 
 		sparrow.sendmail(
@@ -760,10 +760,10 @@ def test_password_strength(new_password, key=None, old_password=None, user_data=
 	from sparrow.utils.password_strength import test_password_strength as _test_password_strength
 
 	password_policy = (
-		sparrow.db.get_value(
+            sparrow.db.get_value(
 			"System Settings", None, ["enable_password_policy", "minimum_password_score"], as_dict=True
 		)
-		or {}
+            or {}
 	)
 
 	enable_password_policy = cint(password_policy.get("enable_password_policy", 0))

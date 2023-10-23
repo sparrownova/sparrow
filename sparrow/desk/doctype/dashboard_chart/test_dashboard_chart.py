@@ -8,12 +8,12 @@ from dateutil.relativedelta import relativedelta
 
 import sparrow
 from sparrow.desk.doctype.dashboard_chart.dashboard_chart import get
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import formatdate, get_last_day, getdate
 from sparrow.utils.dateutils import get_period, get_period_ending
 
 
-class TestDashboardChart(SparrowTestCase):
+class TestDashboardChart(FrappeTestCase):
 	def test_period_ending(self):
 		self.assertEqual(get_period_ending("2019-04-10", "Daily"), getdate("2019-04-10"))
 

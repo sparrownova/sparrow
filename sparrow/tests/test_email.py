@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import email
@@ -8,12 +8,12 @@ from unittest.mock import patch
 import sparrow
 from sparrow.email.doctype.email_account.test_email_account import TestEmailAccount
 from sparrow.email.doctype.email_queue.email_queue import QueueBuilder
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_dependencies = ["Email Account"]
 
 
-class TestEmail(SparrowTestCase):
+class TestEmail(FrappeTestCase):
 	def setUp(self):
 		sparrow.db.delete("Email Unsubscribe")
 		sparrow.db.delete("Email Queue")
@@ -148,7 +148,7 @@ class TestEmail(SparrowTestCase):
 
 		self.assertTrue(
 			"This email was sent to test@example.com and copied to test1@example.com"
-			in sparrow.safe_decode(sparrow.flags.sent_mail)
+            in sparrow.safe_decode(sparrow.flags.sent_mail)
 		)
 
 		# check for email tracker
@@ -336,7 +336,7 @@ class TestEmail(SparrowTestCase):
 			email_account.enable_incoming = False
 
 
-class TestVerifiedRequests(SparrowTestCase):
+class TestVerifiedRequests(FrappeTestCase):
 	def test_round_trip(self):
 		from sparrow.utils import set_request
 		from sparrow.utils.verified_command import get_signed_params, verify_request

@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import random
 import string
@@ -18,10 +18,10 @@ from sparrow.core.doctype.doctype.doctype import (
 )
 from sparrow.custom.doctype.custom_field.custom_field import create_custom_fields
 from sparrow.desk.form.load import getdoc
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDocType(SparrowTestCase):
+class TestDocType(FrappeTestCase):
 	def tearDown(self):
 		sparrow.db.rollback()
 

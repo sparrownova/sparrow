@@ -18,7 +18,7 @@ from sparrow.query_builder.functions import (
 	UnixTimestamp,
 )
 from sparrow.query_builder.utils import db_type_is
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
 def run_only_if(dbtype: db_type_is) -> Callable:
@@ -26,7 +26,7 @@ def run_only_if(dbtype: db_type_is) -> Callable:
 
 
 @run_only_if(db_type_is.MARIADB)
-class TestCustomFunctionsMariaDB(SparrowTestCase):
+class TestCustomFunctionsMariaDB(FrappeTestCase):
 	def test_concat(self):
 		self.assertEqual("GROUP_CONCAT('Notes')", GroupConcat("Notes").get_sql())
 
@@ -171,7 +171,7 @@ class TestCustomFunctionsMariaDB(SparrowTestCase):
 
 
 @run_only_if(db_type_is.POSTGRES)
-class TestCustomFunctionsPostgres(SparrowTestCase):
+class TestCustomFunctionsPostgres(FrappeTestCase):
 	def test_concat(self):
 		self.assertEqual("STRING_AGG('Notes',',')", GroupConcat("Notes").get_sql())
 
@@ -347,7 +347,7 @@ class TestBuilderBase:
 		sparrow.db.rollback()
 
 
-class TestParameterization(SparrowTestCase):
+class TestParameterization(FrappeTestCase):
 	def test_where_conditions(self):
 		DocType = sparrow.qb.DocType("DocType")
 		query = sparrow.qb.from_(DocType).select(DocType.name).where(DocType.owner == "Administrator' --")
@@ -440,7 +440,7 @@ class TestParameterization(SparrowTestCase):
 
 
 @run_only_if(db_type_is.MARIADB)
-class TestBuilderMaria(SparrowTestCase, TestBuilderBase):
+class TestBuilderMaria(FrappeTestCase, TestBuilderBase):
 	def test_adding_tabs_in_from(self):
 		self.assertEqual("SELECT * FROM `tabNotes`", sparrow.qb.from_("Notes").select("*").get_sql())
 		self.assertEqual("SELECT * FROM `__Auth`", sparrow.qb.from_("__Auth").select("*").get_sql())
@@ -453,7 +453,7 @@ class TestBuilderMaria(SparrowTestCase, TestBuilderBase):
 
 
 @run_only_if(db_type_is.POSTGRES)
-class TestBuilderPostgres(SparrowTestCase, TestBuilderBase):
+class TestBuilderPostgres(FrappeTestCase, TestBuilderBase):
 	def test_adding_tabs_in_from(self):
 		self.assertEqual('SELECT * FROM "tabNotes"', sparrow.qb.from_("Notes").select("*").get_sql())
 		self.assertEqual('SELECT * FROM "__Auth"', sparrow.qb.from_("__Auth").select("*").get_sql())
@@ -475,7 +475,7 @@ class TestBuilderPostgres(SparrowTestCase, TestBuilderBase):
 		self.assertEqual('SELECT * FROM "tabDocType"', qb().from_("DocType").select("*").get_sql())
 
 
-class TestMisc(SparrowTestCase):
+class TestMisc(FrappeTestCase):
 	def test_custom_func(self):
 		rand_func = sparrow.qb.functions("rand", "45")
 		self.assertIsInstance(rand_func, Function)

@@ -49,8 +49,8 @@ class TestBoilerPlate(unittest.TestCase):
 			}
 		)
 
-		cls.snova_path = sparrow.utils.get_snova_path()
-		cls.apps_dir = os.path.join(cls.snova_path, "apps")
+		cls.bench_path = sparrow.utils.get_bench_path()
+		cls.apps_dir = os.path.join(cls.bench_path, "apps")
 		cls.gitignore_file = ".gitignore"
 		cls.git_folder = ".git"
 
@@ -79,7 +79,7 @@ class TestBoilerPlate(unittest.TestCase):
 
 	@classmethod
 	def delete_test_app(cls, app_name):
-		test_app_dir = os.path.join(cls.snova_path, "apps", app_name)
+		test_app_dir = os.path.join(cls.bench_path, "apps", app_name)
 		if os.path.exists(test_app_dir):
 			shutil.rmtree(test_app_dir)
 
@@ -126,7 +126,7 @@ class TestBoilerPlate(unittest.TestCase):
 		)
 
 		self.create_app(hooks)
-		new_app_dir = os.path.join(self.snova_path, self.apps_dir, app_name)
+		new_app_dir = os.path.join(self.bench_path, self.apps_dir, app_name)
 
 		paths = self.get_paths(new_app_dir, app_name)
 		for path in paths:

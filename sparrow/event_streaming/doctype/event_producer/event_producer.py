@@ -9,7 +9,7 @@ import requests
 import sparrow
 from sparrow import _
 from sparrow.custom.doctype.custom_field.custom_field import create_custom_field
-from sparrow.sparrowclient import SparrowClient
+from sparrow.frappeclient import FrappeClient
 from sparrow.model.document import Document
 from sparrow.utils.background_jobs import get_jobs
 from sparrow.utils.data import get_link_to_form, get_url
@@ -72,7 +72,7 @@ class EventProducer(Document):
 	def create_event_consumer(self):
 		"""register event consumer on the producer site"""
 		if self.is_producer_online():
-			producer_site = SparrowClient(
+			producer_site = FrappeClient(
 				url=self.producer_url, api_key=self.api_key, api_secret=self.get_password("api_secret")
 			)
 
@@ -199,9 +199,9 @@ class EventProducer(Document):
 
 
 def get_producer_site(producer_url):
-	"""create a SparrowClient object for event producer site"""
+	"""create a FrappeClient object for event producer site"""
 	producer_doc = sparrow.get_doc("Event Producer", producer_url)
-	producer_site = SparrowClient(
+	producer_site = FrappeClient(
 		url=producer_url,
 		api_key=producer_doc.api_key,
 		api_secret=producer_doc.get_password("api_secret"),

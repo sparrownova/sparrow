@@ -1,8 +1,8 @@
 from sparrow.model.base_document import BaseDocument
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestBaseDocument(SparrowTestCase):
+class TestBaseDocument(FrappeTestCase):
 	def test_docstatus(self):
 		doc = BaseDocument({"docstatus": 0, "doctype": "ToDo"})
 		self.assertTrue(doc.docstatus.is_draft())

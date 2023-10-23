@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from contextlib import contextmanager
 from datetime import timedelta
@@ -8,7 +8,7 @@ import sparrow
 from sparrow.app import make_form_dict
 from sparrow.desk.doctype.note.note import Note
 from sparrow.model.naming import make_autoname, parse_naming_series, revert_series_if_last
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import cint, now_datetime, set_request
 from sparrow.website.serve import get_response
 
@@ -26,7 +26,7 @@ class CustomNoteWithoutProperty(Note):
 		return now_datetime() - self.creation
 
 
-class TestDocument(SparrowTestCase):
+class TestDocument(FrappeTestCase):
 	def test_get_return_empty_list_for_table_field_if_none(self):
 		d = sparrow.get_doc({"doctype": "User"})
 		self.assertEqual(d.get("roles"), [])
@@ -438,7 +438,7 @@ class TestDocument(SparrowTestCase):
 		self.assertRaises(sparrow.DoesNotExistError, doc.save)
 
 
-class TestDocumentWebView(SparrowTestCase):
+class TestDocumentWebView(FrappeTestCase):
 	def get(self, path, user="Guest"):
 		sparrow.set_user(user)
 		set_request(method="GET", path=path)

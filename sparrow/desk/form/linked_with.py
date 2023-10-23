@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import itertools
@@ -347,7 +347,7 @@ def get_referencing_documents(
 			continue
 		filters = (parent_filters or []) + [["name", "in", tuple(row.parent for row in rows)]]
 		documents[parent].extend(
-			sparrow.get_all(parent, filters=filters, pluck="name", order_by=None) or []
+            sparrow.get_all(parent, filters=filters, pluck="name", order_by=None) or []
 		)
 	return documents
 

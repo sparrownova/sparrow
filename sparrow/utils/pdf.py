@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import io
 import os
@@ -114,7 +114,7 @@ def prepare_options(html, options):
 
 	# page size
 	pdf_page_size = (
-		options.get("page-size") or sparrow.db.get_single_value("Print Settings", "pdf_page_size") or "A4"
+            options.get("page-size") or sparrow.db.get_single_value("Print Settings", "pdf_page_size") or "A4"
 	)
 
 	if pdf_page_size == "Custom":

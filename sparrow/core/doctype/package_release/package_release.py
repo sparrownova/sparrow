@@ -16,28 +16,28 @@ class PackageRelease(Document):
 		doctype = sparrow.qb.DocType("Package Release")
 		if not self.major:
 			self.major = (
-				sparrow.qb.from_(doctype)
-				.where(doctype.package == self.package)
-				.select(Max(doctype.minor))
-				.run()[0][0]
-				or 0
+                    sparrow.qb.from_(doctype)
+                    .where(doctype.package == self.package)
+                    .select(Max(doctype.minor))
+                    .run()[0][0]
+                    or 0
 			)
 
 		if not self.minor:
 			self.minor = (
-				sparrow.qb.from_(doctype)
-				.where(doctype.package == self.package)
-				.select(Max("minor"))
-				.run()[0][0]
-				or 0
+                    sparrow.qb.from_(doctype)
+                    .where(doctype.package == self.package)
+                    .select(Max("minor"))
+                    .run()[0][0]
+                    or 0
 			)
 		if not self.patch:
 			value = (
-				sparrow.qb.from_(doctype)
-				.where(doctype.package == self.package)
-				.select(Max("patch"))
-				.run()[0][0]
-				or 0
+                    sparrow.qb.from_(doctype)
+                    .where(doctype.package == self.package)
+                    .select(Max("patch"))
+                    .run()[0][0]
+                    or 0
 			)
 			self.patch = value + 1
 
@@ -79,7 +79,7 @@ class PackageRelease(Document):
 			with open(sparrow.get_site_path("packages", package.package_name, "LICENSE.md"), "w") as license:
 				license.write(package.license)
 
-		# write package.json as `sparrow_package.json`
+		# write package.json as `frappe_package.json`
 		with open(
 			sparrow.get_site_path("packages", package.package_name, package.package_name + ".json"), "w"
 		) as packagefile:

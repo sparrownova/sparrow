@@ -1,12 +1,12 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 
 from unittest.mock import patch
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestClient(SparrowTestCase):
+class TestClient(FrappeTestCase):
 	def test_set_value(self):
 		todo = sparrow.get_doc(dict(doctype="ToDo", description="test")).insert()
 		sparrow.set_value("ToDo", todo.name, "description", "test 1")

@@ -1,4 +1,4 @@
-# Copyright (c) 2018, Sparrownova Technologies and Contributors
+# Copyright (c) 2018, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 from unittest.mock import patch
@@ -14,11 +14,11 @@ from sparrow.model.naming import (
 	parse_naming_series,
 	revert_series_if_last,
 )
-from sparrow.tests.utils import SparrowTestCase, patch_hooks
+from sparrow.tests.utils import FrappeTestCase, patch_hooks
 from sparrow.utils import now_datetime, nowdate, nowtime
 
 
-class TestNaming(SparrowTestCase):
+class TestNaming(FrappeTestCase):
 	def setUp(self):
 		sparrow.db.delete("Note")
 

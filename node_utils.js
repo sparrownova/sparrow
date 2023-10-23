@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const redis = require("redis");
-const snova_path = path.resolve(__dirname, "..", "..");
+const bench_path = path.resolve(__dirname, "..", "..");
 
 function get_conf() {
 	// defaults
@@ -11,13 +11,13 @@ function get_conf() {
 	};
 
 	var read_config = function (file_path) {
-		const full_path = path.resolve(snova_path, file_path);
+		const full_path = path.resolve(bench_path, file_path);
 
 		if (fs.existsSync(full_path)) {
-			var snova_config = JSON.parse(fs.readFileSync(full_path));
-			for (var key in snova_config) {
-				if (snova_config[key]) {
-					conf[key] = snova_config[key];
+			var bench_config = JSON.parse(fs.readFileSync(full_path));
+			for (var key in bench_config) {
+				if (bench_config[key]) {
+					conf[key] = bench_config[key];
 				}
 			}
 		}
@@ -28,8 +28,8 @@ function get_conf() {
 	read_config("sites/common_site_config.json");
 
 	// set default site
-	if (process.env.SPARROW_SITE) {
-		conf.default_site = process.env.SPARROW_SITE;
+	if (process.env.FRAPPE_SITE) {
+		conf.default_site = process.env.FRAPPE_SITE;
 	}
 	if (fs.existsSync("sites/currentsite.txt")) {
 		conf.default_site = fs.readFileSync("sites/currentsite.txt").toString().trim();

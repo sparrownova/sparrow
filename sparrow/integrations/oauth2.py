@@ -181,15 +181,15 @@ def openid_profile(*args, **kwargs):
 
 @sparrow.whitelist(allow_guest=True)
 def openid_configuration():
-	sparrow_server_url = get_server_url()
+	frappe_server_url = get_server_url()
 	sparrow.local.response = sparrow._dict(
 		{
-			"issuer": sparrow_server_url,
-			"authorization_endpoint": f"{sparrow_server_url}/api/method/sparrow.integrations.oauth2.authorize",
-			"token_endpoint": f"{sparrow_server_url}/api/method/sparrow.integrations.oauth2.get_token",
-			"userinfo_endpoint": f"{sparrow_server_url}/api/method/sparrow.integrations.oauth2.openid_profile",
-			"revocation_endpoint": f"{sparrow_server_url}/api/method/sparrow.integrations.oauth2.revoke_token",
-			"introspection_endpoint": f"{sparrow_server_url}/api/method/sparrow.integrations.oauth2.introspect_token",
+			"issuer": frappe_server_url,
+			"authorization_endpoint": f"{frappe_server_url}/api/method/sparrow.integrations.oauth2.authorize",
+			"token_endpoint": f"{frappe_server_url}/api/method/sparrow.integrations.oauth2.get_token",
+			"userinfo_endpoint": f"{frappe_server_url}/api/method/sparrow.integrations.oauth2.openid_profile",
+			"revocation_endpoint": f"{frappe_server_url}/api/method/sparrow.integrations.oauth2.revoke_token",
+			"introspection_endpoint": f"{frappe_server_url}/api/method/sparrow.integrations.oauth2.introspect_token",
 			"response_types_supported": [
 				"code",
 				"token",

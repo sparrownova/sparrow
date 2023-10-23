@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 """
 Boot session from cache or build
@@ -214,7 +214,7 @@ class Session:
 
 	def __init__(self, user, resume=False, full_name=None, user_type=None):
 		self.sid = cstr(
-			sparrow.form_dict.get("sid") or unquote(sparrow.request.cookies.get("sid", "Guest"))
+            sparrow.form_dict.get("sid") or unquote(sparrow.request.cookies.get("sid", "Guest"))
 		)
 		self.user = user
 		self.device = sparrow.form_dict.get("device") or "desktop"
@@ -359,13 +359,13 @@ class Session:
 		sessions = sparrow.qb.DocType("Sessions")
 
 		self.device = (
-			sparrow.db.get_value(
+                sparrow.db.get_value(
 				sessions,
 				filters=sessions.sid == self.sid,
 				fieldname="device",
 				order_by=None,
 			)
-			or "desktop"
+                or "desktop"
 		)
 
 		record = (

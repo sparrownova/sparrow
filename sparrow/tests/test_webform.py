@@ -1,11 +1,11 @@
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.website.serve import get_response
 from sparrow.www.list import get_list_context
 
 
-class TestWebform(SparrowTestCase):
+class TestWebform(FrappeTestCase):
 	def test_webform_publish_functionality(self):
 		request_data = sparrow.get_doc("Web Form", "request-data")
 		# publish webform

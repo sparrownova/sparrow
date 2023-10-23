@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.model.workflow import (
@@ -8,11 +8,11 @@ from sparrow.model.workflow import (
 )
 from sparrow.query_builder import DocType
 from sparrow.test_runner import make_test_records
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import random_string
 
 
-class TestWorkflow(SparrowTestCase):
+class TestWorkflow(FrappeTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

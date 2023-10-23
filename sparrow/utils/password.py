@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import string
@@ -18,8 +18,8 @@ Auth = Table("__Auth")
 
 
 class LegacyPassword(pbkdf2_sha256):
-	name = "sparrow_legacy"
-	ident = "$sparrowl$"
+	name = "frappe_legacy"
+	ident = "$frappel$"
 
 	def _calc_checksum(self, secret):
 		# check if this is a mysql hash
@@ -37,10 +37,10 @@ passlibctx = CryptContext(
 	schemes=[
 		"pbkdf2_sha256",
 		"argon2",
-		"sparrow_legacy",
+		"frappe_legacy",
 	],
 	deprecated=[
-		"sparrow_legacy",
+		"frappe_legacy",
 	],
 )
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -7,12 +7,12 @@ import sparrow
 from sparrow.core.doctype.doctype.doctype import InvalidFieldNameError
 from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.test_runner import make_test_records_for_doctype
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_dependencies = ["Custom Field", "Property Setter"]
 
 
-class TestCustomizeForm(SparrowTestCase):
+class TestCustomizeForm(FrappeTestCase):
 	def insert_custom_field(self):
 		sparrow.delete_doc_if_exists("Custom Field", "Event-custom_test_field")
 		self.field = sparrow.get_doc(

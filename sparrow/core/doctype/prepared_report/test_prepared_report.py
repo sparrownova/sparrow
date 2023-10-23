@@ -5,10 +5,10 @@ import time
 
 import sparrow
 from sparrow.desk.query_report import generate_report_result, get_report_doc
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestPreparedReport(SparrowTestCase):
+class TestPreparedReport(FrappeTestCase):
 	@classmethod
 	def tearDownClass(cls):
 		for r in sparrow.get_all("Prepared Report", pluck="name"):

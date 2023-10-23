@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import base64
@@ -14,10 +14,10 @@ from sparrow.email.email_body import (
 	replace_filename_with_cid,
 )
 from sparrow.email.receive import Email
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestEmailBody(SparrowTestCase):
+class TestEmailBody(FrappeTestCase):
 	def setUp(self):
 		email_html = """
 <div>

@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -113,7 +113,7 @@ def build_config_from_file(module):
 def filter_by_restrict_to_domain(data):
 	"""filter Pages and DocType depending on the Active Module(s)"""
 	doctypes = (
-		sparrow.cache().get_value("domain_restricted_doctypes") or build_domain_restriced_doctype_cache()
+            sparrow.cache().get_value("domain_restricted_doctypes") or build_domain_restriced_doctype_cache()
 	)
 	pages = sparrow.cache().get_value("domain_restricted_pages") or build_domain_restriced_page_cache()
 

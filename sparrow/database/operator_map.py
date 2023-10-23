@@ -1,4 +1,4 @@
-# Copyright (c) 2023, Sparrownova Technologies and Contributors
+# Copyright (c) 2023, Sparrow Technologies Pvt. Ltd. and Contributors
 # MIT License. See license.txt
 
 import operator

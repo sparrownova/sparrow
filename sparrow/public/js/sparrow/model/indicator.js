@@ -1,4 +1,4 @@
-// Copyright (c) 2015, Sparrownova Technologies and Contributors
+// Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 
 sparrow.has_indicator = function (doctype) {
 	// returns true if indicator is present

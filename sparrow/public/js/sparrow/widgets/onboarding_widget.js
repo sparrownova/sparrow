@@ -569,7 +569,7 @@ export default class OnboardingWidget extends Widget {
 			localStorage.setItem("dismissed-onboarding", JSON.stringify(dismissed));
 			this.delete(true, true);
 			this.widget.closest(".ce-block").hide();
-			sparrow.telemetry.capture("dismissed_" + sparrow.scrub(this.title), "sparrow_onboarding");
+			sparrow.telemetry.capture("dismissed_" + sparrow.scrub(this.title), "frappe_onboarding");
 		});
 		dismiss.appendTo(this.action_area);
 	}

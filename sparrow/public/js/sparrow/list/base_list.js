@@ -300,7 +300,7 @@ sparrow.views.BaseList = class BaseList {
 	}
 
 	setup_list_wrapper() {
-		this.$sparrow_list = $('<div class="sparrow-list">').appendTo(this.page.main);
+		this.$frappe_list = $('<div class="sparrow-list">').appendTo(this.page.main);
 	}
 
 	setup_filter_area() {
@@ -331,7 +331,7 @@ sparrow.views.BaseList = class BaseList {
 
 	setup_result_area() {
 		this.$result = $(`<div class="result">`);
-		this.$sparrow_list.append(this.$result);
+		this.$frappe_list.append(this.$result);
 	}
 
 	setup_no_result_area() {
@@ -340,12 +340,12 @@ sparrow.views.BaseList = class BaseList {
 				${this.get_no_result_message()}
 			</div>
 		`).hide();
-		this.$sparrow_list.append(this.$no_result);
+		this.$frappe_list.append(this.$no_result);
 	}
 
 	setup_freeze_area() {
 		this.$freeze = $('<div class="freeze"></div>').hide();
-		this.$sparrow_list.append(this.$freeze);
+		this.$frappe_list.append(this.$freeze);
 	}
 
 	get_no_result_message() {
@@ -377,7 +377,7 @@ sparrow.views.BaseList = class BaseList {
 				</div>
 			</div>`
 		).hide();
-		this.$sparrow_list.append(this.$paging_area);
+		this.$frappe_list.append(this.$paging_area);
 
 		// set default paging btn active
 		this.$paging_area

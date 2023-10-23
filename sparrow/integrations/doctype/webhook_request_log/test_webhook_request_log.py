@@ -2,8 +2,8 @@
 # License: MIT. See LICENSE
 
 # import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestWebhookRequestLog(SparrowTestCase):
+class TestWebhookRequestLog(FrappeTestCase):
 	pass

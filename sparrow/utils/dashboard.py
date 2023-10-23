@@ -1,4 +1,4 @@
-# Copyright (c) 2019, Sparrownova Technologies and Contributors
+# Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import os
 from functools import wraps

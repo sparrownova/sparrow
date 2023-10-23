@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import email
@@ -14,13 +14,13 @@ from sparrow.email.doctype.email_account.email_account import notify_unreplied
 from sparrow.email.email_body import get_message_id
 from sparrow.email.receive import Email, InboundMail, SentEmailInInboxError
 from sparrow.test_runner import make_test_records
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 make_test_records("User")
 make_test_records("Email Account")
 
 
-class TestEmailAccount(SparrowTestCase):
+class TestEmailAccount(FrappeTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()
@@ -437,7 +437,7 @@ class TestEmailAccount(SparrowTestCase):
 			email_account.receive()
 
 
-class TestInboundMail(SparrowTestCase):
+class TestInboundMail(FrappeTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

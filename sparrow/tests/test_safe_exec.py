@@ -1,11 +1,11 @@
 import types
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils.safe_exec import get_safe_globals, safe_exec
 
 
-class TestSafeExec(SparrowTestCase):
+class TestSafeExec(FrappeTestCase):
 	def test_import_fails(self):
 		self.assertRaises(ImportError, safe_exec, "import os")
 

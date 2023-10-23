@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import os
@@ -90,7 +90,7 @@ def delete_doc(
 				sparrow.conf.developer_mode
 				and not doc.custom
 				and not (
-					for_reload or sparrow.flags.in_migrate or sparrow.flags.in_install or sparrow.flags.in_uninstall
+                    for_reload or sparrow.flags.in_migrate or sparrow.flags.in_install or sparrow.flags.in_uninstall
 				)
 			):
 				try:

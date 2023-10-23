@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import hashlib
 import json
@@ -162,7 +162,7 @@ class Document(BaseDocument):
 				continue
 
 			children = (
-				sparrow.db.get_values(
+                    sparrow.db.get_values(
 					df.options,
 					{"parent": self.name, "parenttype": self.doctype, "parentfield": df.fieldname},
 					"*",
@@ -170,7 +170,7 @@ class Document(BaseDocument):
 					order_by="idx asc",
 					for_update=self.flags.for_update,
 				)
-				or []
+                    or []
 			)
 
 			self.set(df.fieldname, children)
@@ -296,7 +296,7 @@ class Document(BaseDocument):
 			delattr(self, "__unsaved")
 
 		if not (
-			sparrow.flags.in_migrate or sparrow.local.flags.in_install or sparrow.flags.in_setup_wizard
+                sparrow.flags.in_migrate or sparrow.local.flags.in_install or sparrow.flags.in_setup_wizard
 		):
 			if sparrow.get_cached_value("User", sparrow.session.user, "follow_created_documents"):
 				follow_document(self.doctype, self.name, sparrow.session.user)
@@ -505,7 +505,7 @@ class Document(BaseDocument):
 		# We'd probably want the creation and owner to be set via API
 		# or Data import at some point, that'd have to be handled here
 		if self.is_new() and not (
-			sparrow.flags.in_install or sparrow.flags.in_patch or sparrow.flags.in_migrate
+                sparrow.flags.in_install or sparrow.flags.in_patch or sparrow.flags.in_migrate
 		):
 			self.creation = self.modified
 			self.owner = self.modified_by

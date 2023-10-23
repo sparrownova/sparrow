@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
@@ -7,12 +7,12 @@ from sparrow.custom.doctype.custom_field.custom_field import (
 	create_custom_fields,
 	rename_fieldname,
 )
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Custom Field")
 
 
-class TestCustomField(SparrowTestCase):
+class TestCustomField(FrappeTestCase):
 	def test_create_custom_fields(self):
 		create_custom_fields(
 			{

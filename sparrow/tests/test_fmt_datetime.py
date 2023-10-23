@@ -1,9 +1,9 @@
-# Copyright (c) 2019, Sparrownova Technologies and Contributors
+# Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import datetime
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import (
 	format_datetime,
 	format_time,
@@ -33,7 +33,7 @@ test_time_formats = {
 }
 
 
-class TestFmtDatetime(SparrowTestCase):
+class TestFmtDatetime(FrappeTestCase):
 	"""Tests date, time and datetime formatters and some associated
 	utility functions. These rely on the system-wide date and time
 	formats.

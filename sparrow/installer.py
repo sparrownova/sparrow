@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import json
@@ -93,7 +93,7 @@ def _new_site(
 		no_mariadb_socket=no_mariadb_socket,
 	)
 	apps_to_install = (
-		["sparrow"] + (sparrow.conf.get("install_apps") or []) + (list(install_apps) or [])
+            ["sparrow"] + (sparrow.conf.get("install_apps") or []) + (list(install_apps) or [])
 	)
 
 	for app in apps_to_install:
@@ -638,7 +638,7 @@ def add_module_defs(app, ignore_if_duplicate=False):
 def remove_missing_apps():
 	import importlib
 
-	apps = ("sparrow_subscription", "shopping_cart")
+	apps = ("frappe_subscription", "shopping_cart")
 	installed_apps = json.loads(sparrow.db.get_global("installed_apps") or "[]")
 	for app in apps:
 		if app in installed_apps:
@@ -661,9 +661,9 @@ def extract_sql_from_archive(sql_file_path):
 	Returns:
 	        str: Path of the decompressed SQL file
 	"""
-	from sparrow.utils import get_snova_relative_path
+	from sparrow.utils import get_bench_relative_path
 
-	sql_file_path = get_snova_relative_path(sql_file_path)
+	sql_file_path = get_bench_relative_path(sql_file_path)
 	# Extract the gzip file if user has passed *.sql.gz file instead of *.sql file
 	if sql_file_path.endswith("sql.gz"):
 		decompressed_file_name = extract_sql_gzip(sql_file_path)
@@ -741,9 +741,9 @@ def extract_files(site_name, file_path):
 	import shutil
 	import subprocess
 
-	from sparrow.utils import get_snova_relative_path
+	from sparrow.utils import get_bench_relative_path
 
-	file_path = get_snova_relative_path(file_path)
+	file_path = get_bench_relative_path(file_path)
 
 	# Need to do sparrow.init to maintain the site locals
 	sparrow.init(site=site_name)

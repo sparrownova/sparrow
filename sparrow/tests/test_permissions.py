@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 """Use blog post test to test user permissions logic"""
 
@@ -18,13 +18,13 @@ from sparrow.permissions import (
 )
 from sparrow.test_runner import make_test_records_for_doctype
 from sparrow.tests.test_db_query import enable_permlevel_restrictions
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils.data import now_datetime
 
 test_dependencies = ["Blogger", "Blog Post", "User", "Contact", "Salutation"]
 
 
-class TestPermissions(SparrowTestCase):
+class TestPermissions(FrappeTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

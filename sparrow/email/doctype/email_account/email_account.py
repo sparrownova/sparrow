@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and contributors
 # License: MIT. See LICENSE
 
 import email.utils
@@ -261,7 +261,7 @@ class EmailAccount(Document):
 	@property
 	def _password(self):
 		raise_exception = not (
-			self.auth_method == "OAuth" or self.no_smtp_authentication or sparrow.flags.in_test
+                self.auth_method == "OAuth" or self.no_smtp_authentication or sparrow.flags.in_test
 		)
 		return self.get_password(raise_exception=raise_exception)
 
@@ -556,7 +556,7 @@ class EmailAccount(Document):
 				reply_to=communication.incoming_email_account,
 				subject=" ".join([_("Re:"), communication.subject]),
 				content=render_template(self.auto_reply_message or "", communication.as_dict())
-				or sparrow.get_template("templates/emails/auto_reply.html").render(communication.as_dict()),
+                        or sparrow.get_template("templates/emails/auto_reply.html").render(communication.as_dict()),
 				reference_doctype=communication.reference_doctype,
 				reference_name=communication.reference_name,
 				in_reply_to=email.mail.get("Message-Id"),  # send back the Message-Id as In-Reply-To
@@ -869,10 +869,10 @@ def setup_user_email_inbox(
 
 		# check if inbox is alreay configured
 		user_inbox = (
-			sparrow.db.get_value(
+                sparrow.db.get_value(
 				"User Email", {"email_account": email_account, "parent": user_name}, ["name"]
 			)
-			or None
+                or None
 		)
 
 		if not user_inbox:

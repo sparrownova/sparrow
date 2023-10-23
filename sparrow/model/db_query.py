@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 """build query for doclistview and return results"""
 
@@ -1154,8 +1154,8 @@ def check_parent_permission(parent, child_doctype):
 	if parent:
 		# User may pass fake parent and get the information from the child table
 		if child_doctype and not (
-			sparrow.db.exists("DocField", {"parent": parent, "options": child_doctype})
-			or sparrow.db.exists("Custom Field", {"dt": parent, "options": child_doctype})
+                sparrow.db.exists("DocField", {"parent": parent, "options": child_doctype})
+                or sparrow.db.exists("Custom Field", {"dt": parent, "options": child_doctype})
 		):
 			raise sparrow.PermissionError
 

@@ -14,7 +14,7 @@ click.disable_unicode_literals_warning = True
 
 def main():
 	commands = get_app_groups()
-	commands.update({"get-sparrow-commands": get_sparrow_commands, "get-sparrow-help": get_sparrow_help})
+	commands.update({"get-sparrow-commands": get_frappe_commands, "get-sparrow-help": get_frappe_help})
 	click.Group(commands=commands)(prog_name="snova")
 
 
@@ -53,8 +53,8 @@ def get_sites(site_arg):
 		return sparrow.utils.get_sites()
 	elif site_arg:
 		return [site_arg]
-	elif os.environ.get("SPARROW_SITE"):
-		return [os.environ.get("SPARROW_SITE")]
+	elif os.environ.get("FRAPPE_SITE"):
+		return [os.environ.get("FRAPPE_SITE")]
 	elif os.path.exists("currentsite.txt"):
 		with open("currentsite.txt") as f:
 			site = f.read().strip()
@@ -82,7 +82,7 @@ def get_app_commands(app):
 
 
 @click.command("get-sparrow-commands")
-def get_sparrow_commands():
+def get_frappe_commands():
 	commands = list(get_app_commands("sparrow"))
 
 	for app in get_apps():
@@ -94,7 +94,7 @@ def get_sparrow_commands():
 
 
 @click.command("get-sparrow-help")
-def get_sparrow_help():
+def get_frappe_help():
 	print(click.Context(get_app_groups()["sparrow"]).get_help())
 
 

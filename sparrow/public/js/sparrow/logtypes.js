@@ -1,4 +1,4 @@
-// Copyright (c) 2022, Sparrownova Technologies and Contributors
+// Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 
 // Common utility functions for logging doctypes.

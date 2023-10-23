@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import json
 import time
@@ -15,16 +15,16 @@ from sparrow.core.doctype.user.user import (
 	verify_password,
 )
 from sparrow.desk.notifications import extract_mentions
-from sparrow.sparrowclient import SparrowClient
+from sparrow.frappeclient import FrappeClient
 from sparrow.model.delete_doc import delete_doc
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import get_url
 
 user_module = sparrow.core.doctype.user.user
 test_records = sparrow.get_test_records("User")
 
 
-class TestUser(SparrowTestCase):
+class TestUser(FrappeTestCase):
 	def tearDown(self):
 		# disable password strength test
 		sparrow.db.set_single_value("System Settings", "enable_password_policy", 0)
@@ -285,7 +285,7 @@ class TestUser(SparrowTestCase):
 		key = f"rl:{data['cmd']}:{data['user']}"
 		sparrow.cache().delete(key)
 
-		c = SparrowClient(url)
+		c = FrappeClient(url)
 		res1 = c.session.post(url, data=data, verify=c.verify, headers=c.headers)
 		res2 = c.session.post(url, data=data, verify=c.verify, headers=c.headers)
 		self.assertEqual(res1.status_code, 404)

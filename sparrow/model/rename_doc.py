@@ -1,4 +1,4 @@
-# Copyright (c) 2022, Sparrownova Technologies and Contributors
+# Copyright (c) 2022, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from types import NoneType
 from typing import TYPE_CHECKING
@@ -369,7 +369,7 @@ def validate_rename(
 		sparrow.throw(_("Another {0} with name {1} exists, select another name").format(doctype, new))
 
 	if not (
-		ignore_permissions or sparrow.permissions.has_permission(doctype, "write", raise_exception=False)
+            ignore_permissions or sparrow.permissions.has_permission(doctype, "write", raise_exception=False)
 	):
 		sparrow.throw(_("You need write permission to rename"))
 

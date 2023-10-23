@@ -1,8 +1,8 @@
-# Copyright (c) 2019, Sparrownova Technologies and Contributors
+# Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 # import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestEventUpdateLog(SparrowTestCase):
+class TestEventUpdateLog(FrappeTestCase):
 	pass

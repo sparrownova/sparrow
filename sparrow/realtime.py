@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and contributors
 # License: MIT. See LICENSE
 
 import os

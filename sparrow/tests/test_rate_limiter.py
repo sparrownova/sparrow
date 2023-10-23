@@ -1,4 +1,4 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import time
@@ -8,11 +8,11 @@ from werkzeug.wrappers import Response
 import sparrow
 import sparrow.rate_limiter
 from sparrow.rate_limiter import RateLimiter
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import cint
 
 
-class TestRateLimiter(SparrowTestCase):
+class TestRateLimiter(FrappeTestCase):
 	def test_apply_with_limit(self):
 		sparrow.conf.rate_limit = {"window": 86400, "limit": 1}
 		sparrow.rate_limiter.apply()

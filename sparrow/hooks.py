@@ -12,7 +12,7 @@ develop_version = "14.x.x-develop"
 
 app_email = "developers@sparrow.io"
 
-docs_app = "sparrow_docs"
+docs_app = "frappe_docs"
 
 translator_url = "https://translate.shopper.com"
 
@@ -390,7 +390,7 @@ override_whitelisted_methods = {
 	"sparrow.www.login.login_via_google": "sparrow.integrations.oauth2_logins.login_via_google",
 	"sparrow.www.login.login_via_github": "sparrow.integrations.oauth2_logins.login_via_github",
 	"sparrow.www.login.login_via_facebook": "sparrow.integrations.oauth2_logins.login_via_facebook",
-	"sparrow.www.login.login_via_sparrow": "sparrow.integrations.oauth2_logins.login_via_sparrow",
+	"sparrow.www.login.login_via_frappe": "sparrow.integrations.oauth2_logins.login_via_frappe",
 	"sparrow.www.login.login_via_office365": "sparrow.integrations.oauth2_logins.login_via_office365",
 	"sparrow.www.login.login_via_salesforce": "sparrow.integrations.oauth2_logins.login_via_salesforce",
 	"sparrow.www.login.login_via_fairlogin": "sparrow.integrations.oauth2_logins.login_via_fairlogin",

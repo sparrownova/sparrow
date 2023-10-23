@@ -1,4 +1,4 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 # Author - Shivam Mishra <shivam@sparrow.io>
 
@@ -62,10 +62,10 @@ class Workspace:
 
 			self.table_counts = get_table_with_counts()
 		self.restricted_doctypes = (
-			sparrow.cache().get_value("domain_restricted_doctypes") or build_domain_restriced_doctype_cache()
+                sparrow.cache().get_value("domain_restricted_doctypes") or build_domain_restriced_doctype_cache()
 		)
 		self.restricted_pages = (
-			sparrow.cache().get_value("domain_restricted_pages") or build_domain_restriced_page_cache()
+                sparrow.cache().get_value("domain_restricted_pages") or build_domain_restriced_page_cache()
 		)
 
 	def is_permitted(self):
@@ -666,4 +666,4 @@ def update_onboarding_step(name, field, value):
 
 	sparrow.db.set_value("Onboarding Step", name, field, value)
 
-	capture(sparrow.scrub(name), app="sparrow_onboarding", properties={field: value})
+	capture(sparrow.scrub(name), app="frappe_onboarding", properties={field: value})

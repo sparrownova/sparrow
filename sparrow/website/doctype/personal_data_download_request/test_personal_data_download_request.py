@@ -5,13 +5,13 @@ import json
 import sparrow
 from sparrow.contacts.doctype.contact.contact import get_contact_name
 from sparrow.core.doctype.user.user import create_contact
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.website.doctype.personal_data_download_request.personal_data_download_request import (
 	get_user_data,
 )
 
 
-class TestRequestPersonalData(SparrowTestCase):
+class TestRequestPersonalData(FrappeTestCase):
 	def setUp(self):
 		create_user_if_not_exists(email="test_privacy@example.com")
 

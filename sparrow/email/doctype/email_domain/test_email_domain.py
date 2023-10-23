@@ -1,13 +1,13 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Email Domain")
 
 
-class TestDomain(SparrowTestCase):
+class TestDomain(FrappeTestCase):
 	def setUp(self):
 		make_test_objects("Email Domain", reset=True)
 

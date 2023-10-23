@@ -253,7 +253,7 @@ class OAuthWebRequestValidator(RequestValidator):
 		)
 		token_expiration_utc = token_expiration_local.astimezone(pytz.utc)
 		is_token_valid = (
-			sparrow.utils.datetime.datetime.utcnow().replace(tzinfo=pytz.utc) < token_expiration_utc
+                                 sparrow.utils.datetime.datetime.utcnow().replace(tzinfo=pytz.utc) < token_expiration_utc
 		) and otoken.status != "Revoked"
 		client_scopes = sparrow.db.get_value("OAuth Client", otoken.client, "scopes").split(
 			get_url_delimiter()
@@ -571,14 +571,14 @@ def get_client_scopes(client_id):
 
 def get_userinfo(user):
 	picture = None
-	sparrow_server_url = get_server_url()
+	frappe_server_url = get_server_url()
 	valid_url_schemes = ("http", "https", "ftp", "ftps")
 
 	if user.user_image:
 		if sparrow.utils.validate_url(user.user_image, valid_schemes=valid_url_schemes):
 			picture = user.user_image
 		else:
-			picture = urljoin(sparrow_server_url, user.user_image)
+			picture = urljoin(frappe_server_url, user.user_image)
 
 	userinfo = sparrow._dict(
 		{
@@ -593,7 +593,7 @@ def get_userinfo(user):
 			"email": user.email,
 			"picture": picture,
 			"roles": sparrow.get_roles(user.name),
-			"iss": sparrow_server_url,
+			"iss": frappe_server_url,
 		}
 	)
 

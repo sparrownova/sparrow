@@ -1,4 +1,4 @@
-# Copyright (c) 2019, Sparrownova Technologies and Contributors
+# Copyright (c) 2019, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sqlparse
@@ -6,12 +6,12 @@ import sqlparse
 import sparrow
 import sparrow.recorder
 from sparrow.recorder import normalize_query
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.website.serve import get_response_content
 
 
-class TestRecorder(SparrowTestCase):
+class TestRecorder(FrappeTestCase):
 	def setUp(self):
 		sparrow.recorder.stop()
 		sparrow.recorder.delete()
@@ -129,7 +129,7 @@ class TestRecorder(SparrowTestCase):
 		self.assertIn("Error", content)
 
 
-class TestRecorderDeco(SparrowTestCase):
+class TestRecorderDeco(FrappeTestCase):
 	def test_recorder_flag(self):
 		sparrow.recorder.delete()
 
@@ -141,7 +141,7 @@ class TestRecorderDeco(SparrowTestCase):
 		self.assertTrue(sparrow.recorder.get())
 
 
-class TestQueryNormalization(SparrowTestCase):
+class TestQueryNormalization(FrappeTestCase):
 	def test_query_normalization(self):
 		test_cases = {
 			"select * from user where name = 'x'": "select * from user where name = ?",

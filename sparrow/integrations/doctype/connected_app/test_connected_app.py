@@ -8,7 +8,7 @@ import sparrow
 from sparrow.integrations.doctype.social_login_key.test_social_login_key import (
 	create_or_update_social_login_key,
 )
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
 def get_user(usr, pwd):
@@ -48,7 +48,7 @@ def get_oauth_client():
 	return oauth_client
 
 
-class TestConnectedApp(SparrowTestCase):
+class TestConnectedApp(FrappeTestCase):
 	def setUp(self):
 		"""Set up a Connected App that connects to our own oAuth provider.
 

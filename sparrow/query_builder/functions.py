@@ -129,10 +129,10 @@ class Cast_(Function):
 
 def _aggregate(function, dt, fieldname, filters, **kwargs):
 	return (
-		sparrow.qb.get_query(dt, filters=filters, fields=[function(PseudoColumn(fieldname))]).run(
+            sparrow.qb.get_query(dt, filters=filters, fields=[function(PseudoColumn(fieldname))]).run(
 			**kwargs
 		)[0][0]
-		or 0
+            or 0
 	)
 
 

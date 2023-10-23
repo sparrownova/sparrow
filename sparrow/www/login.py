@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
@@ -39,7 +39,7 @@ def get_context(context):
 	context["disable_user_pass_login"] = cint(sparrow.get_system_settings("disable_user_pass_login"))
 	context["logo"] = sparrow.get_website_settings("app_logo") or sparrow.get_hooks("app_logo_url")[-1]
 	context["app_name"] = (
-		sparrow.get_website_settings("app_name") or sparrow.get_system_settings("app_name") or _("Sparrow")
+            sparrow.get_website_settings("app_name") or sparrow.get_system_settings("app_name") or _("Sparrow")
 	)
 
 	signup_form_template = sparrow.get_hooks("signup_form_template")
@@ -126,7 +126,7 @@ def send_login_link(email: str):
 	link = _generate_temporary_login_link(email, expiry)
 
 	app_name = (
-		sparrow.get_website_settings("app_name") or sparrow.get_system_settings("app_name") or _("Sparrow")
+            sparrow.get_website_settings("app_name") or sparrow.get_system_settings("app_name") or _("Sparrow")
 	)
 
 	subject = _("Login To {0}").format(app_name)

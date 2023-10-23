@@ -14,11 +14,11 @@ from sparrow.core.doctype.data_import.data_import import export_csv
 from sparrow.core.doctype.user.user import generate_keys
 
 # imports - standard imports
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import cstr, get_site_url
 
 
-class TestAccessLog(SparrowTestCase):
+class TestAccessLog(FrappeTestCase):
 	def setUp(self):
 		# generate keys for current user to send requests for the following tests
 		generate_keys(sparrow.session.user)

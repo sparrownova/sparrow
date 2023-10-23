@@ -2,10 +2,10 @@
 # License: MIT. See LICENSE
 import sparrow
 import sparrow.cache_manager
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestMilestoneTracker(SparrowTestCase):
+class TestMilestoneTracker(FrappeTestCase):
 	def test_milestone(self):
 		sparrow.db.delete("Milestone Tracker")
 

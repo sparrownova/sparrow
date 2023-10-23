@@ -1,12 +1,12 @@
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.website.path_resolver import PathResolver
 from sparrow.website.serve import get_response_content
 
 test_records = sparrow.get_test_records("Web Page")
 
 
-class TestWebPage(SparrowTestCase):
+class TestWebPage(FrappeTestCase):
 	def setUp(self):
 		sparrow.db.delete("Web Page")
 		for t in test_records:

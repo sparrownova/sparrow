@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 """Use blog post test to test user permissions logic"""
 
@@ -8,12 +8,12 @@ import sparrow
 import sparrow.defaults
 from sparrow.desk.doctype.event.event import get_events
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Event")
 
 
-class TestEvent(SparrowTestCase):
+class TestEvent(FrappeTestCase):
 	def setUp(self):
 		sparrow.db.delete("Event")
 		make_test_objects("Event", reset=True)

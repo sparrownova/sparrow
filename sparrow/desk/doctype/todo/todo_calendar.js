@@ -1,4 +1,4 @@
-// Copyright (c) 2015, Sparrownova Technologies and Contributors
+// Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 // License: GNU General Public License v3. See license.txt
 
 sparrow.views.calendar["ToDo"] = {

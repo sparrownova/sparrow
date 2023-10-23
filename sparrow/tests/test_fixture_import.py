@@ -4,10 +4,10 @@ import sparrow
 from sparrow.core.doctype.data_import.data_import import export_json, import_doc
 from sparrow.desk.form.save import savedocs
 from sparrow.model.delete_doc import delete_doc
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestFixtureImport(SparrowTestCase):
+class TestFixtureImport(FrappeTestCase):
 	def create_new_doctype(self, DocType: str) -> None:
 		file = sparrow.get_app_path("sparrow", "custom", "fixtures", f"{DocType}.json")
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2018, Sparrownova Technologies and Contributors
+# Copyright (c) 2018, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import io
 
@@ -6,10 +6,10 @@ from PyPDF2 import PdfReader
 
 import sparrow
 import sparrow.utils.pdf as pdfgen
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestPdf(SparrowTestCase):
+class TestPdf(FrappeTestCase):
 	@property
 	def html(self):
 		return """<style>

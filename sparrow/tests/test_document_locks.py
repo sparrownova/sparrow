@@ -1,10 +1,10 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDocumentLocks(SparrowTestCase):
+class TestDocumentLocks(FrappeTestCase):
 	def test_locking(self):
 		todo = sparrow.get_doc(dict(doctype="ToDo", description="test")).insert()
 		todo_1 = sparrow.get_doc("ToDo", todo.name)

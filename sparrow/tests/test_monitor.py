@@ -1,15 +1,15 @@
-# Copyright (c) 2020, Sparrownova Technologies and Contributors
+# Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
 import sparrow.monitor
 from sparrow.monitor import MONITOR_REDIS_KEY
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.utils.response import build_response
 
 
-class TestMonitor(SparrowTestCase):
+class TestMonitor(FrappeTestCase):
 	def setUp(self):
 		sparrow.conf.monitor = 1
 		sparrow.cache().delete_value(MONITOR_REDIS_KEY)

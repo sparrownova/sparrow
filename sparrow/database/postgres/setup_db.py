@@ -109,7 +109,7 @@ def get_root_connection(root_login=None, root_password=None):
 
 def drop_user_and_database(db_name, root_login, root_password):
 	root_conn = get_root_connection(
-		sparrow.flags.root_login or root_login, sparrow.flags.root_password or root_password
+        sparrow.flags.root_login or root_login, sparrow.flags.root_password or root_password
 	)
 	root_conn.commit()
 	root_conn.sql(

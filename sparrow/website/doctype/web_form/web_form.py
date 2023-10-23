@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and contributors
 # License: MIT. See LICENSE
 
 import json
@@ -29,10 +29,10 @@ class WebForm(WebsiteGenerator):
 			self.module = sparrow.db.get_value("DocType", self.doc_type, "module")
 
 		in_user_env = not (
-			sparrow.flags.in_install
-			or sparrow.flags.in_patch
-			or sparrow.flags.in_test
-			or sparrow.flags.in_fixtures
+                sparrow.flags.in_install
+                or sparrow.flags.in_patch
+                or sparrow.flags.in_test
+                or sparrow.flags.in_fixtures
 		)
 		if in_user_env and self.is_standard and not sparrow.conf.developer_mode:
 			# only published can be changed for standard web forms
@@ -241,7 +241,7 @@ def get_context(context):
 			context.title = _("New {0}").format(context.title)
 
 		context.has_header = (sparrow.form_dict.name or sparrow.form_dict.is_new) and (
-			sparrow.session.user != "Guest" or not self.login_required
+                sparrow.session.user != "Guest" or not self.login_required
 		)
 
 		if context.success_message:
@@ -619,7 +619,7 @@ def get_link_options(web_form_name, doctype, allow_read_on_all_link_options=Fals
 
 		title_field = sparrow.db.get_value("DocType", doctype, "title_field", cache=1)
 		show_title_field_in_link = (
-			sparrow.db.get_value("DocType", doctype, "show_title_field_in_link", cache=1) == 1
+                sparrow.db.get_value("DocType", doctype, "show_title_field_in_link", cache=1) == 1
 		)
 		if title_field and show_title_field_in_link:
 			fields.append(f"{title_field} as label")

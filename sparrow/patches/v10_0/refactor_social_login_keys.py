@@ -23,18 +23,18 @@ def execute():
 			facebook_login_key.enable_social_login = 0
 		facebook_login_key.save()
 
-	if social_login_keys.get("sparrow_server_url"):
-		sparrow_login_key = sparrow.new_doc("Social Login Key")
-		sparrow_login_key.get_social_login_provider("Sparrow", initialize=True)
-		sparrow_login_key.social_login_provider = "Sparrow"
-		sparrow_login_key.base_url = social_login_keys.get("sparrow_server_url")
-		sparrow_login_key.client_id = social_login_keys.get("sparrow_client_id")
-		sparrow_login_key.client_secret = social_login_keys.get("sparrow_client_secret")
+	if social_login_keys.get("frappe_server_url"):
+		frappe_login_key = sparrow.new_doc("Social Login Key")
+		frappe_login_key.get_social_login_provider("Sparrow", initialize=True)
+		frappe_login_key.social_login_provider = "Sparrow"
+		frappe_login_key.base_url = social_login_keys.get("frappe_server_url")
+		frappe_login_key.client_id = social_login_keys.get("frappe_client_id")
+		frappe_login_key.client_secret = social_login_keys.get("frappe_client_secret")
 		if not (
-			sparrow_login_key.client_secret and sparrow_login_key.client_id and sparrow_login_key.base_url
+			frappe_login_key.client_secret and frappe_login_key.client_id and frappe_login_key.base_url
 		):
-			sparrow_login_key.enable_social_login = 0
-		sparrow_login_key.save()
+			frappe_login_key.enable_social_login = 0
+		frappe_login_key.save()
 
 	if social_login_keys.get("github_client_id") or social_login_keys.get("github_client_secret"):
 		github_login_key = sparrow.new_doc("Social Login Key")
@@ -69,8 +69,8 @@ def run_patch():
 
 	for user in users:
 		idx = 0
-		if user.sparrow_userid:
-			insert_user_social_login(user.name, user.modified_by, "sparrow", idx, userid=user.sparrow_userid)
+		if user.frappe_userid:
+			insert_user_social_login(user.name, user.modified_by, "sparrow", idx, userid=user.frappe_userid)
 			idx += 1
 
 		if user.fb_userid or user.fb_username:
@@ -132,7 +132,7 @@ def insert_user_social_login(user, modified_by, provider, idx, userid=None, user
 def get_provider_field_map():
 	return sparrow._dict(
 		{
-			"sparrow": ["sparrow_userid"],
+			"sparrow": ["frappe_userid"],
 			"facebook": ["fb_userid", "fb_username"],
 			"github": ["github_userid", "github_username"],
 			"google": ["google_userid"],

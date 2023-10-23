@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from contextlib import contextmanager
 
@@ -7,10 +7,10 @@ from sparrow.core.doctype.user_permission.test_user_permission import create_use
 from sparrow.defaults import *
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestDefaults(SparrowTestCase):
+class TestDefaults(FrappeTestCase):
 	def test_global(self):
 		clear_user_default("key1")
 		set_global_default("key1", "value1")

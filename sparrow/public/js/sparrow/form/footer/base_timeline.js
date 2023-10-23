@@ -1,4 +1,4 @@
-// Copyright (c) 2020, Sparrownova Technologies and Contributors
+// Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
 
 class BaseTimeline {

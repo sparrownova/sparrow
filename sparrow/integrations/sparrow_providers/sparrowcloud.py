@@ -5,9 +5,9 @@ import sparrow
 from sparrow.core.utils import html2text
 
 
-def sparrowcloud_migrator(local_site):
+def frappecloud_migrator(local_site):
 	print("Retrieving Site Migrator...")
-	remote_site = sparrow.conf.sparrowcloud_url or "sparrowcloud.com"
+	remote_site = sparrow.conf.frappecloud_url or "frappecloud.com"
 	request_url = f"https://{remote_site}/api/method/press.api.script"
 	request = requests.get(request_url)
 

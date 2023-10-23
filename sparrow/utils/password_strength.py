@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 from zxcvbn import zxcvbn
@@ -43,7 +43,7 @@ def get_feedback(score, sequence):
 	"""
 	global default_feedback
 	minimum_password_score = int(
-		sparrow.db.get_single_value("System Settings", "minimum_password_score") or 2
+        sparrow.db.get_single_value("System Settings", "minimum_password_score") or 2
 	)
 
 	# Starting feedback

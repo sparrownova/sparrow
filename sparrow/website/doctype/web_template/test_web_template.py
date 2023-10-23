@@ -3,12 +3,12 @@
 from bs4 import BeautifulSoup
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.website.serve import get_response
 
 
-class TestWebTemplate(SparrowTestCase):
+class TestWebTemplate(FrappeTestCase):
 	def test_render_web_template_with_values(self):
 		doc = sparrow.get_doc("Web Template", "Hero with Right Image")
 		values = {

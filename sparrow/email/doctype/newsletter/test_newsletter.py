@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # MIT License. See LICENSE
 
 from random import choice
@@ -15,7 +15,7 @@ from sparrow.email.doctype.newsletter.newsletter import (
 	send_scheduled_email,
 )
 from sparrow.email.queue import flush
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import add_days, getdate
 
 emails = [
@@ -132,7 +132,7 @@ class TestNewsletterMixin:
 		return newsletter
 
 
-class TestNewsletter(TestNewsletterMixin, SparrowTestCase):
+class TestNewsletter(TestNewsletterMixin, FrappeTestCase):
 	def test_send(self):
 		self.send_newsletter()
 

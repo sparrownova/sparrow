@@ -1,14 +1,14 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
 from sparrow.core.doctype.role.role import get_info_based_on_role
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Role")
 
 
-class TestUser(SparrowTestCase):
+class TestUser(FrappeTestCase):
 	def test_disable_role(self):
 		sparrow.get_doc("User", "test@example.com").add_roles("_Test Role 3")
 

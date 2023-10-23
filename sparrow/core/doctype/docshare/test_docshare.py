@@ -1,15 +1,15 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import sparrow
 import sparrow.share
 from sparrow.automation.doctype.auto_repeat.test_auto_repeat import create_submittable_doctype
-from sparrow.tests.utils import SparrowTestCase, change_settings
+from sparrow.tests.utils import FrappeTestCase, change_settings
 
 test_dependencies = ["User"]
 
 
-class TestDocShare(SparrowTestCase):
+class TestDocShare(FrappeTestCase):
 	def setUp(self):
 		self.user = "test@example.com"
 		self.event = sparrow.get_doc(

@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # MIT License. See LICENSE
 """
 	sparrow.coverage
@@ -24,7 +24,7 @@ STANDARD_EXCLUSIONS = [
 	"*/patches/*",
 ]
 
-SPARROW_EXCLUSIONS = [
+FRAPPE_EXCLUSIONS = [
 	"*/tests/*",
 	"*/commands/*",
 	"*/sparrow/change_log/*",
@@ -47,14 +47,14 @@ class CodeCoverage:
 
 			from coverage import Coverage
 
-			from sparrow.utils import get_snova_path
+			from sparrow.utils import get_bench_path
 
 			# Generate coverage report only for app that is being tested
-			source_path = os.path.join(get_snova_path(), "apps", self.app)
+			source_path = os.path.join(get_bench_path(), "apps", self.app)
 			omit = STANDARD_EXCLUSIONS[:]
 
 			if self.app == "sparrow":
-				omit.extend(SPARROW_EXCLUSIONS)
+				omit.extend(FRAPPE_EXCLUSIONS)
 
 			self.coverage = Coverage(source=[source_path], omit=omit, include=STANDARD_INCLUSIONS)
 			self.coverage.start()

@@ -5,10 +5,10 @@ import json
 import os
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 
-class TestPackage(SparrowTestCase):
+class TestPackage(FrappeTestCase):
 	def test_package_release(self):
 		make_test_package()
 		make_test_module()

@@ -1,14 +1,14 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import re
 
 import sparrow
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 
 test_records = sparrow.get_test_records("Print Format")
 
 
-class TestPrintFormat(SparrowTestCase):
+class TestPrintFormat(FrappeTestCase):
 	def test_print_user(self, style=None):
 		print_html = sparrow.get_print("User", "Administrator", style=style)
 		self.assertTrue("<label>First Name: </label>" in print_html)

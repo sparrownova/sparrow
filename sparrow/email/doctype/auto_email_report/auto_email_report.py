@@ -54,9 +54,9 @@ class AutoEmailReport(Document):
 		count = sparrow.db.count("Auto Email Report", {"user": self.user, "enabled": 1})
 
 		max_reports_per_user = (
-			cint(sparrow.local.conf.max_reports_per_user)  # kept for backward compatibilty
-			or cint(sparrow.db.get_single_value("System Settings", "max_auto_email_report_per_user"))
-			or 20
+                cint(sparrow.local.conf.max_reports_per_user)  # kept for backward compatibilty
+                or cint(sparrow.db.get_single_value("System Settings", "max_auto_email_report_per_user"))
+                or 20
 		)
 
 		if count > max_reports_per_user + (-1 if self.flags.in_insert else 0):

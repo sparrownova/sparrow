@@ -1,7 +1,7 @@
 """
 This file contains multiple primitive tests for avoiding performance regressions.
 
-- Time bound tests: Snovamarks are done on GHA before adding numbers
+- Time bound tests: Benchmarks are done on GHA before adding numbers
 - Query count tests: More than expected # of queries for any action is frequent source of
   performance issues. This guards against such problems.
 
@@ -23,17 +23,17 @@ from unittest.mock import patch
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fixed
 
 import sparrow
-from sparrow.sparrowclient import SparrowClient
+from sparrow.frappeclient import FrappeClient
 from sparrow.model.base_document import get_controller
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import cint
 from sparrow.website.path_resolver import PathResolver
 
 
 @run_only_if(db_type_is.MARIADB)
-class TestPerformance(SparrowTestCase):
+class TestPerformance(FrappeTestCase):
 	def reset_request_specific_caches(self):
 		# To simulate close to request level of handling
 		sparrow.destroy()  # releases everything on sparrow.local
@@ -128,7 +128,7 @@ class TestPerformance(SparrowTestCase):
 		FAILURE_THREASHOLD = 0.1
 
 		req_count = 1000
-		client = SparrowClient(self.HOST, "Administrator", self.ADMIN_PASSWORD)
+		client = FrappeClient(self.HOST, "Administrator", self.ADMIN_PASSWORD)
 
 		start = time.perf_counter()
 		for _ in range(req_count):

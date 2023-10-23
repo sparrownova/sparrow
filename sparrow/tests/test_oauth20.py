@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Sparrownova Technologies and Contributors
+# Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import unittest
@@ -24,14 +24,14 @@ class TestOAuth20(unittest.TestCase):
 
 		# Set Sparrow server URL reqired for id_token generation
 		try:
-			sparrow_login_key = sparrow.get_doc("Social Login Key", "sparrow")
+			frappe_login_key = sparrow.get_doc("Social Login Key", "sparrow")
 		except sparrow.DoesNotExistError:
-			sparrow_login_key = sparrow.new_doc("Social Login Key")
+			frappe_login_key = sparrow.new_doc("Social Login Key")
 
-		sparrow_login_key.get_social_login_provider("Sparrow", initialize=True)
-		sparrow_login_key.base_url = sparrow.utils.get_url()
-		sparrow_login_key.enable_social_login = 0
-		sparrow_login_key.save()
+		frappe_login_key.get_social_login_provider("Sparrow", initialize=True)
+		frappe_login_key.base_url = sparrow.utils.get_url()
+		frappe_login_key.enable_social_login = 0
+		frappe_login_key.save()
 		sparrow.db.commit()
 
 	def test_invalid_login(self):

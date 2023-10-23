@@ -94,8 +94,8 @@ class Workspace(Document):
 			link = link.as_dict()
 			if link.type == "Card Break":
 				if card_links and (
-					not current_card.get("only_for")
-					or current_card.get("only_for") == sparrow.get_system_settings("country")
+                        not current_card.get("only_for")
+                        or current_card.get("only_for") == sparrow.get_system_settings("country")
 				):
 					current_card["links"] = card_links
 					cards.append(current_card)
@@ -158,12 +158,12 @@ class Workspace(Document):
 
 def disable_saving_as_public():
 	return (
-		sparrow.flags.in_install
-		or sparrow.flags.in_uninstall
-		or sparrow.flags.in_patch
-		or sparrow.flags.in_test
-		or sparrow.flags.in_fixtures
-		or sparrow.flags.in_migrate
+            sparrow.flags.in_install
+            or sparrow.flags.in_uninstall
+            or sparrow.flags.in_patch
+            or sparrow.flags.in_test
+            or sparrow.flags.in_fixtures
+            or sparrow.flags.in_migrate
 	)
 
 

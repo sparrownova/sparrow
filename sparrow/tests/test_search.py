@@ -1,4 +1,4 @@
-# Copyright (c) 2021, Sparrownova Technologies and Contributors
+# Copyright (c) 2021, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 
 import re
@@ -6,12 +6,12 @@ import re
 import sparrow
 from sparrow.app import make_form_dict
 from sparrow.desk.search import get_names_for_mentions, search_link, search_widget
-from sparrow.tests.utils import SparrowTestCase
+from sparrow.tests.utils import FrappeTestCase
 from sparrow.utils import set_request
 from sparrow.website.serve import get_response
 
 
-class TestSearch(SparrowTestCase):
+class TestSearch(FrappeTestCase):
 	def setUp(self):
 		if self._testMethodName == "test_link_field_order":
 			setup_test_link_field_order(self)
@@ -214,7 +214,7 @@ def teardown_test_link_field_order(TestCase):
 	TestCase.tree_doc.delete()
 
 
-class TestWebsiteSearch(SparrowTestCase):
+class TestWebsiteSearch(FrappeTestCase):
 	def get(self, path, user="Guest"):
 		sparrow.set_user(user)
 		set_request(method="GET", path=path)
