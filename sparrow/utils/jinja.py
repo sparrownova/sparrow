@@ -120,7 +120,7 @@ def get_jloader():
 		apps = sparrow.get_hooks("template_apps")
 		if not apps:
 			apps = list(
-				reversed(sparrow.local.flags.web_pages_apps or sparrow.get_installed_apps(_ensure_on_snova=True))
+				reversed(sparrow.local.flags.web_pages_apps or sparrow.get_installed_apps(_ensure_on_bench=True))
 			)
 
 		if "sparrow" not in apps:

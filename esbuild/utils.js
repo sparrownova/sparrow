@@ -3,9 +3,9 @@ const fs = require("fs");
 const chalk = require("chalk");
 
 const frappe_path = path.resolve(__dirname, "..");
-const snova_path = path.resolve(frappe_path, "..", "..");
-const sites_path = path.resolve(snova_path, "sites");
-const apps_path = path.resolve(snova_path, "apps");
+const bench_path = path.resolve(frappe_path, "..", "..");
+const sites_path = path.resolve(bench_path, "sites");
+const apps_path = path.resolve(bench_path, "apps");
 const assets_path = path.resolve(sites_path, "assets");
 const app_list = get_apps_list();
 
@@ -127,7 +127,7 @@ function get_redis_subscriber(kind) {
 
 module.exports = {
 	app_list,
-	snova_path,
+	bench_path,
 	assets_path,
 	sites_path,
 	apps_path,

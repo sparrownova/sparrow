@@ -19,7 +19,7 @@ def get_doctype_map_key(doctype):
 
 doctype_map_keys = tuple(map(get_doctype_map_key, doctypes_for_mapping))
 
-snova_cache_keys = ("assets_json",)
+bench_cache_keys = ("assets_json",)
 
 global_cache_keys = (
 	"app_hooks",
@@ -108,7 +108,7 @@ def clear_global_cache():
 	clear_doctype_cache()
 	clear_website_cache()
 	sparrow.cache().delete_value(global_cache_keys)
-	sparrow.cache().delete_value(snova_cache_keys)
+	sparrow.cache().delete_value(bench_cache_keys)
 	sparrow.setup_module_map()
 
 

@@ -24,7 +24,7 @@ const {
 	log,
 	log_warn,
 	log_error,
-	snova_path,
+	bench_path,
 	get_redis_subscriber,
 } = require("./utils");
 
@@ -454,7 +454,7 @@ async function notify_redis({ error, success, changed_files }) {
 			kind: "error",
 			terminalWidth: 100,
 		});
-		let stack = error.stack.replace(new RegExp(snova_path, "g"), "");
+		let stack = error.stack.replace(new RegExp(bench_path, "g"), "");
 		payload = {
 			error,
 			formatted,

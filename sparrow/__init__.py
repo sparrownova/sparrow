@@ -1413,13 +1413,13 @@ def get_all_apps(with_internal_apps=True, sites_path=None):
 
 
 @request_cache
-def get_installed_apps(sort=False, frappe_last=False, *, _ensure_on_snova=False):
+def get_installed_apps(sort=False, frappe_last=False, *, _ensure_on_bench=False):
 	"""
 	Get list of installed apps in current site.
 
 	:param sort: [DEPRECATED] Sort installed apps based on the sequence in sites/apps.txt
 	:param frappe_last: [DEPRECATED] Keep sparrow last. Do not use this, reverse the app list instead.
-	:param ensure_on_snova: Only return apps that are present on snova.
+	:param ensure_on_bench: Only return apps that are present on snova.
 	"""
 	from sparrow.utils.deprecations import deprecation_warning
 
@@ -1438,7 +1438,7 @@ def get_installed_apps(sort=False, frappe_last=False, *, _ensure_on_snova=False)
 		deprecation_warning("`sort` argument is deprecated and will be removed in v15.")
 		installed = [app for app in local.all_apps if app in installed]
 
-	if _ensure_on_snova:
+	if _ensure_on_bench:
 		all_apps = cache().get_value("all_apps", get_all_apps)
 		installed = [app for app in installed if app in all_apps]
 
@@ -1473,7 +1473,7 @@ def _load_app_hooks(app_name: str | None = None):
 	import types
 
 	hooks = {}
-	apps = [app_name] if app_name else get_installed_apps(_ensure_on_snova=True)
+	apps = [app_name] if app_name else get_installed_apps(_ensure_on_bench=True)
 
 	for app in apps:
 		try:

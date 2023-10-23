@@ -24,7 +24,7 @@ from pypika.terms import PseudoColumn
 import sparrow
 from sparrow.model.utils import InvalidIncludePath, render_include
 from sparrow.query_builder import DocType, Field
-from sparrow.utils import cstr, get_snova_path, is_html, strip, strip_html_tags, unique
+from sparrow.utils import cstr, get_bench_path, is_html, strip, strip_html_tags, unique
 
 TRANSLATE_PATTERN = re.compile(
 	r"_\(\s*"  # starts with literal `_(`, ignore following whitespace/newlines
@@ -308,7 +308,7 @@ def get_translations_from_apps(lang, apps=None):
 		return {}
 
 	translations = {}
-	for app in apps or sparrow.get_installed_apps(_ensure_on_snova=True):
+	for app in apps or sparrow.get_installed_apps(_ensure_on_bench=True):
 		path = os.path.join(sparrow.get_pymodule_path(app), "translations", lang + ".csv")
 		translations.update(get_translation_dict_from_file(path, lang, app) or {})
 	if "-" in lang:
@@ -682,7 +682,7 @@ def get_messages_from_include_files(app_name=None):
 def get_all_messages_from_js_files(app_name=None):
 	"""Extracts all translatable strings from app `.js` files"""
 	messages = []
-	for app in [app_name] if app_name else sparrow.get_installed_apps(_ensure_on_snova=True):
+	for app in [app_name] if app_name else sparrow.get_installed_apps(_ensure_on_bench=True):
 		if os.path.exists(sparrow.get_app_path(app, "public")):
 			for basepath, folders, files in os.walk(sparrow.get_app_path(app, "public")):
 				if "sparrow/public/js/lib" in basepath:
@@ -708,7 +708,7 @@ def get_messages_from_file(path: str) -> list[tuple[str, str, str | None, int]]:
 
 	sparrow.flags.scanned_files.add(path)
 
-	snova_path = get_snova_path()
+	bench_path = get_bench_path()
 	if not os.path.exists(path):
 		return []
 
@@ -732,7 +732,7 @@ def get_messages_from_file(path: str) -> list[tuple[str, str, str | None, int]]:
 			messages += extract_messages_from_javascript_code(file_contents)
 
 		return [
-			(os.path.relpath(path, snova_path), message, context, line)
+			(os.path.relpath(path, bench_path), message, context, line)
 			for (line, message, context) in messages
 		]
 
