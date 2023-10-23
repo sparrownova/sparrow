@@ -1,6 +1,6 @@
 // Copyright (c) 2018, Sparrownova Technologies and Contributors
 // MIT License. See license.txt
-import DataTable from "sparrow-datatable";
+import DataTable from "frappe-datatable";
 
 sparrow.provide("sparrow.widget.utils");
 sparrow.provide("sparrow.views");
