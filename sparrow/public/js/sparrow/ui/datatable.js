@@ -1,3 +1,3 @@
-import DataTable from "sparrow-datatable";
+import DataTable from "frappe-datatable:";
 
 sparrow.DataTable = DataTable;
