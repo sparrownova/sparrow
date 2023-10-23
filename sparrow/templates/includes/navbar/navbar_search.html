@@ -1,0 +1,9 @@
+{% if navbar_search %}
+	<li>
+		<form action='/search'>
+		<input name='q' class='form-control navbar-search' type='text'
+			value='{{ sparrow.form_dict.q|e if sparrow.form_dict.q else ''}}'
+			{% if not sparrow.form_dict.q%}placeholder="{{ _("Search...") }}"{% endif %}>
+		</form>
+	</li>
+{% endif %}

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="file">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sparrow/www/_test/assets/file.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
