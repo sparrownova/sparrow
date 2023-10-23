@@ -1,0 +1,1 @@
+Core module contains the models required for the basic functioning of sparrow including DocType, User (user), Role and others.
