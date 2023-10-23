@@ -1,9 +1,0 @@
-# Copyright (c) {year}, {app_publisher} and Contributors
-# See license.txt
-
-# import sparrow
-from sparrow.tests.utils import FrappeTestCase
-
-
-class Test{classname}(FrappeTestCase):
-	pass
