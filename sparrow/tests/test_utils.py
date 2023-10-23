@@ -25,7 +25,7 @@ from sparrow.utils import (
 	floor,
 	flt,
 	format_timedelta,
-	get_bench_path,
+	get_snova_path,
 	get_file_timestamp,
 	get_site_info,
 	get_sites,
@@ -684,8 +684,8 @@ class TestLinkTitle(FrappeTestCase):
 
 class TestAppParser(FrappeTestCase):
 	def test_app_name_parser(self):
-		bench_path = get_bench_path()
-		frappe_app = os.path.join(bench_path, "apps", "sparrow")
+		snova_path = get_snova_path()
+		frappe_app = os.path.join(snova_path, "apps", "sparrow")
 		self.assertEqual("sparrow", parse_app_name(frappe_app))
 		self.assertEqual("healthcare", parse_app_name("healthcare"))
 		self.assertEqual("healthcare", parse_app_name("https://github.com/sparrownova/healthcare.git"))

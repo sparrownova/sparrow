@@ -5,7 +5,7 @@ import redis
 
 import sparrow
 from sparrow.tests.utils import FrappeTestCase
-from sparrow.utils import get_bench_id
+from sparrow.utils import get_snova_id
 from sparrow.utils.background_jobs import get_redis_conn
 from sparrow.utils.redis_queue import RedisQueue
 
@@ -31,14 +31,14 @@ def skip_if_redis_version_lt(version):
 
 class TestRedisAuth(FrappeTestCase):
 	@skip_if_redis_version_lt("6.0")
-	@patch.dict(sparrow.conf, {"bench_id": "test_bench", "use_rq_auth": False})
+	@patch.dict(sparrow.conf, {"snova_id": "test_snova", "use_rq_auth": False})
 	def test_rq_gen_acllist(self):
 		"""Make sure that ACL list is genrated"""
 		acl_list = RedisQueue.gen_acl_list()
-		self.assertEqual(acl_list[1]["snova"][0], get_bench_id())
+		self.assertEqual(acl_list[1]["snova"][0], get_snova_id())
 
 	@skip_if_redis_version_lt("6.0")
-	@patch.dict(sparrow.conf, {"bench_id": "test_bench", "use_rq_auth": False})
+	@patch.dict(sparrow.conf, {"snova_id": "test_snova", "use_rq_auth": False})
 	def test_adding_redis_user(self):
 		acl_list = RedisQueue.gen_acl_list()
 		username, password = acl_list[1]["snova"]
@@ -50,28 +50,28 @@ class TestRedisAuth(FrappeTestCase):
 		conn.acl_deluser(username)
 
 	@skip_if_redis_version_lt("6.0")
-	@patch.dict(sparrow.conf, {"bench_id": "test_bench", "use_rq_auth": False})
+	@patch.dict(sparrow.conf, {"snova_id": "test_snova", "use_rq_auth": False})
 	def test_rq_namespace(self):
 		"""Make sure that user can access only their respective namespace."""
 		# Current snova ID
-		bench_id = sparrow.conf.get("bench_id")
+		snova_id = sparrow.conf.get("snova_id")
 		conn = get_redis_conn()
-		conn.set("rq:queue:test_bench1:abc", "value")
-		conn.set(f"rq:queue:{bench_id}:abc", "value")
+		conn.set("rq:queue:test_snova1:abc", "value")
+		conn.set(f"rq:queue:{snova_id}:abc", "value")
 
 		# Create new Redis Queue user
-		tmp_bench_id = "test_bench1"
-		username, password = tmp_bench_id, "password1"
+		tmp_snova_id = "test_snova1"
+		username, password = tmp_snova_id, "password1"
 		conn.acl_deluser(username)
-		sparrow.conf.update({"bench_id": tmp_bench_id})
+		sparrow.conf.update({"snova_id": tmp_snova_id})
 		_ = RedisQueue(conn).add_user(username, password)
-		test_bench1_conn = RedisQueue.get_connection(username, password)
+		test_snova1_conn = RedisQueue.get_connection(username, password)
 
-		self.assertEqual(test_bench1_conn.get("rq:queue:test_bench1:abc"), b"value")
+		self.assertEqual(test_snova1_conn.get("rq:queue:test_snova1:abc"), b"value")
 
 		# User should not be able to access queues apart from their snova queues
 		with self.assertRaises(redis.exceptions.NoPermissionError):
-			test_bench1_conn.get(f"rq:queue:{bench_id}:abc")
+			test_snova1_conn.get(f"rq:queue:{snova_id}:abc")
 
-		sparrow.conf.update({"bench_id": bench_id})
+		sparrow.conf.update({"snova_id": snova_id})
 		conn.acl_deluser(username)

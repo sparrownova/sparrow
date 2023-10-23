@@ -4,7 +4,7 @@ from unittest.mock import mock_open, patch
 import sparrow
 from sparrow.modules import patch_handler
 from sparrow.tests.utils import FrappeTestCase
-from sparrow.utils import get_bench_path
+from sparrow.utils import get_snova_path
 
 EMTPY_FILE = ""
 EMTPY_SECTION = """
@@ -169,7 +169,7 @@ def check_patch_files(app):
 
 
 def _get_dotted_path(file: Path, app) -> str:
-	app_path = Path(get_bench_path()) / "apps" / app
+	app_path = Path(get_snova_path()) / "apps" / app
 
 	*path, filename = file.relative_to(app_path).parts
 	base_filename = Path(filename).stem

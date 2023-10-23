@@ -152,17 +152,17 @@ def get_scss_paths():
 	"""
 	Return a set of SCSS import paths from all apps that provide `website.scss`.
 
-	If `$BENCH_PATH/apps/sparrow/sparrow/public/scss/website[.bundle].scss` exists, the
+	If `$snova_PATH/apps/sparrow/sparrow/public/scss/website[.bundle].scss` exists, the
 	returned set will contain 'sparrow/public/scss/website[.bundle]'.
 	"""
 	import_path_list = []
-	bench_path = sparrow.utils.get_bench_path()
+	snova_path = sparrow.utils.get_snova_path()
 
 	scss_files = ["public/scss/website.scss", "public/scss/website.bundle.scss"]
 	for app in sparrow.get_installed_apps():
 		for scss_file in scss_files:
 			relative_path = join_path(app, scss_file)
-			full_path = get_path("apps", app, relative_path, base=bench_path)
+			full_path = get_path("apps", app, relative_path, base=snova_path)
 			if path_exists(full_path):
 				import_path = splitext(relative_path)[0]
 				import_path_list.append(import_path)

@@ -30,7 +30,7 @@ from sparrow.installer import add_to_installed_apps, remove_app
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
 from sparrow.tests.utils import FrappeTestCase, timeout
-from sparrow.utils import add_to_date, get_bench_path, get_bench_relative_path, now
+from sparrow.utils import add_to_date, get_snova_path, get_snova_relative_path, now
 from sparrow.utils.backups import BackupGenerator, fetch_latest_backups
 from sparrow.utils.jinja_globals import bundled_asset
 from sparrow.utils.scheduler import enable_scheduler, is_scheduler_inactive
@@ -374,20 +374,20 @@ class TestCommands(BaseTestCommands):
 		self.execute("snova --site {site} show-config -f json")
 		self.assertIsInstance(json.loads(self.stdout), dict)
 
-	def test_get_bench_relative_path(self):
-		bench_path = get_bench_path()
-		test1_path = os.path.join(bench_path, "test1.txt")
-		test2_path = os.path.join(bench_path, "sites", "test2.txt")
+	def test_get_snova_relative_path(self):
+		snova_path = get_snova_path()
+		test1_path = os.path.join(snova_path, "test1.txt")
+		test2_path = os.path.join(snova_path, "sites", "test2.txt")
 
 		with open(test1_path, "w+") as test1:
 			test1.write("asdf")
 		with open(test2_path, "w+") as test2:
 			test2.write("asdf")
 
-		self.assertTrue("test1.txt" in get_bench_relative_path("test1.txt"))
-		self.assertTrue("sites/test2.txt" in get_bench_relative_path("test2.txt"))
+		self.assertTrue("test1.txt" in get_snova_relative_path("test1.txt"))
+		self.assertTrue("sites/test2.txt" in get_snova_relative_path("test2.txt"))
 		with self.assertRaises(SystemExit):
-			get_bench_relative_path("test3.txt")
+			get_snova_relative_path("test3.txt")
 
 		os.remove(test1_path)
 		os.remove(test2_path)
@@ -432,7 +432,7 @@ class TestCommands(BaseTestCommands):
 		),
 		"DB Root password and Admin password not set in config",
 	)
-	def test_bench_drop_site_should_archive_site(self):
+	def test_snova_drop_site_should_archive_site(self):
 		# TODO: Make this test postgres compatible
 		site = TEST_SITE
 
@@ -447,10 +447,10 @@ class TestCommands(BaseTestCommands):
 		self.execute(f"snova drop-site {site} --force --root-password {sparrow.conf.root_password}")
 		self.assertEqual(self.returncode, 0)
 
-		bench_path = get_bench_path()
-		site_directory = os.path.join(bench_path, f"sites/{site}")
+		snova_path = get_snova_path()
+		site_directory = os.path.join(snova_path, f"sites/{site}")
 		self.assertFalse(os.path.exists(site_directory))
-		archive_directory = os.path.join(bench_path, f"archived/sites/{site}")
+		archive_directory = os.path.join(snova_path, f"archived/sites/{site}")
 		self.assertTrue(os.path.exists(archive_directory))
 
 	@skipIf(
@@ -460,7 +460,7 @@ class TestCommands(BaseTestCommands):
 		"DB Root password and Admin password not set in config",
 	)
 	def test_force_install_app(self):
-		if not os.path.exists(os.path.join(get_bench_path(), f"sites/{TEST_SITE}")):
+		if not os.path.exists(os.path.join(get_snova_path(), f"sites/{TEST_SITE}")):
 			self.execute(
 				f"snova new-site {TEST_SITE} --verbose "
 				f"--admin-password {sparrow.conf.admin_password} "
@@ -736,7 +736,7 @@ class TestAddNewUser(BaseTestCommands):
 		self.assertEqual({"Accounts User", "Sales User"}, roles)
 
 
-class TestBenchBuild(BaseTestCommands):
+class TestsnovaBuild(BaseTestCommands):
 	def test_build_assets_size_check(self):
 		with cli(sparrow.commands.utils.build, "--force --production") as result:
 			self.assertEqual(result.exit_code, 0)
@@ -762,7 +762,7 @@ class TestBenchBuild(BaseTestCommands):
 
 
 class TestCommandUtils(FrappeTestCase):
-	def test_bench_helper(self):
+	def test_snova_helper(self):
 		from sparrow.utils.snova_helper import get_app_groups
 
 		app_groups = get_app_groups()

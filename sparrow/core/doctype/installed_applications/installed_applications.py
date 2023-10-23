@@ -41,7 +41,7 @@ def update_installed_apps_order(new_order: list[str] | str):
 		new_order = json.loads(new_order)
 
     sparrow.local.request_cache and sparrow.local.request_cache.clear()
-	existing_order = sparrow.get_installed_apps(_ensure_on_bench=True)
+	existing_order = sparrow.get_installed_apps(_ensure_on_snova=True)
 
 	if set(existing_order) != set(new_order) or not isinstance(new_order, list):
 		sparrow.throw(
@@ -72,4 +72,4 @@ def _create_version_log_for_change(old, new):
 def get_installed_app_order() -> list[str]:
 	sparrow.only_for("System Manager")
 
-	return sparrow.get_installed_apps(_ensure_on_bench=True)
+	return sparrow.get_installed_apps(_ensure_on_snova=True)

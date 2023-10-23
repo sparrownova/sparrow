@@ -33,7 +33,7 @@ def add_data_to_monitor(**kwargs) -> None:
 
 
 def log_file():
-	return os.path.join(sparrow.utils.get_bench_path(), "logs", "monitor.json.log")
+	return os.path.join(sparrow.utils.get_snova_path(), "logs", "monitor.json.log")
 
 
 class Monitor:

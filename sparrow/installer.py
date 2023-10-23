@@ -661,9 +661,9 @@ def extract_sql_from_archive(sql_file_path):
 	Returns:
 	        str: Path of the decompressed SQL file
 	"""
-	from sparrow.utils import get_bench_relative_path
+	from sparrow.utils import get_snova_relative_path
 
-	sql_file_path = get_bench_relative_path(sql_file_path)
+	sql_file_path = get_snova_relative_path(sql_file_path)
 	# Extract the gzip file if user has passed *.sql.gz file instead of *.sql file
 	if sql_file_path.endswith("sql.gz"):
 		decompressed_file_name = extract_sql_gzip(sql_file_path)
@@ -741,9 +741,9 @@ def extract_files(site_name, file_path):
 	import shutil
 	import subprocess
 
-	from sparrow.utils import get_bench_relative_path
+	from sparrow.utils import get_snova_relative_path
 
-	file_path = get_bench_relative_path(file_path)
+	file_path = get_snova_relative_path(file_path)
 
 	# Need to do sparrow.init to maintain the site locals
 	sparrow.init(site=site_name)

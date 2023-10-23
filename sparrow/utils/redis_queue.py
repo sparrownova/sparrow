@@ -1,7 +1,7 @@
 import redis
 
 import sparrow
-from sparrow.utils import get_bench_id, random_string
+from sparrow.utils import get_snova_id, random_string
 
 
 class RedisQueue:
@@ -52,7 +52,7 @@ class RedisQueue:
 	@classmethod
 	def get_acl_key_rules(cls, include_key_prefix=False):
 		"""FIXME: Find better way"""
-		rules = ["rq:[^q]*", "rq:queues", f"rq:queue:{get_bench_id()}:*"]
+		rules = ["rq:[^q]*", "rq:queues", f"rq:queue:{get_snova_id()}:*"]
 		if include_key_prefix:
 			return ["~" + pattern for pattern in rules]
 		return rules
@@ -67,10 +67,10 @@ class RedisQueue:
 
 		This list contains default ACL user and the snova ACL user(used by all sites incase of ACL is enabled).
 		"""
-		bench_username = get_bench_id()
-		bench_user_rules = cls.get_acl_key_rules(include_key_prefix=True) + cls.get_acl_command_rules()
-		bench_user_rule_str = " ".join(bench_user_rules).strip()
-		bench_user_password = random_string(20)
+		snova_username = get_snova_id()
+		snova_user_rules = cls.get_acl_key_rules(include_key_prefix=True) + cls.get_acl_command_rules()
+		snova_user_rule_str = " ".join(snova_user_rules).strip()
+		snova_user_password = random_string(20)
 
 		default_username = "default"
 		_default_user_password = random_string(20) if set_admin_password else ""
@@ -78,8 +78,8 @@ class RedisQueue:
 
 		return [
 			f"user {default_username} on {default_user_password} ~* &* +@all",
-			f"user {bench_username} on >{bench_user_password} {bench_user_rule_str}",
+			f"user {snova_username} on >{snova_user_password} {snova_user_rule_str}",
 		], {
-			"snova": (bench_username, bench_user_password),
+			"snova": (snova_username, snova_user_password),
 			"default": (default_username, _default_user_password),
 		}

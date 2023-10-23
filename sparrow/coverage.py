@@ -47,10 +47,10 @@ class CodeCoverage:
 
 			from coverage import Coverage
 
-			from sparrow.utils import get_bench_path
+			from sparrow.utils import get_snova_path
 
 			# Generate coverage report only for app that is being tested
-			source_path = os.path.join(get_bench_path(), "apps", self.app)
+			source_path = os.path.join(get_snova_path(), "apps", self.app)
 			omit = STANDARD_EXCLUSIONS[:]
 
 			if self.app == "sparrow":
