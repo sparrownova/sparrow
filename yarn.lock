@@ -1263,7 +1263,7 @@ fraction.js@^4.1.2:
 
 sparrow-charts@2.0.0-rc22:
   version "2.0.0-rc22"
-  resolved "https://registry.yarnpkg.com/sparrow-charts/-/sparrow-charts-2.0.0-rc22.tgz#9a5a747febdc381a1d4d7af96e89cf519dfba8c0"
+  resolved "https://registry.yarnpkg.com/frappe-charts/-/frappe-charts-2.0.0-rc22.tgz#9a5a747febdc381a1d4d7af96e89cf519dfba8c0"
   integrity sha512-N7f/8979wJCKjusOinaUYfMxB80YnfuVLrSkjpj4LtyqS0BGS6SuJxUnb7Jl4RWUFEIs7zEhideIKnyLeFZF4Q==
 
 sparrow-datatable@^1.17.3:
