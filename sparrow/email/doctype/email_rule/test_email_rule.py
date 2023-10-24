@@ -1,7 +1,7 @@
 # Copyright (c) 2017, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestEmailRule(FrappeTestCase):
+class TestEmailRule(sparrowTestCase):
 	pass

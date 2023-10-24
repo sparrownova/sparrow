@@ -15,16 +15,16 @@ from sparrow.core.doctype.user.user import (
 	verify_password,
 )
 from sparrow.desk.notifications import extract_mentions
-from sparrow.frappeclient import FrappeClient
+from sparrow.sparrowclient import sparrowClient
 from sparrow.model.delete_doc import delete_doc
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_url
 
 user_module = sparrow.core.doctype.user.user
 test_records = sparrow.get_test_records("User")
 
 
-class TestUser(FrappeTestCase):
+class TestUser(sparrowTestCase):
 	def tearDown(self):
 		# disable password strength test
 		sparrow.db.set_single_value("System Settings", "enable_password_policy", 0)
@@ -285,7 +285,7 @@ class TestUser(FrappeTestCase):
 		key = f"rl:{data['cmd']}:{data['user']}"
 		sparrow.cache().delete(key)
 
-		c = FrappeClient(url)
+		c = sparrowClient(url)
 		res1 = c.session.post(url, data=data, verify=c.verify, headers=c.headers)
 		res2 = c.session.post(url, data=data, verify=c.verify, headers=c.headers)
 		self.assertEqual(res1.status_code, 404)

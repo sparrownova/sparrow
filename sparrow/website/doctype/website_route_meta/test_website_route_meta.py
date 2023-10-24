@@ -1,14 +1,14 @@
 # Copyright (c) 2019, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import set_request
 from sparrow.website.serve import get_response
 
 test_dependencies = ["Blog Post"]
 
 
-class TestWebsiteRouteMeta(FrappeTestCase):
+class TestWebsiteRouteMeta(sparrowTestCase):
 	def test_meta_tag_generation(self):
 		blogs = sparrow.get_all(
 			"Blog Post", fields=["name", "route"], filters={"published": 1, "route": ("!=", "")}, limit=1

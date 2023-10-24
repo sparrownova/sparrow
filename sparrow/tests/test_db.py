@@ -16,12 +16,12 @@ from sparrow.database.utils import FallBackDateTimeStr
 from sparrow.query_builder import Field
 from sparrow.query_builder.functions import Concat_ws
 from sparrow.tests.test_query_builder import db_type_is, run_only_if
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import add_days, cint, now, random_string, set_request
 from sparrow.utils.testutils import clear_custom_fields
 
 
-class TestDB(FrappeTestCase):
+class TestDB(sparrowTestCase):
 	def test_datetime_format(self):
 		now_str = now()
 		self.assertEqual(sparrow.db.format_datetime(None), FallBackDateTimeStr)
@@ -574,7 +574,7 @@ class TestDB(FrappeTestCase):
 
 
 @run_only_if(db_type_is.MARIADB)
-class TestDDLCommandsMaria(FrappeTestCase):
+class TestDDLCommandsMaria(sparrowTestCase):
 	test_table_name = "TestNotes"
 
 	def setUp(self) -> None:
@@ -636,7 +636,7 @@ class TestDDLCommandsMaria(FrappeTestCase):
 		self.assertEqual(len(indexs_in_table), 2)
 
 
-class TestDBSetValue(FrappeTestCase):
+class TestDBSetValue(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()
@@ -792,7 +792,7 @@ class TestDBSetValue(FrappeTestCase):
 
 
 @run_only_if(db_type_is.POSTGRES)
-class TestDDLCommandsPost(FrappeTestCase):
+class TestDDLCommandsPost(sparrowTestCase):
 	test_table_name = "TestNotes"
 
 	def setUp(self) -> None:
@@ -901,7 +901,7 @@ class TestDDLCommandsPost(FrappeTestCase):
 
 
 @run_only_if(db_type_is.POSTGRES)
-class TestTransactionManagement(FrappeTestCase):
+class TestTransactionManagement(sparrowTestCase):
 	def test_create_proper_transactions(self):
 		def _get_transaction_id():
 			return sparrow.db.sql("select txid_current()", pluck=True)
@@ -916,7 +916,7 @@ class TestTransactionManagement(FrappeTestCase):
 
 
 # Treat same DB as replica for tests, a separate connection will be opened
-class TestReplicaConnections(FrappeTestCase):
+class TestReplicaConnections(sparrowTestCase):
 	def test_switching_to_replica(self):
 		with patch.dict(sparrow.local.conf, {"read_from_replica": 1, "replica_host": "127.0.0.1"}):
 

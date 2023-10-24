@@ -8,12 +8,12 @@ import sparrow
 import sparrow.defaults
 from sparrow.desk.doctype.event.event import get_events
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Event")
 
 
-class TestEvent(FrappeTestCase):
+class TestEvent(sparrowTestCase):
 	def setUp(self):
 		sparrow.db.delete("Event")
 		make_test_objects("Event", reset=True)

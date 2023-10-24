@@ -3,10 +3,10 @@
 
 import sparrow
 from sparrow.desk.form.linked_with import get_linked_docs, get_linked_doctypes
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestForm(FrappeTestCase):
+class TestForm(sparrowTestCase):
 	def test_linked_with(self):
 		results = get_linked_docs("Role", "System Manager", linkinfo=get_linked_doctypes("Role"))
 		self.assertTrue("User" in results)

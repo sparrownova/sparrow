@@ -2,10 +2,10 @@
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.core.doctype.data_export.exporter import DataExporter
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDataExporter(FrappeTestCase):
+class TestDataExporter(sparrowTestCase):
 	def setUp(self):
 		self.doctype_name = "Test DocType for Export Tool"
 		self.doc_name = "Test Data for Export Tool"

@@ -7,12 +7,12 @@ import sparrow
 from sparrow.core.doctype.doctype.doctype import InvalidFieldNameError
 from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.test_runner import make_test_records_for_doctype
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["Custom Field", "Property Setter"]
 
 
-class TestCustomizeForm(FrappeTestCase):
+class TestCustomizeForm(sparrowTestCase):
 	def insert_custom_field(self):
 		sparrow.delete_doc_if_exists("Custom Field", "Event-custom_test_field")
 		self.field = sparrow.get_doc(

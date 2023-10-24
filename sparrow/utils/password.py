@@ -18,8 +18,8 @@ Auth = Table("__Auth")
 
 
 class LegacyPassword(pbkdf2_sha256):
-	name = "frappe_legacy"
-	ident = "$frappel$"
+	name = "sparrow_legacy"
+	ident = "$sparrowl$"
 
 	def _calc_checksum(self, secret):
 		# check if this is a mysql hash
@@ -37,10 +37,10 @@ passlibctx = CryptContext(
 	schemes=[
 		"pbkdf2_sha256",
 		"argon2",
-		"frappe_legacy",
+		"sparrow_legacy",
 	],
 	deprecated=[
-		"frappe_legacy",
+		"sparrow_legacy",
 	],
 )
 

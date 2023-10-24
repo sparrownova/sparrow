@@ -1,10 +1,10 @@
 # Copyright (c) 2020, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDocumentNamingRule(FrappeTestCase):
+class TestDocumentNamingRule(sparrowTestCase):
 	def test_naming_rule_by_series(self):
 		naming_rule = sparrow.get_doc(
 			dict(doctype="Document Naming Rule", document_type="ToDo", prefix="test-todo-", prefix_digits=5)

@@ -18,13 +18,13 @@ from sparrow.permissions import (
 )
 from sparrow.test_runner import make_test_records_for_doctype
 from sparrow.tests.test_db_query import enable_permlevel_restrictions
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.data import now_datetime
 
 test_dependencies = ["Blogger", "Blog Post", "User", "Contact", "Salutation"]
 
 
-class TestPermissions(FrappeTestCase):
+class TestPermissions(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

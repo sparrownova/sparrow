@@ -4,12 +4,12 @@
 import sparrow
 import sparrow.share
 from sparrow.automation.doctype.auto_repeat.test_auto_repeat import create_submittable_doctype
-from sparrow.tests.utils import FrappeTestCase, change_settings
+from sparrow.tests.utils import sparrowTestCase, change_settings
 
 test_dependencies = ["User"]
 
 
-class TestDocShare(FrappeTestCase):
+class TestDocShare(sparrowTestCase):
 	def setUp(self):
 		self.user = "test@example.com"
 		self.event = sparrow.get_doc(

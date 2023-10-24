@@ -1,12 +1,12 @@
 # Copyright (c) 2017, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["Contact", "Salutation"]
 
 
-class TestContact(FrappeTestCase):
+class TestContact(sparrowTestCase):
 	def test_check_default_email(self):
 		emails = [
 			{"email": "test1@example.com", "is_primary": 0},

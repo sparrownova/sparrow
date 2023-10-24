@@ -11,10 +11,10 @@ from sparrow.desk.like import toggle_like
 from sparrow.query_builder import DocType
 from sparrow.query_builder.functions import Cast_
 from sparrow.share import add as share
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDocumentFollow(FrappeTestCase):
+class TestDocumentFollow(sparrowTestCase):
 	def test_document_follow_version(self):
 		user = get_user()
 		event_doc = get_event()

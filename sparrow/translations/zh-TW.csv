@@ -2236,7 +2236,7 @@ apps/sparrow/sparrow/public/js/sparrow/ui/toolbar/modules_select.js +50,Icons,�
 apps/sparrow/sparrow/website/doctype/web_form/web_form.py +366,You are not allowed to update this Web Form Document,你不允許更新此網頁表單文件
 apps/sparrow/sparrow/core/page/usage_info/usage_info.html +31,Emails,電子郵件
 apps/sparrow/sparrow/core/report/feedback_ratings/feedback_ratings.js +26,Please select Document Type first,請先選擇文件類型
-apps/sparrow/sparrow/integrations/oauth2.py +108,Please set Base URL in Social Login Key for Sparrow,請在Frappe的社交登錄密鑰中設置基本網址
+apps/sparrow/sparrow/integrations/oauth2.py +108,Please set Base URL in Social Login Key for Sparrow,請在sparrow的社交登錄密鑰中設置基本網址
 DocType: About Us Settings,About Us Settings,關於我們的設置
 DocType: Website Settings,Website Theme,網站主題
 DocType: User,Api Access,Api訪問

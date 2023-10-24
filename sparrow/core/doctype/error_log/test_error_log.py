@@ -3,13 +3,13 @@
 from ldap3.core.exceptions import LDAPException, LDAPInappropriateAuthenticationResult
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.error import _is_ldap_exception
 
 # test_records = sparrow.get_test_records('Error Log')
 
 
-class TestErrorLog(FrappeTestCase):
+class TestErrorLog(sparrowTestCase):
 	def test_error_log(self):
 		"""let's do an error log on error log?"""
 		doc = sparrow.new_doc("Error Log")

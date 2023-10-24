@@ -4,10 +4,10 @@ from functools import partial
 
 import sparrow
 from sparrow.contacts.doctype.address.address import address_query, get_address_display
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestAddress(FrappeTestCase):
+class TestAddress(sparrowTestCase):
 	def test_template_works(self):
 		if not sparrow.db.exists("Address Template", "India"):
 			sparrow.get_doc({"doctype": "Address Template", "country": "India", "is_default": 1}).insert()

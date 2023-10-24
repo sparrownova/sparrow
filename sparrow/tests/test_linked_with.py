@@ -1,10 +1,10 @@
 import sparrow
 from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.desk.form import linked_with
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestLinkedWith(FrappeTestCase):
+class TestLinkedWith(sparrowTestCase):
 	def setUp(self):
 		parent_doctype = new_doctype("Parent DocType")
 		parent_doctype.is_submittable = 1

@@ -75,31 +75,31 @@ def build_missing_files():
 		bundle(build_mode, apps="sparrow")
 
 
-def get_assets_link(frappe_head) -> str:
+def get_assets_link(sparrow_head) -> str:
 	import requests
 
 	tag = getoutput(
 		r"cd ../apps/sparrow && git show-ref --tags -d | grep %s | sed -e 's,.*"
-		r" refs/tags/,,' -e 's/\^{}//'" % frappe_head
+		r" refs/tags/,,' -e 's/\^{}//'" % sparrow_head
 	)
 
 	if tag:
 		# if tag exists, download assets from github release
 		url = f"https://github.com/sparrownova/sparrow/releases/download/{tag}/assets.tar.gz"
 	else:
-		url = f"http://assets.frappeframework.com/{frappe_head}.tar.gz"
+		url = f"http://assets.sparrowframework.com/{sparrow_head}.tar.gz"
 
 	if not requests.head(url):
-		reference = f"Release {tag}" if tag else f"Commit {frappe_head}"
+		reference = f"Release {tag}" if tag else f"Commit {sparrow_head}"
 		raise AssetsDontExistError(f"Assets for {reference} don't exist")
 
 	return url
 
 
-def fetch_assets(url, frappe_head):
+def fetch_assets(url, sparrow_head):
 	click.secho("Retrieving assets...", fg="yellow")
 
-	prefix = mkdtemp(prefix="sparrow-assets-", suffix=frappe_head)
+	prefix = mkdtemp(prefix="sparrow-assets-", suffix=sparrow_head)
 	assets_archive = download_file(url, prefix)
 
 	if not assets_archive:
@@ -134,19 +134,19 @@ def setup_assets(assets_archive):
 	return directories_created
 
 
-def download_frappe_assets(verbose=True):
+def download_sparrow_assets(verbose=True):
 	"""Downloads and sets up Sparrow assets if they exist based on the current
 	commit HEAD.
 	Returns True if correctly setup else returns False.
 	"""
-	frappe_head = getoutput("cd ../apps/sparrow && git rev-parse HEAD")
+	sparrow_head = getoutput("cd ../apps/sparrow && git rev-parse HEAD")
 
-	if not frappe_head:
+	if not sparrow_head:
 		return False
 
 	try:
-		url = get_assets_link(frappe_head)
-		assets_archive = fetch_assets(url, frappe_head)
+		url = get_assets_link(sparrow_head)
+		assets_archive = fetch_assets(url, sparrow_head)
 		setup_assets(assets_archive)
 		build_missing_files()
 		return True
@@ -230,7 +230,7 @@ def bundle(
 	make_copy=False,
 	restore=False,
 	verbose=False,
-	skip_frappe=False,
+	skip_sparrow=False,
 	files=None,
 ):
 	"""concat / minify js files"""
@@ -243,8 +243,8 @@ def bundle(
 	if apps:
 		command += f" --apps {apps}"
 
-	if skip_frappe:
-		command += " --skip_frappe"
+	if skip_sparrow:
+		command += " --skip_sparrow"
 
 	if files:
 		command += " --files {files}".format(files=",".join(files))
@@ -252,8 +252,8 @@ def bundle(
 	command += " --run-build-command"
 
 	check_node_executable()
-	frappe_app_path = sparrow.get_app_path("sparrow", "..")
-	sparrow.commands.popen(command, cwd=frappe_app_path, env=get_node_env(), raise_err=True)
+	sparrow_app_path = sparrow.get_app_path("sparrow", "..")
+	sparrow.commands.popen(command, cwd=sparrow_app_path, env=get_node_env(), raise_err=True)
 
 
 def watch(apps=None):
@@ -270,8 +270,8 @@ def watch(apps=None):
 		command += " --live-reload"
 
 	check_node_executable()
-	frappe_app_path = sparrow.get_app_path("sparrow", "..")
-	sparrow.commands.popen(command, cwd=frappe_app_path, env=get_node_env())
+	sparrow_app_path = sparrow.get_app_path("sparrow", "..")
+	sparrow.commands.popen(command, cwd=sparrow_app_path, env=get_node_env())
 
 
 def check_node_executable():

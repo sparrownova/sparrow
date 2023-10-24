@@ -7,10 +7,10 @@ import requests
 
 import sparrow
 from sparrow.auth import LoginAttemptTracker
-from sparrow.frappeclient import AuthError, FrappeClient
+from sparrow.sparrowclient import AuthError, sparrowClient
 from sparrow.sessions import Session, get_expired_sessions, get_expiry_in_seconds
-from sparrow.tests.test_api import FrappeAPITestCase
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.test_api import sparrowAPITestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_site_url, now
 from sparrow.utils.data import add_to_date
 from sparrow.www.login import _generate_temporary_login_link
@@ -26,7 +26,7 @@ def add_user(email, password, username=None, mobile_no=None):
 	sparrow.db.commit()
 
 
-class TestAuth(FrappeTestCase):
+class TestAuth(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()
@@ -61,12 +61,12 @@ class TestAuth(FrappeTestCase):
 		self.set_system_settings("allow_login_using_user_name", 0)
 
 		# Login by both email and mobile should work
-		FrappeClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
-		FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
 
 		# login by username should fail
 		with self.assertRaises(AuthError):
-			FrappeClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
+			sparrowClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
 
 	def test_allow_login_using_only_email(self):
 		self.set_system_settings("allow_login_using_mobile_number", 0)
@@ -74,14 +74,14 @@ class TestAuth(FrappeTestCase):
 
 		# Login by mobile number should fail
 		with self.assertRaises(AuthError):
-			FrappeClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
+			sparrowClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
 
 		# login by username should fail
 		with self.assertRaises(AuthError):
-			FrappeClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
+			sparrowClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
 
 		# Login by email should work
-		FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
 
 	def test_allow_login_using_username(self):
 		self.set_system_settings("allow_login_using_mobile_number", 0)
@@ -89,34 +89,34 @@ class TestAuth(FrappeTestCase):
 
 		# Mobile login should fail
 		with self.assertRaises(AuthError):
-			FrappeClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
+			sparrowClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
 
 		# Both email and username logins should work
-		FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
-		FrappeClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
 
 	def test_allow_login_using_username_and_mobile(self):
 		self.set_system_settings("allow_login_using_mobile_number", 1)
 		self.set_system_settings("allow_login_using_user_name", 1)
 
 		# Both email and username and mobile logins should work
-		FrappeClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
-		FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
-		FrappeClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_mobile, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		sparrowClient(self.HOST_NAME, self.test_user_name, self.test_user_password)
 
 	def test_deny_multiple_login(self):
 		self.set_system_settings("deny_multiple_sessions", 1)
 		self.addCleanup(self.set_system_settings, "deny_multiple_sessions", 0)
 
-		first_login = FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		first_login = sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
 		first_login.get_list("ToDo")
 
-		second_login = FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		second_login = sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
 		second_login.get_list("ToDo")
 		with self.assertRaises(Exception):
 			first_login.get_list("ToDo")
 
-		third_login = FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
+		third_login = sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password)
 		with self.assertRaises(Exception):
 			first_login.get_list("ToDo")
 		with self.assertRaises(Exception):
@@ -124,12 +124,12 @@ class TestAuth(FrappeTestCase):
 		third_login.get_list("ToDo")
 
 	def test_disable_user_pass_login(self):
-		FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password).get_list("ToDo")
+		sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password).get_list("ToDo")
 		self.set_system_settings("disable_user_pass_login", 1)
 		self.addCleanup(self.set_system_settings, "disable_user_pass_login", 0)
 
 		with self.assertRaises(Exception):
-			FrappeClient(self.HOST_NAME, self.test_user_email, self.test_user_password).get_list("ToDo")
+			sparrowClient(self.HOST_NAME, self.test_user_email, self.test_user_password).get_list("ToDo")
 
 	def test_login_with_email_link(self):
 
@@ -158,7 +158,7 @@ class TestAuth(FrappeTestCase):
 			self.fail("Rate limting not working")
 
 
-class TestLoginAttemptTracker(FrappeTestCase):
+class TestLoginAttemptTracker(sparrowTestCase):
 	def test_account_lock(self):
 		"""Make sure that account locks after `n consecutive failures"""
 		tracker = LoginAttemptTracker(
@@ -201,7 +201,7 @@ class TestLoginAttemptTracker(FrappeTestCase):
 		self.assertTrue(tracker.is_user_allowed())
 
 
-class TestSessionExpirty(FrappeAPITestCase):
+class TestSessionExpirty(sparrowAPITestCase):
 	def test_session_expires(self):
 		sid = self.sid  # triggers login for test case login
 		s: Session = sparrow.local.session_obj

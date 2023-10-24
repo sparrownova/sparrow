@@ -23,17 +23,17 @@ from unittest.mock import patch
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_fixed
 
 import sparrow
-from sparrow.frappeclient import FrappeClient
+from sparrow.sparrowclient import sparrowClient
 from sparrow.model.base_document import get_controller
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import cint
 from sparrow.website.path_resolver import PathResolver
 
 
 @run_only_if(db_type_is.MARIADB)
-class TestPerformance(FrappeTestCase):
+class TestPerformance(sparrowTestCase):
 	def reset_request_specific_caches(self):
 		# To simulate close to request level of handling
 		sparrow.destroy()  # releases everything on sparrow.local
@@ -128,7 +128,7 @@ class TestPerformance(FrappeTestCase):
 		FAILURE_THREASHOLD = 0.1
 
 		req_count = 1000
-		client = FrappeClient(self.HOST, "Administrator", self.ADMIN_PASSWORD)
+		client = sparrowClient(self.HOST, "Administrator", self.ADMIN_PASSWORD)
 
 		start = time.perf_counter()
 		for _ in range(req_count):

@@ -5,11 +5,11 @@ import json
 import sparrow
 from sparrow.templates.includes.comments.comments import add_comment
 from sparrow.tests.test_model_utils import set_user
-from sparrow.tests.utils import FrappeTestCase, change_settings
+from sparrow.tests.utils import sparrowTestCase, change_settings
 from sparrow.website.doctype.blog_post.test_blog_post import make_test_blog
 
 
-class TestComment(FrappeTestCase):
+class TestComment(sparrowTestCase):
 	def tearDown(self):
 		sparrow.form_dict.comment = None
 		sparrow.form_dict.comment_email = None

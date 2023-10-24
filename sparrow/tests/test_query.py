@@ -5,7 +5,7 @@ from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.query_builder import Field
 from sparrow.query_builder.functions import Abs, Count, Ifnull, Max, Now, Timestamp
 from sparrow.tests.test_query_builder import db_type_is, run_only_if
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.nestedset import get_ancestors_of, get_descendants_of
 
 
@@ -52,7 +52,7 @@ def create_tree_docs():
 		d.insert()
 
 
-class TestQuery(FrappeTestCase):
+class TestQuery(sparrowTestCase):
 	@run_only_if(db_type_is.MARIADB)
 	def test_multiple_tables_in_filters(self):
 		self.assertEqual(

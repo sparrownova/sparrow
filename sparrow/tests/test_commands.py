@@ -29,7 +29,7 @@ import sparrow.recorder
 from sparrow.installer import add_to_installed_apps, remove_app
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
-from sparrow.tests.utils import FrappeTestCase, timeout
+from sparrow.tests.utils import sparrowTestCase, timeout
 from sparrow.utils import add_to_date, get_bench_path, get_bench_relative_path, now
 from sparrow.utils.backups import BackupGenerator, fetch_latest_backups
 from sparrow.utils.jinja_globals import bundled_asset
@@ -136,7 +136,7 @@ def cli(cmd: Command, args: list | None = None):
 			importlib.invalidate_caches()
 
 
-class BaseTestCommands(FrappeTestCase):
+class BaseTestCommands(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls) -> None:
 		super().setUpClass()
@@ -392,8 +392,8 @@ class TestCommands(BaseTestCommands):
 		os.remove(test1_path)
 		os.remove(test2_path)
 
-	def test_frappe_site_env(self):
-		os.putenv("FRAPPE_SITE", sparrow.local.site)
+	def test_sparrow_site_env(self):
+		os.putenv("sparrow_SITE", sparrow.local.site)
 		self.execute("snova execute sparrow.ping")
 		self.assertEqual(self.returncode, 0)
 		self.assertIn("pong", self.stdout)
@@ -473,12 +473,12 @@ class TestCommands(BaseTestCommands):
 		# set admin password in site_config as when sparrow force installs, we don't have the conf
 		self.execute(f"snova --site {TEST_SITE} set-config admin_password {sparrow.conf.admin_password}")
 
-		# try installing the frappe_docs app again on test site
+		# try installing the sparrow_docs app again on test site
 		self.execute(f"snova --site {TEST_SITE} install-app {app_name}")
 		self.assertIn(f"{app_name} already installed", self.stdout)
 		self.assertEqual(self.returncode, 0)
 
-		# force install frappe_docs app on the test site
+		# force install sparrow_docs app on the test site
 		self.execute(f"snova --site {TEST_SITE} install-app {app_name} --force")
 		self.assertIn(f"Installing {app_name}", self.stdout)
 		self.assertEqual(self.returncode, 0)
@@ -670,7 +670,7 @@ class TestBackups(BaseTestCommands):
 		self.assertEqual([], missing_in_backup(self.backup_map["excludes"]["excludes"], database))
 
 
-class TestRemoveApp(FrappeTestCase):
+class TestRemoveApp(sparrowTestCase):
 	def test_delete_modules(self):
 		from sparrow.installer import (
 			_delete_doctypes,
@@ -761,7 +761,7 @@ class TestBenchBuild(BaseTestCommands):
 		)
 
 
-class TestCommandUtils(FrappeTestCase):
+class TestCommandUtils(sparrowTestCase):
 	def test_bench_helper(self):
 		from sparrow.utils.snova_helper import get_app_groups
 

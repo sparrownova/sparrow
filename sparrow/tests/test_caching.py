@@ -2,8 +2,8 @@ import time
 from unittest.mock import MagicMock
 
 import sparrow
-from sparrow.tests.test_api import FrappeAPITestCase
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.test_api import sparrowAPITestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.caching import redis_cache, request_cache, site_cache
 
 CACHE_TTL = 4
@@ -34,7 +34,7 @@ def ping_with_ttl() -> str:
 	return sparrow.local.site
 
 
-class TestCachingUtils(FrappeTestCase):
+class TestCachingUtils(sparrowTestCase):
 	def test_request_cache(self):
 		retval = []
 		acceptable_args = [
@@ -76,7 +76,7 @@ class TestCachingUtils(FrappeTestCase):
 		self.assertTrue(same_output_received())
 
 
-class TestSiteCache(FrappeAPITestCase):
+class TestSiteCache(sparrowAPITestCase):
 	def test_site_cache(self):
 		module = __name__
 		api_with_ttl = f"{module}.ping_with_ttl"
@@ -92,7 +92,7 @@ class TestSiteCache(FrappeAPITestCase):
 		self.assertEqual(register_with_external_service.call_count, 3)
 
 
-class TestRedisCache(FrappeAPITestCase):
+class TestRedisCache(sparrowAPITestCase):
 	def test_redis_cache(self):
 		function_call_count = 0
 

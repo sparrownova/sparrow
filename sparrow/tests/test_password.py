@@ -3,11 +3,11 @@
 from cryptography.fernet import Fernet
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.password import check_password, decrypt, encrypt, passlibctx, update_password
 
 
-class TestPassword(FrappeTestCase):
+class TestPassword(sparrowTestCase):
 	def setUp(self):
 		sparrow.delete_doc("Email Account", "Test Email Account Password")
 		sparrow.delete_doc("Email Account", "Test Email Account Password-new")

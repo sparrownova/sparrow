@@ -7,7 +7,7 @@ import sparrow
 from sparrow.core.doctype.communication.communication import Communication, get_emails
 from sparrow.core.doctype.communication.email import add_attachments
 from sparrow.email.doctype.email_queue.email_queue import EmailQueue
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 if TYPE_CHECKING:
 	from sparrow.contacts.doctype.contact.contact import Contact
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 test_records = sparrow.get_test_records("Communication")
 
 
-class TestCommunication(FrappeTestCase):
+class TestCommunication(sparrowTestCase):
 	def test_email(self):
 		valid_email_list = [
 			"Full Name <full@example.com>",
@@ -294,7 +294,7 @@ class TestCommunication(FrappeTestCase):
 		self.assertEqual(comm_without_signature.content.count(signature), 1)
 
 
-class TestCommunicationEmailMixin(FrappeTestCase):
+class TestCommunicationEmailMixin(sparrowTestCase):
 	def new_communication(self, recipients=None, cc=None, bcc=None) -> Communication:
 		recipients = ", ".join(recipients or [])
 		cc = ", ".join(cc or [])

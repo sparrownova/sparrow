@@ -1228,9 +1228,9 @@ def get_translations(source_text):
 
 @sparrow.whitelist()
 def get_messages(language, start=0, page_length=100, search_text=""):
-	from sparrow.frappeclient import FrappeClient
+	from sparrow.sparrowclient import sparrowClient
 
-	translator = FrappeClient(get_translator_url())
+	translator = sparrowClient(get_translator_url())
 	translated_dict = translator.post_api(
 		"translator.api.get_strings_for_translation", params=locals()
 	)
@@ -1240,9 +1240,9 @@ def get_messages(language, start=0, page_length=100, search_text=""):
 
 @sparrow.whitelist()
 def get_source_additional_info(source, language=""):
-	from sparrow.frappeclient import FrappeClient
+	from sparrow.sparrowclient import sparrowClient
 
-	translator = FrappeClient(get_translator_url())
+	translator = sparrowClient(get_translator_url())
 	return translator.post_api("translator.api.get_source_additional_info", params=locals())
 
 
@@ -1259,10 +1259,10 @@ def get_contributions(language):
 
 @sparrow.whitelist()
 def get_contribution_status(message_id):
-	from sparrow.frappeclient import FrappeClient
+	from sparrow.sparrowclient import sparrowClient
 
 	doc = sparrow.get_doc("Translation", message_id)
-	translator = FrappeClient(get_translator_url())
+	translator = sparrowClient(get_translator_url())
 	contributed_translation = translator.get_api(
 		"translator.api.get_contribution_status", params={"translation_id": doc.contribution_docname}
 	)

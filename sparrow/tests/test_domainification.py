@@ -8,10 +8,10 @@ from sparrow.desk.doctype.desktop_icon.desktop_icon import (
 	clear_desktop_icons_cache,
 	get_desktop_icons,
 )
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDomainification(FrappeTestCase):
+class TestDomainification(sparrowTestCase):
 	def setUp(self):
 		# create test domain
 		self.new_domain("_Test Domain 1")

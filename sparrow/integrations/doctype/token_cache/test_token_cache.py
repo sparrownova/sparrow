@@ -1,12 +1,12 @@
 # Copyright (c) 2019, Sparrow Technologies and contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["User", "Connected App", "Token Cache"]
 
 
-class TestTokenCache(FrappeTestCase):
+class TestTokenCache(sparrowTestCase):
 	def setUp(self):
 		self.token_cache = sparrow.get_last_doc("Token Cache")
 		self.token_cache.update({"connected_app": sparrow.get_last_doc("Connected App").name})

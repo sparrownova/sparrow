@@ -3,10 +3,10 @@
 from unittest.mock import patch
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestClient(FrappeTestCase):
+class TestClient(sparrowTestCase):
 	def test_set_value(self):
 		todo = sparrow.get_doc(dict(doctype="ToDo", description="test")).insert()
 		sparrow.set_value("ToDo", todo.name, "description", "test 1")

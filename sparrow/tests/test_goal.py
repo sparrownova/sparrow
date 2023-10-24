@@ -3,12 +3,12 @@
 
 import sparrow
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import format_date, today
 from sparrow.utils.goal import get_monthly_goal_graph_data, get_monthly_results
 
 
-class TestGoal(FrappeTestCase):
+class TestGoal(sparrowTestCase):
 	def setUp(self):
 		make_test_objects("Event", reset=True)
 

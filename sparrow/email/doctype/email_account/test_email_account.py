@@ -14,13 +14,13 @@ from sparrow.email.doctype.email_account.email_account import notify_unreplied
 from sparrow.email.email_body import get_message_id
 from sparrow.email.receive import Email, InboundMail, SentEmailInInboxError
 from sparrow.test_runner import make_test_records
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 make_test_records("User")
 make_test_records("Email Account")
 
 
-class TestEmailAccount(FrappeTestCase):
+class TestEmailAccount(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()
@@ -437,7 +437,7 @@ class TestEmailAccount(FrappeTestCase):
 			email_account.receive()
 
 
-class TestInboundMail(FrappeTestCase):
+class TestInboundMail(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

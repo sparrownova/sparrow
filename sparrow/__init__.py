@@ -8,7 +8,7 @@ framework written in Python and Javascript with MariaDB as the database.
 It is the framework which powers Shopper. It is pretty generic and can
 be used to build database driven apps.
 
-Read the documentation: https://frappeframework.com/docs
+Read the documentation: https://sparrowframework.com/docs
 """
 import functools
 import gc
@@ -57,7 +57,7 @@ re._MAXCACHE = (
 	50  # reduced from default 512 given we are already maintaining this on parent worker
 )
 
-_tune_gc = bool(sbool(os.environ.get("FRAPPE_TUNE_GC", True)))
+_tune_gc = bool(sbool(os.environ.get("sparrow_TUNE_GC", True)))
 
 if _dev_server:
 	warnings.simplefilter("always", DeprecationWarning)
@@ -1413,12 +1413,12 @@ def get_all_apps(with_internal_apps=True, sites_path=None):
 
 
 @request_cache
-def get_installed_apps(sort=False, frappe_last=False, *, _ensure_on_bench=False):
+def get_installed_apps(sort=False, sparrow_last=False, *, _ensure_on_bench=False):
 	"""
 	Get list of installed apps in current site.
 
 	:param sort: [DEPRECATED] Sort installed apps based on the sequence in sites/apps.txt
-	:param frappe_last: [DEPRECATED] Keep sparrow last. Do not use this, reverse the app list instead.
+	:param sparrow_last: [DEPRECATED] Keep sparrow last. Do not use this, reverse the app list instead.
 	:param ensure_on_bench: Only return apps that are present on snova.
 	"""
 	from sparrow.utils.deprecations import deprecation_warning
@@ -1442,8 +1442,8 @@ def get_installed_apps(sort=False, frappe_last=False, *, _ensure_on_bench=False)
 		all_apps = cache().get_value("all_apps", get_all_apps)
 		installed = [app for app in installed if app in all_apps]
 
-	if frappe_last:
-		deprecation_warning("`frappe_last` argument is deprecated and will be removed in v15.")
+	if sparrow_last:
+		deprecation_warning("`sparrow_last` argument is deprecated and will be removed in v15.")
 		if "sparrow" in installed:
 			installed.remove("sparrow")
 		installed.append("sparrow")

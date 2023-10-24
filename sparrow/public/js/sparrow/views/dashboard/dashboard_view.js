@@ -44,7 +44,7 @@ sparrow.views.DashboardView = class DashboardView extends sparrow.views.ListView
 	setup_dashboard_page() {
 		const chart_wrapper_html = `<div class="dashboard-view"></div>`;
 
-		this.$frappe_list.html(chart_wrapper_html);
+		this.$sparrow_list.html(chart_wrapper_html);
 		this.page.clear_secondary_action();
 		this.$dashboard_page = this.$page
 			.find(".layout-main-section-wrapper")

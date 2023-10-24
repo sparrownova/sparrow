@@ -5,11 +5,11 @@ import sparrow
 from sparrow.custom.doctype.property_setter.property_setter import make_property_setter
 from sparrow.desk.page.setup_wizard.install_fixtures import update_global_search_doctypes
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import global_search, now_datetime
 
 
-class TestGlobalSearch(FrappeTestCase):
+class TestGlobalSearch(sparrowTestCase):
 	def setUp(self):
 		update_global_search_doctypes()
 		global_search.setup_global_search_table()

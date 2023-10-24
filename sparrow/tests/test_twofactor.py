@@ -6,7 +6,7 @@ import pyotp
 
 import sparrow
 from sparrow.auth import HTTPRequest, get_login_attempt_tracker, validate_ip_address
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.twofactor import (
 	ExpiredLoginException,
 	authenticate_for_2factor,
@@ -23,7 +23,7 @@ from sparrow.utils import cint, set_request
 from . import get_system_setting, update_system_settings
 
 
-class TestTwoFactor(FrappeTestCase):
+class TestTwoFactor(sparrowTestCase):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 		self.default_allowed_login_attempts = get_system_setting("allow_consecutive_login_attempts")

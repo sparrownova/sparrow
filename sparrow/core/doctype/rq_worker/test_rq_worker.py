@@ -3,10 +3,10 @@
 
 import sparrow
 from sparrow.core.doctype.rq_worker.rq_worker import RQWorker
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestRQWorker(FrappeTestCase):
+class TestRQWorker(sparrowTestCase):
 	def test_get_worker_list(self):
 		workers = RQWorker.get_list({})
 		self.assertGreaterEqual(len(workers), 1)

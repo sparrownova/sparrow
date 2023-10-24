@@ -8,12 +8,12 @@ from unittest.mock import patch
 import sparrow
 from sparrow.email.doctype.email_account.test_email_account import TestEmailAccount
 from sparrow.email.doctype.email_queue.email_queue import QueueBuilder
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["Email Account"]
 
 
-class TestEmail(FrappeTestCase):
+class TestEmail(sparrowTestCase):
 	def setUp(self):
 		sparrow.db.delete("Email Unsubscribe")
 		sparrow.db.delete("Email Queue")
@@ -336,7 +336,7 @@ class TestEmail(FrappeTestCase):
 			email_account.enable_incoming = False
 
 
-class TestVerifiedRequests(FrappeTestCase):
+class TestVerifiedRequests(sparrowTestCase):
 	def test_round_trip(self):
 		from sparrow.utils import set_request
 		from sparrow.utils.verified_command import get_signed_params, verify_request

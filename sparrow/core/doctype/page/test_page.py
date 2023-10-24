@@ -1,12 +1,12 @@
 # Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Page")
 
 
-class TestPage(FrappeTestCase):
+class TestPage(sparrowTestCase):
 	def test_naming(self):
 		self.assertRaises(
 			sparrow.NameError,

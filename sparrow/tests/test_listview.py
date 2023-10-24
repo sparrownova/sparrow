@@ -4,10 +4,10 @@ import json
 
 import sparrow
 from sparrow.desk.listview import get_group_by_count, get_list_settings, set_list_settings
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestListView(FrappeTestCase):
+class TestListView(sparrowTestCase):
 	def setUp(self):
 		if sparrow.db.exists("List View Settings", "DocType"):
 			sparrow.delete_doc("List View Settings", "DocType")

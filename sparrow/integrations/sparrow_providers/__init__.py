@@ -2,12 +2,12 @@
 import sys
 
 # imports - module imports
-from sparrow.integrations.frappe_providers.frappecloud import frappecloud_migrator
+from sparrow.integrations.sparrow_providers.sparrowcloud import sparrowcloud_migrator
 
 
-def migrate_to(local_site, frappe_provider):
-	if frappe_provider in ("sparrow.cloud", "frappecloud.com"):
-		return frappecloud_migrator(local_site)
+def migrate_to(local_site, sparrow_provider):
+	if sparrow_provider in ("sparrow.cloud", "sparrowcloud.com"):
+		return sparrowcloud_migrator(local_site)
 	else:
-		print(f"{frappe_provider} is not supported yet")
+		print(f"{sparrow_provider} is not supported yet")
 		sys.exit(1)

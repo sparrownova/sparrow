@@ -2,8 +2,8 @@
 # See license.txt
 
 # import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestPackageRelease(FrappeTestCase):
+class TestPackageRelease(sparrowTestCase):
 	pass

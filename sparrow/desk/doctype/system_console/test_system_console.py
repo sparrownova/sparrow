@@ -1,10 +1,10 @@
 # Copyright (c) 2020, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestSystemConsole(FrappeTestCase):
+class TestSystemConsole(sparrowTestCase):
 	def test_system_console(self):
 		system_console = sparrow.get_doc("System Console")
 		system_console.console = 'log("hello")'

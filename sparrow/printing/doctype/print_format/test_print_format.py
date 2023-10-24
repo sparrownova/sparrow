@@ -3,12 +3,12 @@
 import re
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Print Format")
 
 
-class TestPrintFormat(FrappeTestCase):
+class TestPrintFormat(sparrowTestCase):
 	def test_print_user(self, style=None):
 		print_html = sparrow.get_print("User", "Administrator", style=style)
 		self.assertTrue("<label>First Name: </label>" in print_html)

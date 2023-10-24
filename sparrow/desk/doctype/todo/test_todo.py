@@ -4,12 +4,12 @@ import sparrow
 from sparrow.core.doctype.doctype.doctype import clear_permissions_cache
 from sparrow.model.db_query import DatabaseQuery
 from sparrow.permissions import add_permission, reset_perms
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["User"]
 
 
-class TestToDo(FrappeTestCase):
+class TestToDo(sparrowTestCase):
 	def test_delete(self):
 		todo = sparrow.get_doc(
 			dict(doctype="ToDo", description="test todo", assigned_by="Administrator")

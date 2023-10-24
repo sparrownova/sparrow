@@ -24,7 +24,7 @@ STANDARD_EXCLUSIONS = [
 	"*/patches/*",
 ]
 
-FRAPPE_EXCLUSIONS = [
+sparrow_EXCLUSIONS = [
 	"*/tests/*",
 	"*/commands/*",
 	"*/sparrow/change_log/*",
@@ -54,7 +54,7 @@ class CodeCoverage:
 			omit = STANDARD_EXCLUSIONS[:]
 
 			if self.app == "sparrow":
-				omit.extend(FRAPPE_EXCLUSIONS)
+				omit.extend(sparrow_EXCLUSIONS)
 
 			self.coverage = Coverage(source=[source_path], omit=omit, include=STANDARD_INCLUSIONS)
 			self.coverage.start()

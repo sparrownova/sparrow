@@ -4,7 +4,7 @@ from unittest.mock import patch
 import redis
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_bench_id
 from sparrow.utils.background_jobs import get_redis_conn
 from sparrow.utils.redis_queue import RedisQueue
@@ -29,7 +29,7 @@ def skip_if_redis_version_lt(version):
 	return decorator
 
 
-class TestRedisAuth(FrappeTestCase):
+class TestRedisAuth(sparrowTestCase):
 	@skip_if_redis_version_lt("6.0")
 	@patch.dict(sparrow.conf, {"bench_id": "test_bench", "use_rq_auth": False})
 	def test_rq_gen_acllist(self):

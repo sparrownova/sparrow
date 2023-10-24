@@ -11,7 +11,7 @@ from werkzeug.test import TestResponse
 
 import sparrow
 from sparrow.installer import update_site_config
-from sparrow.tests.utils import FrappeTestCase, patch_hooks
+from sparrow.tests.utils import sparrowTestCase, patch_hooks
 from sparrow.utils import get_site_url, get_test_client
 
 try:
@@ -67,7 +67,7 @@ class ThreadWithReturnValue(Thread):
 		return self._return
 
 
-class FrappeAPITestCase(FrappeTestCase):
+class sparrowAPITestCase(sparrowTestCase):
 	SITE = sparrow.local.site
 	SITE_URL = get_site_url(SITE)
 	RESOURCE_URL = f"{SITE_URL}/api/resource"
@@ -100,7 +100,7 @@ class FrappeAPITestCase(FrappeTestCase):
 		return make_request(target=self.TEST_CLIENT.delete, args=(path,), kwargs=kwargs)
 
 
-class TestResourceAPI(FrappeAPITestCase):
+class TestResourceAPI(sparrowAPITestCase):
 	DOCTYPE = "ToDo"
 	GENERATED_DOCUMENTS = []
 
@@ -225,7 +225,7 @@ class TestResourceAPI(FrappeAPITestCase):
 			self.assertIsInstance(data[0], dict)
 
 
-class TestMethodAPI(FrappeAPITestCase):
+class TestMethodAPI(sparrowAPITestCase):
 	METHOD_PATH = "/api/method"
 
 	def setUp(self):
@@ -273,7 +273,7 @@ class TestMethodAPI(FrappeAPITestCase):
 		authorization_token = None
 
 
-class TestReadOnlyMode(FrappeAPITestCase):
+class TestReadOnlyMode(sparrowAPITestCase):
 	"""During migration if read only mode can be enabled.
 	Test if reads work well and writes are blocked"""
 
@@ -299,7 +299,7 @@ class TestReadOnlyMode(FrappeAPITestCase):
 		self.assertEqual(response.json["exc_type"], "InReadOnlyMode")
 
 
-class TestWSGIApp(FrappeAPITestCase):
+class TestWSGIApp(sparrowAPITestCase):
 	def test_request_hooks(self):
 		self.addCleanup(lambda: _test_REQ_HOOK.clear())
 

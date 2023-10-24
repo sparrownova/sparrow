@@ -6,11 +6,11 @@ from sparrow.core.doctype.document_naming_settings.document_naming_settings impo
 	DocumentNamingSettings,
 )
 from sparrow.model.naming import NamingSeries, get_default_naming_series
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import cint
 
 
-class TestNamingSeries(FrappeTestCase):
+class TestNamingSeries(sparrowTestCase):
 	def setUp(self):
 		self.dns: DocumentNamingSettings = sparrow.get_doc("Document Naming Settings")
 

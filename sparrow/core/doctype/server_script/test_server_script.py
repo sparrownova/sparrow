@@ -4,7 +4,7 @@ import requests
 
 import sparrow
 from sparrow.core.doctype.scheduled_job_type.scheduled_job_type import sync_jobs
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_site_url
 
 scripts = [
@@ -86,7 +86,7 @@ sparrow.db.add_index("Todo", ["color", "date"])
 ]
 
 
-class TestServerScript(FrappeTestCase):
+class TestServerScript(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

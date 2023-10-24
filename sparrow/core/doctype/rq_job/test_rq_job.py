@@ -10,12 +10,12 @@ from rq.job import Job
 import sparrow
 from sparrow.core.doctype.rq_job.rq_job import RQJob, remove_failed_jobs, stop_job
 from sparrow.installer import update_site_config
-from sparrow.tests.utils import FrappeTestCase, timeout
+from sparrow.tests.utils import sparrowTestCase, timeout
 from sparrow.utils import cstr, execute_in_shell
 from sparrow.utils.background_jobs import is_job_enqueued
 
 
-class TestRQJob(FrappeTestCase):
+class TestRQJob(sparrowTestCase):
 	BG_JOB = "sparrow.core.doctype.rq_job.test_rq_job.test_func"
 
 	@timeout(seconds=20)

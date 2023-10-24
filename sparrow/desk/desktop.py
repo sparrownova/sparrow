@@ -666,4 +666,4 @@ def update_onboarding_step(name, field, value):
 
 	sparrow.db.set_value("Onboarding Step", name, field, value)
 
-	capture(sparrow.scrub(name), app="frappe_onboarding", properties={field: value})
+	capture(sparrow.scrub(name), app="sparrow_onboarding", properties={field: value})

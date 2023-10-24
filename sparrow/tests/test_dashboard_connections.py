@@ -6,10 +6,10 @@ from unittest.mock import patch
 import sparrow
 import sparrow.utils
 from sparrow.desk.notifications import get_open_count
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDashboardConnections(FrappeTestCase):
+class TestDashboardConnections(sparrowTestCase):
 	@patch.dict(sparrow.conf, {"developer_mode": 1})
 	def setUp(self):
 		delete_test_data()

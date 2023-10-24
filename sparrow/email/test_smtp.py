@@ -4,10 +4,10 @@
 import sparrow
 from sparrow.email.doctype.email_account.email_account import EmailAccount
 from sparrow.email.smtp import SMTPServer
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestSMTP(FrappeTestCase):
+class TestSMTP(sparrowTestCase):
 	def test_smtp_ssl_session(self):
 		for port in [None, 0, 465, "465"]:
 			make_server(port, 1, 0)

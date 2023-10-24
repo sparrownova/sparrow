@@ -1,9 +1,9 @@
 # Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestGeoIP(FrappeTestCase):
+class TestGeoIP(sparrowTestCase):
 	def test_geo_ip(self):
 		return
 		from sparrow.sessions import get_geo_ip_country

@@ -3,7 +3,7 @@
 import json
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import set_request
 from sparrow.website.doctype.web_form.web_form import accept
 from sparrow.website.serve import get_response_content
@@ -11,7 +11,7 @@ from sparrow.website.serve import get_response_content
 test_dependencies = ["Web Form"]
 
 
-class TestWebForm(FrappeTestCase):
+class TestWebForm(sparrowTestCase):
 	def setUp(self):
 		sparrow.conf.disable_website_cache = True
 		sparrow.local.path = None

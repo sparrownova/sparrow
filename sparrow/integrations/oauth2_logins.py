@@ -24,7 +24,7 @@ def login_via_facebook(code: str, state: str):
 
 
 @sparrow.whitelist(allow_guest=True)
-def login_via_frappe(code: str, state: str):
+def login_via_sparrow(code: str, state: str):
 	login_via_oauth2("sparrow", code, state, decoder=decoder_compat)
 
 

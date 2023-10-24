@@ -1,10 +1,10 @@
 import sparrow
 from sparrow.boot import get_unseen_notes, get_user_pages_or_reports
 from sparrow.desk.doctype.note.note import mark_as_seen
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestBootData(FrappeTestCase):
+class TestBootData(sparrowTestCase):
 	def test_get_unseen_notes(self):
 		sparrow.db.delete("Note")
 		sparrow.db.delete("Note Seen By")

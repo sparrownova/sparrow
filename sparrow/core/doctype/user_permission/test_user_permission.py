@@ -7,11 +7,11 @@ from sparrow.core.doctype.user_permission.user_permission import (
 	remove_applicable,
 )
 from sparrow.permissions import has_user_permission
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.website.doctype.blog_post.test_blog_post import make_test_blog
 
 
-class TestUserPermission(FrappeTestCase):
+class TestUserPermission(sparrowTestCase):
 	def setUp(self):
 		test_users = (
 			"test_bulk_creation_update@example.com",

@@ -194,7 +194,7 @@ def setup_read_only_mode():
 
 
 def log_request(request, response):
-	if hasattr(sparrow.local, "conf") and sparrow.local.conf.enable_frappe_logger:
+	if hasattr(sparrow.local, "conf") and sparrow.local.conf.enable_sparrow_logger:
 		sparrow.logger("sparrow.web", allow_site=sparrow.local.site).info(
 			{
 				"site": get_site_name(request.host),

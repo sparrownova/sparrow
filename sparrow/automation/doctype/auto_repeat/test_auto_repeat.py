@@ -7,7 +7,7 @@ from sparrow.automation.doctype.auto_repeat.auto_repeat import (
 	week_map,
 )
 from sparrow.custom.doctype.custom_field.custom_field import create_custom_field
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import add_days, add_months, getdate, today
 
 
@@ -25,7 +25,7 @@ def add_custom_fields():
 	create_custom_field("ToDo", df)
 
 
-class TestAutoRepeat(FrappeTestCase):
+class TestAutoRepeat(sparrowTestCase):
 	def setUp(self):
 		if not sparrow.db.sql(
 			"SELECT `fieldname` FROM `tabCustom Field` WHERE `fieldname`='auto_repeat' and `dt`=%s", "Todo"

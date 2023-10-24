@@ -3,13 +3,13 @@
 import sparrow
 from sparrow.core.doctype.data_import.importer import Importer
 from sparrow.tests.test_query_builder import db_type_is, run_only_if
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import format_duration, getdate
 
 doctype_name = "DocType for Import"
 
 
-class TestImporter(FrappeTestCase):
+class TestImporter(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

@@ -15,7 +15,7 @@ from sparrow.email.doctype.newsletter.newsletter import (
 	send_scheduled_email,
 )
 from sparrow.email.queue import flush
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import add_days, getdate
 
 emails = [
@@ -132,7 +132,7 @@ class TestNewsletterMixin:
 		return newsletter
 
 
-class TestNewsletter(TestNewsletterMixin, FrappeTestCase):
+class TestNewsletter(TestNewsletterMixin, sparrowTestCase):
 	def test_send(self):
 		self.send_newsletter()
 

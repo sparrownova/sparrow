@@ -7,7 +7,7 @@ import sparrow
 import sparrow.utils
 import sparrow.utils.scheduler
 from sparrow.desk.form import assign_to
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["User", "Notification"]
 
@@ -21,7 +21,7 @@ def get_test_notification(config):
 		notification.delete()
 
 
-class TestNotification(FrappeTestCase):
+class TestNotification(sparrowTestCase):
 	def setUp(self):
 		sparrow.db.delete("Email Queue")
 		sparrow.set_user("test@example.com")

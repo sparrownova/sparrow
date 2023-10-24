@@ -51,7 +51,7 @@ def sync_for(app_name, force=0, reset_permissions=False):
 	if app_name == "sparrow":
 		# these need to go first at time of install
 
-		FRAPPE_PATH = sparrow.get_app_path("sparrow")
+		sparrow_PATH = sparrow.get_app_path("sparrow")
 
 		for core_module in [
 			"docfield",
@@ -63,16 +63,16 @@ def sync_for(app_name, force=0, reset_permissions=False):
 			"has_role",
 			"doctype",
 		]:
-			files.append(os.path.join(FRAPPE_PATH, "core", "doctype", core_module, f"{core_module}.json"))
+			files.append(os.path.join(sparrow_PATH, "core", "doctype", core_module, f"{core_module}.json"))
 
 		for custom_module in ["custom_field", "property_setter"]:
 			files.append(
-				os.path.join(FRAPPE_PATH, "custom", "doctype", custom_module, f"{custom_module}.json")
+				os.path.join(sparrow_PATH, "custom", "doctype", custom_module, f"{custom_module}.json")
 			)
 
 		for website_module in ["web_form", "web_template", "web_form_field", "portal_menu_item"]:
 			files.append(
-				os.path.join(FRAPPE_PATH, "website", "doctype", website_module, f"{website_module}.json")
+				os.path.join(sparrow_PATH, "website", "doctype", website_module, f"{website_module}.json")
 			)
 
 		for desk_module in [
@@ -91,10 +91,10 @@ def sync_for(app_name, force=0, reset_permissions=False):
 			"workspace_custom_block",
 			"workspace",
 		]:
-			files.append(os.path.join(FRAPPE_PATH, "desk", "doctype", desk_module, f"{desk_module}.json"))
+			files.append(os.path.join(sparrow_PATH, "desk", "doctype", desk_module, f"{desk_module}.json"))
 
 		for module_name, document_type in IMPORTABLE_DOCTYPES:
-			file = os.path.join(FRAPPE_PATH, module_name, "doctype", document_type, f"{document_type}.json")
+			file = os.path.join(sparrow_PATH, module_name, "doctype", document_type, f"{document_type}.json")
 			if file not in files:
 				files.append(file)
 

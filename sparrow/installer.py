@@ -638,7 +638,7 @@ def add_module_defs(app, ignore_if_duplicate=False):
 def remove_missing_apps():
 	import importlib
 
-	apps = ("frappe_subscription", "shopping_cart")
+	apps = ("sparrow_subscription", "shopping_cart")
 	installed_apps = json.loads(sparrow.db.get_global("installed_apps") or "[]")
 	for app in apps:
 		if app in installed_apps:

@@ -2,12 +2,12 @@
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.test_runner import make_test_objects
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Email Domain")
 
 
-class TestDomain(FrappeTestCase):
+class TestDomain(sparrowTestCase):
 	def setUp(self):
 		make_test_objects("Email Domain", reset=True)
 

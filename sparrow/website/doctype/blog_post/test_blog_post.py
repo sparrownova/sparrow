@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 import sparrow
 from sparrow.custom.doctype.customize_form.customize_form import reset_customization
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import random_string, set_request
 from sparrow.website.doctype.blog_post.blog_post import get_blog_list
 from sparrow.website.serve import get_response
@@ -16,7 +16,7 @@ from sparrow.website.website_generator import WebsiteGenerator
 test_dependencies = ["Blog Post"]
 
 
-class TestBlogPost(FrappeTestCase):
+class TestBlogPost(sparrowTestCase):
 	def setUp(self):
 		reset_customization("Blog Post")
 

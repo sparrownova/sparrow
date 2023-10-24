@@ -2,10 +2,10 @@
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.installer import update_site_config
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestUserType(FrappeTestCase):
+class TestUserType(sparrowTestCase):
 	def setUp(self):
 		create_role()
 

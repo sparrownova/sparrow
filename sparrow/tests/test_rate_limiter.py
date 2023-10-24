@@ -8,11 +8,11 @@ from werkzeug.wrappers import Response
 import sparrow
 import sparrow.rate_limiter
 from sparrow.rate_limiter import RateLimiter
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import cint
 
 
-class TestRateLimiter(FrappeTestCase):
+class TestRateLimiter(sparrowTestCase):
 	def test_apply_with_limit(self):
 		sparrow.conf.rate_limit = {"window": 86400, "limit": 1}
 		sparrow.rate_limiter.apply()

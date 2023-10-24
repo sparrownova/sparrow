@@ -5,7 +5,7 @@ import sparrow
 from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.query_builder import Field
 from sparrow.query_builder.functions import Max
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import random_string
 from sparrow.utils.nestedset import (
 	NestedSetChildExistsError,
@@ -80,7 +80,7 @@ class NestedSetTestUtil:
 		return len(get_descendants_of("Test Tree DocType", record_name, ignore_permissions=True))
 
 
-class TestNestedSet(FrappeTestCase):
+class TestNestedSet(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls) -> None:
 		cls.nsu = NestedSetTestUtil()

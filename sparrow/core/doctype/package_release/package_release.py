@@ -79,7 +79,7 @@ class PackageRelease(Document):
 			with open(sparrow.get_site_path("packages", package.package_name, "LICENSE.md"), "w") as license:
 				license.write(package.license)
 
-		# write package.json as `frappe_package.json`
+		# write package.json as `sparrow_package.json`
 		with open(
 			sparrow.get_site_path("packages", package.package_name, package.package_name + ".json"), "w"
 		) as packagefile:

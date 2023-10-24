@@ -28,8 +28,8 @@ function get_conf() {
 	read_config("sites/common_site_config.json");
 
 	// set default site
-	if (process.env.FRAPPE_SITE) {
-		conf.default_site = process.env.FRAPPE_SITE;
+	if (process.env.sparrow_SITE) {
+		conf.default_site = process.env.sparrow_SITE;
 	}
 	if (fs.existsSync("sites/currentsite.txt")) {
 		conf.default_site = fs.readFileSync("sites/currentsite.txt").toString().trim();

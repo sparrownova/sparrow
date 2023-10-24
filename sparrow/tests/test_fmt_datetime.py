@@ -3,7 +3,7 @@
 import datetime
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import (
 	format_datetime,
 	format_time,
@@ -33,7 +33,7 @@ test_time_formats = {
 }
 
 
-class TestFmtDatetime(FrappeTestCase):
+class TestFmtDatetime(sparrowTestCase):
 	"""Tests date, time and datetime formatters and some associated
 	utility functions. These rely on the system-wide date and time
 	formats.

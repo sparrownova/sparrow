@@ -10,7 +10,7 @@ from sparrow.integrations.doctype.webhook.webhook import (
 	get_webhook_data,
 	get_webhook_headers,
 )
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
 @contextmanager
@@ -23,7 +23,7 @@ def get_test_webhook(config):
 		wh.delete()
 
 
-class TestWebhook(FrappeTestCase):
+class TestWebhook(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		# delete any existing webhooks

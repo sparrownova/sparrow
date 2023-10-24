@@ -7,7 +7,7 @@ import sparrow.modules.utils
 from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.desk.form.save import savedocs
 from sparrow.model.document import Document
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 TEST_DOCTYPE_NAME = "VirtualDoctypeTest"
 
@@ -80,7 +80,7 @@ class VirtualDoctypeTest(Document):
 		return {}
 
 
-class TestVirtualDoctypes(FrappeTestCase):
+class TestVirtualDoctypes(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		sparrow.flags.allow_doctype_export = True

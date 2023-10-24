@@ -10,7 +10,7 @@ sparrow.ui.misc.about = function () {
 					__("Open Source Applications for the Web") +
 					"</p>  \
 		<p><i class='fa fa-globe fa-fw'></i>\
-			Website: <a href='https://frappeframework.com' target='_blank'>https://frappeframework.com</a></p>\
+			Website: <a href='https://sparrowframework.com' target='_blank'>https://sparrowframework.com</a></p>\
 		<p><i class='fa fa-github fa-fw'></i>\
 			Source: <a href='https://github.com/sparrow' target='_blank'>https://github.com/sparrow</a></p>\
 		<p><i class='fa fa-linkedin fa-fw'></i>\

@@ -8,7 +8,7 @@ import requests
 
 import sparrow
 from sparrow import _
-from sparrow.frappeclient import FrappeClient
+from sparrow.sparrowclient import sparrowClient
 from sparrow.model.document import Document
 from sparrow.utils.background_jobs import get_jobs
 from sparrow.utils.data import get_url
@@ -114,9 +114,9 @@ def register_consumer(data):
 
 
 def get_consumer_site(consumer_url):
-	"""create a FrappeClient object for event consumer site"""
+	"""create a sparrowClient object for event consumer site"""
 	consumer_doc = sparrow.get_doc("Event Consumer", consumer_url)
-	consumer_site = FrappeClient(
+	consumer_site = sparrowClient(
 		url=consumer_url,
 		api_key=consumer_doc.api_key,
 		api_secret=consumer_doc.get_password("api_secret"),

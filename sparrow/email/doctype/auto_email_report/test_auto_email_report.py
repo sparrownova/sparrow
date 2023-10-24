@@ -3,14 +3,14 @@
 import json
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import add_to_date, get_link_to_form, today
 from sparrow.utils.data import is_html
 
 # test_records = sparrow.get_test_records('Auto Email Report')
 
 
-class TestAutoEmailReport(FrappeTestCase):
+class TestAutoEmailReport(sparrowTestCase):
 	def test_auto_email(self):
 		sparrow.delete_doc("Auto Email Report", "Permitted Documents For User")
 

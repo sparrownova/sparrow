@@ -4,11 +4,11 @@ from sparrow.core.utils import find
 from sparrow.custom.doctype.property_setter.property_setter import make_property_setter
 from sparrow.query_builder.utils import db_type_is
 from sparrow.tests.test_query_builder import run_only_if
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import cstr
 
 
-class TestDBUpdate(FrappeTestCase):
+class TestDBUpdate(sparrowTestCase):
 	def test_db_update(self):
 		doctype = "User"
 		sparrow.reload_doctype("User", force=True)

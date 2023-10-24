@@ -2,8 +2,8 @@
 # License: MIT. See LICENSE
 
 # import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestWorkflowAction(FrappeTestCase):
+class TestWorkflowAction(sparrowTestCase):
 	pass

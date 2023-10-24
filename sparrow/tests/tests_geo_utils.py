@@ -3,10 +3,10 @@
 
 import sparrow
 from sparrow.geo.utils import get_coords
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestGeoUtils(FrappeTestCase):
+class TestGeoUtils(sparrowTestCase):
 	def setUp(self):
 		self.todo = sparrow.get_doc(
 			dict(doctype="ToDo", description="Test description", assigned_by="Administrator")

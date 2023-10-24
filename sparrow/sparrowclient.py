@@ -1,5 +1,5 @@
 """
-FrappeClient is a library that helps you connect with other sparrow systems
+sparrowClient is a library that helps you connect with other sparrow systems
 """
 import base64
 import json
@@ -20,11 +20,11 @@ class SiteUnreachableError(Exception):
 	pass
 
 
-class FrappeException(Exception):
+class sparrowException(Exception):
 	pass
 
 
-class FrappeClient:
+class sparrowClient:
 	def __init__(
 		self,
 		url,
@@ -33,7 +33,7 @@ class FrappeClient:
 		verify=True,
 		api_key=None,
 		api_secret=None,
-		frappe_authorization_source=None,
+		sparrow_authorization_source=None,
 	):
 		import requests
 
@@ -46,7 +46,7 @@ class FrappeClient:
 		self.url = url
 		self.api_key = api_key
 		self.api_secret = api_secret
-		self.frappe_authorization_source = frappe_authorization_source
+		self.sparrow_authorization_source = sparrow_authorization_source
 
 		self.setup_key_authentication_headers()
 
@@ -91,8 +91,8 @@ class FrappeClient:
 			}
 			self.headers.update(auth_header)
 
-			if self.frappe_authorization_source:
-				auth_source = {"Sparrow-Authorization-Source": self.frappe_authorization_source}
+			if self.sparrow_authorization_source:
+				auth_source = {"Sparrow-Authorization-Source": self.sparrow_authorization_source}
 				self.headers.update(auth_source)
 
 	def logout(self):
@@ -375,11 +375,11 @@ class FrappeClient:
 		if rjson and ("exc" in rjson) and rjson["exc"]:
 			try:
 				exc = json.loads(rjson["exc"])[0]
-				exc = "FrappeClient Request Failed\n\n" + exc
+				exc = "sparrowClient Request Failed\n\n" + exc
 			except Exception:
 				exc = rjson["exc"]
 
-			raise FrappeException(exc)
+			raise sparrowException(exc)
 		if "message" in rjson:
 			return rjson["message"]
 		elif "data" in rjson:
@@ -388,7 +388,7 @@ class FrappeClient:
 			return None
 
 
-class FrappeOAuth2Client(FrappeClient):
+class sparrowOAuth2Client(sparrowClient):
 	def __init__(self, url, access_token, verify=True):
 		import requests
 

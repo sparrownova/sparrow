@@ -7,12 +7,12 @@ from sparrow.custom.doctype.custom_field.custom_field import (
 	create_custom_fields,
 	rename_fieldname,
 )
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Custom Field")
 
 
-class TestCustomField(FrappeTestCase):
+class TestCustomField(sparrowTestCase):
 	def test_create_custom_fields(self):
 		create_custom_fields(
 			{

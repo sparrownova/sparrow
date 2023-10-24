@@ -2,10 +2,10 @@ from typing import Callable
 
 import sparrow
 from sparrow.model import child_table_fields
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestChildTable(FrappeTestCase):
+class TestChildTable(sparrowTestCase):
 	def tearDown(self) -> None:
 		try:
 			sparrow.delete_doc("DocType", self.doctype_name, force=1)

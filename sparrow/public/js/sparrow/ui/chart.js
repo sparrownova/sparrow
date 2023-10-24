@@ -1,5 +1,5 @@
 /*
-import { Chart } from "sparrow-charts/dist/frappe-charts.esm";
+import { Chart } from "sparrow-charts/dist/sparrow-charts.esm";
 */
 
 

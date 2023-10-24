@@ -3,12 +3,12 @@
 import hashlib
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = []
 
 
-class TestTransactionLog(FrappeTestCase):
+class TestTransactionLog(sparrowTestCase):
 	def test_validate_chaining(self):
 		sparrow.get_doc(
 			{

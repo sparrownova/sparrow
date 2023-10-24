@@ -1,9 +1,9 @@
 import sparrow
 from sparrow import format
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestFormatter(FrappeTestCase):
+class TestFormatter(sparrowTestCase):
 	def test_currency_formatting(self):
 		df = sparrow._dict({"fieldname": "amount", "fieldtype": "Currency", "options": "currency"})
 

@@ -4,10 +4,10 @@
 # pre loaded
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestUser(FrappeTestCase):
+class TestUser(sparrowTestCase):
 	def test_default_currency_on_setup(self):
 		usd = sparrow.get_doc("Currency", "USD")
 		self.assertDocumentEqual({"enabled": 1, "fraction": "Cent"}, usd)

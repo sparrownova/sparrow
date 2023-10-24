@@ -1,10 +1,10 @@
 # Copyright (c) 2018, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestViewLog(FrappeTestCase):
+class TestViewLog(sparrowTestCase):
 	def tearDown(self):
 		sparrow.set_user("Administrator")
 

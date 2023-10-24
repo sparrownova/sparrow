@@ -6,11 +6,11 @@ import sparrow.utils
 from sparrow.core.doctype.doctype.test_doctype import new_doctype
 from sparrow.desk.query_report import build_xlsx_data, export_query, run
 from sparrow.tests.ui_test_helpers import create_doctype
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.xlsxutils import make_xlsx
 
 
-class TestQueryReport(FrappeTestCase):
+class TestQueryReport(sparrowTestCase):
 	def test_xlsx_data_with_multiple_datatypes(self):
 		"""Test exporting report using rows with multiple datatypes (list, dict)"""
 

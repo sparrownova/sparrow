@@ -3,12 +3,12 @@
 import sparrow
 from sparrow.core.doctype.data_import.exporter import Exporter
 from sparrow.core.doctype.data_import.test_importer import create_doctype_if_not_exists
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 doctype_name = "DocType for Export"
 
 
-class TestExporter(FrappeTestCase):
+class TestExporter(sparrowTestCase):
 	def setUp(self):
 		create_doctype_if_not_exists(doctype_name)
 

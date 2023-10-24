@@ -3,7 +3,7 @@ from unittest.mock import mock_open, patch
 
 import sparrow
 from sparrow.modules import patch_handler
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_bench_path
 
 EMTPY_FILE = ""
@@ -49,7 +49,7 @@ app.module.patch4
 """
 
 
-class TestPatches(FrappeTestCase):
+class TestPatches(sparrowTestCase):
 	def test_patch_module_names(self):
 		sparrow.flags.final_patches = []
 		sparrow.flags.in_install = True
@@ -79,7 +79,7 @@ class TestPatches(FrappeTestCase):
 		self.assertGreaterEqual(finished_patches, len(all_patches))
 
 
-class TestPatchReader(FrappeTestCase):
+class TestPatchReader(sparrowTestCase):
 	def get_patches(self):
 		return (
 			patch_handler.get_patches_from_app("sparrow"),

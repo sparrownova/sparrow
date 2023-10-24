@@ -2,10 +2,10 @@
 # License: MIT. See LICENSE
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestEmailQueue(FrappeTestCase):
+class TestEmailQueue(sparrowTestCase):
 	def test_email_queue_deletion_based_on_modified_date(self):
 		from sparrow.email.doctype.email_queue.email_queue import EmailQueue
 

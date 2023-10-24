@@ -4,7 +4,7 @@ from werkzeug.wrappers import Response
 
 import sparrow
 from sparrow.app import process_response
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 HEADERS = (
 	"Access-Control-Allow-Origin",
@@ -15,7 +15,7 @@ HEADERS = (
 )
 
 
-class TestCORS(FrappeTestCase):
+class TestCORS(sparrowTestCase):
 	def make_request_and_test(self, origin="http://example.com", absent=False):
 		self.origin = origin
 

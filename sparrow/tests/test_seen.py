@@ -3,10 +3,10 @@
 import json
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestSeen(FrappeTestCase):
+class TestSeen(sparrowTestCase):
 	def tearDown(self):
 		sparrow.set_user("Administrator")
 

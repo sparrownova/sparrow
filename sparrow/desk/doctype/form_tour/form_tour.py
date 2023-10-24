@@ -61,7 +61,7 @@ def update_user_status(value, step):
 
 	capture(
 		sparrow.scrub(f"{step.parent}_{step.title}"),
-		app="frappe_ui_tours",
+		app="sparrow_ui_tours",
 		properties={"is_completed": tour.is_completed},
 	)
 	sparrow.db.set_value(

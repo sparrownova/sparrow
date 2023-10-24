@@ -3,7 +3,7 @@
 import sparrow
 from sparrow.desk.form.assign_to import add as assign_to
 from sparrow.desk.page.user_profile.user_profile import get_energy_points_heatmap_data
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.testutils import add_custom_field, clear_custom_fields
 
 from .energy_point_log import create_review_points_log
@@ -11,7 +11,7 @@ from .energy_point_log import get_energy_points as _get_energy_points
 from .energy_point_log import review
 
 
-class TestEnergyPointLog(FrappeTestCase):
+class TestEnergyPointLog(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

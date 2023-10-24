@@ -1,7 +1,7 @@
 /**
  * sparrow.views.ReportView
  */
-import DataTable from "frappe-datatable";
+import DataTable from "sparrow-datatable";
 
 window.DataTable = DataTable;
 sparrow.provide("sparrow.views");

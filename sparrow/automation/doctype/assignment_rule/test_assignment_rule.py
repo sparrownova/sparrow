@@ -3,11 +3,11 @@
 
 import sparrow
 from sparrow.test_runner import make_test_records
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import random_string
 
 
-class TestAutoAssign(FrappeTestCase):
+class TestAutoAssign(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls):
 		super().setUpClass()

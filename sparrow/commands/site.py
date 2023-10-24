@@ -564,16 +564,16 @@ def migrate(context, skip_failing=False, skip_search_index=False):
 
 
 @click.command("migrate-to")
-@click.argument("frappe_provider")
+@click.argument("sparrow_provider")
 @pass_context
-def migrate_to(context, frappe_provider):
+def migrate_to(context, sparrow_provider):
 	"Migrates site to the specified provider"
-	from sparrow.integrations.frappe_providers import migrate_to
+	from sparrow.integrations.sparrow_providers import migrate_to
 
 	for site in context.sites:
 		sparrow.init(site=site)
 		sparrow.connect()
-		migrate_to(site, frappe_provider)
+		migrate_to(site, sparrow_provider)
 		sparrow.destroy()
 	if not context.sites:
 		raise SiteNotSpecifiedError

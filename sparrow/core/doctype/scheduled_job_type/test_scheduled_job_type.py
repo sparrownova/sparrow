@@ -2,11 +2,11 @@
 # License: MIT. See LICENSE
 import sparrow
 from sparrow.core.doctype.scheduled_job_type.scheduled_job_type import sync_jobs
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_datetime
 
 
-class TestScheduledJobType(FrappeTestCase):
+class TestScheduledJobType(sparrowTestCase):
 	def setUp(self):
 		sparrow.db.rollback()
 		sparrow.db.truncate("Scheduled Job Type")

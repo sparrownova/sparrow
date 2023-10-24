@@ -3,10 +3,10 @@
 import sparrow
 from sparrow.core.doctype.user.user import get_system_users
 from sparrow.desk.form.assign_to import add as assign_task
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestNotificationLog(FrappeTestCase):
+class TestNotificationLog(sparrowTestCase):
 	def test_assignment(self):
 		todo = get_todo()
 		user = get_user()

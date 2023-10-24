@@ -1,10 +1,10 @@
 # Copyright (c) 2020, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 from sparrow.search.full_text_search import FullTextSearch
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestFullTextSearch(FrappeTestCase):
+class TestFullTextSearch(sparrowTestCase):
 	def setUp(self):
 		index = get_index()
 		index.build()
@@ -58,10 +58,10 @@ class TestFullTextSearch(FrappeTestCase):
 		self.assertEqual(res[0], "sw/shopper")
 
 		# Update new doc
-		self.index.update_index({"name": "sw/frappebooks", "content": """DesktopAccounting"""})
+		self.index.update_index({"name": "sw/sparrowbooks", "content": """DesktopAccounting"""})
 
 		res = self.index.search("DesktopAccounting")
-		self.assertEqual(res[0], "sw/frappebooks")
+		self.assertEqual(res[0], "sw/sparrowbooks")
 
 
 class TestWrapper(FullTextSearch):
@@ -79,7 +79,7 @@ class TestWrapper(FullTextSearch):
 
 
 def get_index():
-	return TestWrapper("test_frappe_index")
+	return TestWrapper("test_sparrow_index")
 
 
 def get_documents():

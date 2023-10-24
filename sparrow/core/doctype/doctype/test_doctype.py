@@ -18,10 +18,10 @@ from sparrow.core.doctype.doctype.doctype import (
 )
 from sparrow.custom.doctype.custom_field.custom_field import create_custom_fields
 from sparrow.desk.form.load import getdoc
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDocType(FrappeTestCase):
+class TestDocType(sparrowTestCase):
 	def tearDown(self):
 		sparrow.db.rollback()
 

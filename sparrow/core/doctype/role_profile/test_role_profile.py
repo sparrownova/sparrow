@@ -1,12 +1,12 @@
 # Copyright (c) 2017, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_dependencies = ["Role"]
 
 
-class TestRoleProfile(FrappeTestCase):
+class TestRoleProfile(sparrowTestCase):
 	def test_make_new_role_profile(self):
 		sparrow.delete_doc_if_exists("Role Profile", "Test 1", force=1)
 		new_role_profile = sparrow.get_doc(dict(doctype="Role Profile", role_profile="Test 1")).insert()

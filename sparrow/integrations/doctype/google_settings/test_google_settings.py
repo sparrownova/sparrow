@@ -2,12 +2,12 @@
 # License: MIT. See LICENSE
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 from .google_settings import get_file_picker_settings
 
 
-class TestGoogleSettings(FrappeTestCase):
+class TestGoogleSettings(sparrowTestCase):
 	def setUp(self):
 		settings = sparrow.get_single("Google Settings")
 		settings.client_id = "test_client_id"

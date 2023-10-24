@@ -21,7 +21,7 @@ sparrow.ui.form.Controller = class FormController {
 	}
 };
 
-sparrow.ui.form.Form = class FrappeForm {
+sparrow.ui.form.Form = class sparrowForm {
 	constructor(doctype, parent, in_form, doctype_layout_name) {
 		this.docname = "";
 		this.doctype = doctype;

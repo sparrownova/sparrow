@@ -18,7 +18,7 @@ from sparrow.model.rename_doc import (
 	update_linked_doctypes,
 )
 from sparrow.modules.utils import get_doc_path
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import add_to_date, now
 
 
@@ -42,7 +42,7 @@ def patch_db(endpoints: list[str] = None):
 		sparrow.db.rollback(save_point=savepoint)
 
 
-class TestRenameDoc(FrappeTestCase):
+class TestRenameDoc(sparrowTestCase):
 	@classmethod
 	def setUpClass(self):
 		"""Setting Up data for the tests defined under TestRenameDoc"""

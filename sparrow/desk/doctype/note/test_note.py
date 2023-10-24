@@ -2,12 +2,12 @@
 # License: MIT. See LICENSE
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Note")
 
 
-class TestNote(FrappeTestCase):
+class TestNote(sparrowTestCase):
 	def insert_note(self):
 		sparrow.db.delete("Version")
 		sparrow.db.delete("Note")

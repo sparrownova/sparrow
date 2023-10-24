@@ -5,10 +5,10 @@ import sparrow.desk.form.assign_to
 from sparrow.automation.doctype.assignment_rule.test_assignment_rule import make_note
 from sparrow.desk.form.load import get_assignments
 from sparrow.desk.listview import get_group_by_count
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestAssign(FrappeTestCase):
+class TestAssign(sparrowTestCase):
 	def test_assign(self):
 		todo = sparrow.get_doc({"doctype": "ToDo", "description": "test"}).insert()
 		if not sparrow.db.exists("User", "test@example.com"):

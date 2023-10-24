@@ -1,10 +1,10 @@
 import sparrow
 from sparrow.desk.doctype.tag.tag import add_tag
 from sparrow.desk.reportview import get_stats
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestTag(FrappeTestCase):
+class TestTag(sparrowTestCase):
 	def setUp(self) -> None:
 		sparrow.db.delete("Tag")
 		sparrow.db.sql("UPDATE `tabDocType` set _user_tags=''")

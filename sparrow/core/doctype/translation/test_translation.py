@@ -2,11 +2,11 @@
 # License: MIT. See LICENSE
 import sparrow
 from sparrow import _
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.translate import clear_cache
 
 
-class TestTranslation(FrappeTestCase):
+class TestTranslation(sparrowTestCase):
 	def setUp(self):
 		sparrow.db.delete("Translation")
 

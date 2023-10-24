@@ -4,10 +4,10 @@
 import sparrow
 from sparrow.cache_manager import clear_controller_cache
 from sparrow.desk.doctype.todo.todo import ToDo
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestHooks(FrappeTestCase):
+class TestHooks(sparrowTestCase):
 	def test_hooks(self):
 		hooks = sparrow.get_hooks()
 		self.assertTrue(isinstance(hooks.get("app_name"), list))

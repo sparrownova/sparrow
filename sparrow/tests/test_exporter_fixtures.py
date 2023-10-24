@@ -5,10 +5,10 @@ import os
 import sparrow
 import sparrow.defaults
 from sparrow.core.doctype.data_import.data_import import export_csv
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestDataImportFixtures(FrappeTestCase):
+class TestDataImportFixtures(sparrowTestCase):
 	def setUp(self):
 		pass
 

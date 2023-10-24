@@ -4,10 +4,10 @@ import time
 
 import sparrow
 from sparrow.auth import CookieManager, LoginManager
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestActivityLog(FrappeTestCase):
+class TestActivityLog(sparrowTestCase):
 	def test_activity_log(self):
 
 		# test user login log

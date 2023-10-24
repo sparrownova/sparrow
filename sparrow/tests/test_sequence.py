@@ -1,8 +1,8 @@
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestSequence(FrappeTestCase):
+class TestSequence(sparrowTestCase):
 	def generate_sequence_name(self) -> str:
 		return self._testMethodName + "_" + sparrow.generate_hash(length=5)
 

@@ -368,15 +368,15 @@ class LDAP_TestCase:
 					"Users",
 					"Administrators",
 					"default_role",
-					"frappe_default_all",
-					"frappe_default_guest",
+					"sparrow_default_all",
+					"sparrow_default_guest",
 				],
 				"posix.user2": [
 					"Users",
 					"Group3",
 					"default_role",
-					"frappe_default_all",
-					"frappe_default_guest",
+					"sparrow_default_all",
+					"sparrow_default_guest",
 				],
 			}
 
@@ -386,15 +386,15 @@ class LDAP_TestCase:
 					"Domain Users",
 					"Domain Administrators",
 					"default_role",
-					"frappe_default_all",
-					"frappe_default_guest",
+					"sparrow_default_all",
+					"sparrow_default_guest",
 				],
 				"posix.user2": [
 					"Domain Users",
 					"Enterprise Administrators",
 					"default_role",
-					"frappe_default_all",
-					"frappe_default_guest",
+					"sparrow_default_all",
+					"sparrow_default_guest",
 				],
 			}
 
@@ -403,8 +403,8 @@ class LDAP_TestCase:
 			self.doc["ldap_groups"][1]["erpnext_role"]: self.doc["ldap_groups"][1]["ldap_group"],
 			self.doc["ldap_groups"][2]["erpnext_role"]: self.doc["ldap_groups"][2]["ldap_group"],
 			"Newsletter Manager": "default_role",
-			"All": "frappe_default_all",
-			"Guest": "frappe_default_guest",
+			"All": "sparrow_default_all",
+			"Guest": "sparrow_default_guest",
 		}
 
 		# re-create user1 to ensure clean
@@ -443,8 +443,8 @@ class LDAP_TestCase:
 				"Users",
 				"Administrators",
 				"default_role",
-				"frappe_default_all",
-				"frappe_default_guest",
+				"sparrow_default_all",
+				"sparrow_default_guest",
 			],
 		}
 		test_user = "posix.user1"

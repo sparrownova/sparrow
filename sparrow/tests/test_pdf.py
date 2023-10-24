@@ -6,10 +6,10 @@ from PyPDF2 import PdfReader
 
 import sparrow
 import sparrow.utils.pdf as pdfgen
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestPdf(FrappeTestCase):
+class TestPdf(sparrowTestCase):
 	@property
 	def html(self):
 		return """<style>

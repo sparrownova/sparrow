@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 """
 Handle RESTful requests that are mapped to the `/api/resource` route.
 
-Requests via FrappeClient are also handled here.
+Requests via sparrowClient are also handled here.
 """
 
 

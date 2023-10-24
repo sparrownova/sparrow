@@ -14,10 +14,10 @@ from sparrow.email.email_body import (
 	replace_filename_with_cid,
 )
 from sparrow.email.receive import Email
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestEmailBody(FrappeTestCase):
+class TestEmailBody(sparrowTestCase):
 	def setUp(self):
 		email_html = """
 <div>

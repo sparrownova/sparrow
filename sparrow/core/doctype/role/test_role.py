@@ -3,12 +3,12 @@
 
 import sparrow
 from sparrow.core.doctype.role.role import get_info_based_on_role
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 test_records = sparrow.get_test_records("Role")
 
 
-class TestUser(FrappeTestCase):
+class TestUser(sparrowTestCase):
 	def test_disable_role(self):
 		sparrow.get_doc("User", "test@example.com").add_roles("_Test Role 3")
 

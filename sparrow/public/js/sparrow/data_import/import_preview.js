@@ -1,4 +1,4 @@
-import DataTable from "frappe-datatable";
+import DataTable from "sparrow-datatable";
 import { get_columns_for_picker } from "./data_exporter";
 
 sparrow.provide("sparrow.data_import");

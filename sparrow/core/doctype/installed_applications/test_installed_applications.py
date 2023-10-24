@@ -6,10 +6,10 @@ from sparrow.core.doctype.installed_applications.installed_applications import (
 	InvalidAppOrder,
 	update_installed_apps_order,
 )
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 
-class TestInstalledApplications(FrappeTestCase):
+class TestInstalledApplications(sparrowTestCase):
 	def test_order_change(self):
 		update_installed_apps_order(["sparrow"])
 		self.assertRaises(InvalidAppOrder, update_installed_apps_order, [])

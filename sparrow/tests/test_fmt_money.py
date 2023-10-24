@@ -1,11 +1,11 @@
 # Copyright (c) 2015, Sparrow Technologies Pvt. Ltd. and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import fmt_money
 
 
-class TestFmtMoney(FrappeTestCase):
+class TestFmtMoney(sparrowTestCase):
 	def test_standard(self):
 		sparrow.db.set_default("number_format", "#,###.##")
 		self.assertEqual(fmt_money(100), "100.00")

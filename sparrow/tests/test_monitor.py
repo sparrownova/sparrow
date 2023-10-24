@@ -4,12 +4,12 @@
 import sparrow
 import sparrow.monitor
 from sparrow.monitor import MONITOR_REDIS_KEY
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import set_request
 from sparrow.utils.response import build_response
 
 
-class TestMonitor(FrappeTestCase):
+class TestMonitor(sparrowTestCase):
 	def setUp(self):
 		sparrow.conf.monitor = 1
 		sparrow.cache().delete_value(MONITOR_REDIS_KEY)

@@ -4,13 +4,13 @@ import sparrow
 from sparrow.core.page.permission_manager.permission_manager import add, reset, update
 from sparrow.custom.doctype.property_setter.property_setter import make_property_setter
 from sparrow.desk.form.load import get_docinfo, getdoc, getdoctype
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils.file_manager import save_file
 
 test_dependencies = ["Blog Category", "Blogger"]
 
 
-class TestFormLoad(FrappeTestCase):
+class TestFormLoad(sparrowTestCase):
 	def test_load(self):
 		getdoctype("DocType")
 		meta = list(filter(lambda d: d.name == "DocType", sparrow.response.docs))[0]

@@ -18,7 +18,7 @@ from sparrow.core.api.file import (
 	unzip_file,
 )
 from sparrow.exceptions import ValidationError
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.utils import get_files_path
 
 if TYPE_CHECKING:
@@ -54,7 +54,7 @@ def make_test_image_file():
 		_test_file.delete()
 
 
-class TestSimpleFile(FrappeTestCase):
+class TestSimpleFile(sparrowTestCase):
 	def setUp(self):
 		self.attached_to_doctype, self.attached_to_docname = make_test_doc()
 		self.test_content = test_content1
@@ -76,7 +76,7 @@ class TestSimpleFile(FrappeTestCase):
 		self.assertEqual(content, self.test_content)
 
 
-class TestBase64File(FrappeTestCase):
+class TestBase64File(sparrowTestCase):
 	def setUp(self):
 		self.attached_to_doctype, self.attached_to_docname = make_test_doc()
 		self.test_content = base64.b64encode(test_content1.encode("utf-8"))
@@ -99,7 +99,7 @@ class TestBase64File(FrappeTestCase):
 		self.assertEqual(content, test_content1)
 
 
-class TestSameFileName(FrappeTestCase):
+class TestSameFileName(sparrowTestCase):
 	def test_saved_content(self):
 		self.attached_to_doctype, self.attached_to_docname = make_test_doc()
 		self.test_content1 = test_content1
@@ -159,7 +159,7 @@ class TestSameFileName(FrappeTestCase):
 		self.assertEqual(_file.get_content(), test_content2)
 
 
-class TestSameContent(FrappeTestCase):
+class TestSameContent(sparrowTestCase):
 	def setUp(self):
 		self.attached_to_doctype1, self.attached_to_docname1 = make_test_doc()
 		self.attached_to_doctype2, self.attached_to_docname2 = make_test_doc()
@@ -227,7 +227,7 @@ class TestSameContent(FrappeTestCase):
 		sparrow.clear_cache(doctype="ToDo")
 
 
-class TestFile(FrappeTestCase):
+class TestFile(sparrowTestCase):
 	def setUp(self):
 		sparrow.set_user("Administrator")
 		self.delete_test_data()
@@ -550,7 +550,7 @@ def convert_to_symlink(directory):
 		shutil.move(new_directory, directory)
 
 
-class TestAttachment(FrappeTestCase):
+class TestAttachment(sparrowTestCase):
 	test_doctype = "Test For Attachment"
 
 	@classmethod
@@ -596,7 +596,7 @@ class TestAttachment(FrappeTestCase):
 		self.assertTrue(exists)
 
 
-class TestAttachmentsAccess(FrappeTestCase):
+class TestAttachmentsAccess(sparrowTestCase):
 	def setUp(self) -> None:
 		sparrow.db.delete("File", {"is_folder": 0})
 
@@ -708,7 +708,7 @@ class TestAttachmentsAccess(FrappeTestCase):
 		sparrow.db.rollback()
 
 
-class TestFileUtils(FrappeTestCase):
+class TestFileUtils(sparrowTestCase):
 	def test_extract_images_from_doc(self):
 		# with filename in data URI
 		todo = sparrow.get_doc(
@@ -736,7 +736,7 @@ class TestFileUtils(FrappeTestCase):
 		self.assertTrue(folder.is_folder)
 
 
-class TestFileOptimization(FrappeTestCase):
+class TestFileOptimization(sparrowTestCase):
 	def test_optimize_file(self):
 		with make_test_image_file() as test_file:
 			original_size = test_file.file_size
@@ -781,7 +781,7 @@ class TestFileOptimization(FrappeTestCase):
 			self.assertEqual(size_before_optimization, size_after_rollback)
 
 
-class TestGuestFileAndAttachments(FrappeTestCase):
+class TestGuestFileAndAttachments(sparrowTestCase):
 	def setUp(self) -> None:
 		sparrow.db.delete("File", {"is_folder": 0})
 		sparrow.get_doc(

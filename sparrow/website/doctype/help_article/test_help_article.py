@@ -1,12 +1,12 @@
 # Copyright (c) 2015, Sparrow Technologies and Contributors
 # License: MIT. See LICENSE
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 
 # test_records = sparrow.get_test_records('Help Article')
 
 
-class TestHelpArticle(FrappeTestCase):
+class TestHelpArticle(sparrowTestCase):
 	@classmethod
 	def setUpClass(cls) -> None:
 		cls.help_category = sparrow.get_doc(

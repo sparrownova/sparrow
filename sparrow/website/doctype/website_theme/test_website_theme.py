@@ -4,7 +4,7 @@
 from contextlib import contextmanager
 
 import sparrow
-from sparrow.tests.utils import FrappeTestCase
+from sparrow.tests.utils import sparrowTestCase
 from sparrow.website.doctype.website_theme.website_theme import (
 	after_migrate,
 	get_active_theme,
@@ -24,7 +24,7 @@ def website_theme_fixture(**theme):
 	theme.delete()
 
 
-class TestWebsiteTheme(FrappeTestCase):
+class TestWebsiteTheme(sparrowTestCase):
 	def test_website_theme(self):
 		with website_theme_fixture(
 			google_font="Inter",
