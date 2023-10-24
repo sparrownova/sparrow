@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="35474a94-ccd4-4c6e-b40b-1cc325241e51" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sparrow/public/scss/desk.bundle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sparrow/public/scss/desk.bundle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esbuild/esbuild.js" beforeDir="false" afterPath="$PROJECT_DIR$/esbuild/esbuild.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esbuild/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/esbuild/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sparrow/public/scss/desk/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sparrow/public/scss/desk/index.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
