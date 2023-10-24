@@ -7,9 +7,9 @@ const vue = require("esbuild-vue");
 const yargs = require("yargs");
 const cliui = require("cliui")();
 const chalk = require("chalk");
-const html_plugin = require("./sparrow-html");
+const html_plugin = require("./frappe-html");
 const rtlcss = require("rtlcss");
-const postCssPlugin = require("@sparrow/esbuild-plugin-postcss2").default;
+const postCssPlugin = require("@frappe/esbuild-plugin-postcss2").default;
 const ignore_assets = require("./ignore-assets");
 const sass_options = require("./sass_options");
 const build_cleanup_plugin = require("./build-cleanup");
@@ -36,7 +36,7 @@ const argv = yargs
 	})
 	.option("skip_frappe", {
 		type: "boolean",
-		description: "Skip building sparrow assets",
+		description: "Skip building frappe assets",
 	})
 	.option("files", {
 		type: "string",
@@ -59,15 +59,15 @@ const argv = yargs
 		type: "boolean",
 		description: "Run build command for apps",
 	})
-	.example("node esbuild --apps sparrow,shopper", "Run build only for sparrow and shopper")
+	.example("node esbuild --apps frappe,shopper", "Run build only for frappe and shopper")
 	.example(
-		"node esbuild --files sparrow/website.bundle.js,sparrow/desk.bundle.js",
+		"node esbuild --files frappe/website.bundle.js,frappe/desk.bundle.js",
 		"Run build only for specified bundles"
 	)
 	.version(false).argv;
 
 const APPS = (!argv.apps ? app_list : argv.apps.split(",")).filter(
-	(app) => !(argv.skip_frappe && app == "sparrow")
+	(app) => !(argv.skip_frappe && app == "frappe")
 );
 const FILES_TO_BUILD = argv.files ? argv.files.split(",") : [];
 const WATCH_MODE = Boolean(argv.watch);
@@ -200,7 +200,7 @@ function get_all_files_to_build(apps) {
 }
 
 function get_files_to_build(files) {
-	// files: ['sparrow/website.bundle.js', 'shopper/main.bundle.js']
+	// files: ['frappe/website.bundle.js', 'shopper/main.bundle.js']
 	let include_patterns = [];
 	let ignore_patterns = [];
 
