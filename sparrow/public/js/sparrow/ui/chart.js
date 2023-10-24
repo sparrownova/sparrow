@@ -1,9 +1,7 @@
 /*
 import { Chart } from "sparrow-charts/dist/frappe-charts.esm";
 */
-externals: {
-  'sparrow-charts/dist/frappe-charts.esm'; 'FrappeCharts', // You can use any global variable name here
-},
+
 
 sparrow.provide("sparrow.ui");
 sparrow.Chart = Chart;
