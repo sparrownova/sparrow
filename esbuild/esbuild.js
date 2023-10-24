@@ -34,9 +34,9 @@ const argv = yargs
 		type: "string",
 		description: "Run build for specific apps",
 	})
-	.option("skip_frappe", {
+	.option("skip_sparrow", {
 		type: "boolean",
-		description: "Skip building frappe assets",
+		description: "Skip building sparrow assets",
 	})
 	.option("files", {
 		type: "string",
@@ -59,15 +59,15 @@ const argv = yargs
 		type: "boolean",
 		description: "Run build command for apps",
 	})
-	.example("node esbuild --apps frappe,shopper", "Run build only for frappe and shopper")
+	.example("node esbuild --apps sparrow,shopper", "Run build only for sparrow and shopper")
 	.example(
-		"node esbuild --files frappe/website.bundle.js,frappe/desk.bundle.js",
+		"node esbuild --files sparrow/website.bundle.js,sparrow/desk.bundle.js",
 		"Run build only for specified bundles"
 	)
 	.version(false).argv;
 
 const APPS = (!argv.apps ? app_list : argv.apps.split(",")).filter(
-	(app) => !(argv.skip_frappe && app == "frappe")
+	(app) => !(argv.skip_sparrow && app == "sparrow")
 );
 const FILES_TO_BUILD = argv.files ? argv.files.split(",") : [];
 const WATCH_MODE = Boolean(argv.watch);
@@ -200,7 +200,7 @@ function get_all_files_to_build(apps) {
 }
 
 function get_files_to_build(files) {
-	// files: ['frappe/website.bundle.js', 'shopper/main.bundle.js']
+	// files: ['sparrow/website.bundle.js', 'shopper/main.bundle.js']
 	let include_patterns = [];
 	let ignore_patterns = [];
 
