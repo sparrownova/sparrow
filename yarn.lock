@@ -1275,9 +1275,9 @@ sparrow-datatable@^1.17.3:
     lodash "^4.17.5"
     sortablejs "^1.7.0"
 
-sparrow-gantt@^0.6.0:
+frappe-gantt@^0.6.0:
   version "0.6.0"
-  resolved "https://registry.yarnpkg.com/sparrow-gantt/-/sparrow-gantt-0.6.0.tgz#fece2fdecc0b8d6065d3c420d9681b719b827047"
+  resolved "https://registry.yarnpkg.com/frappe-gantt/-/frappe-gantt-0.6.0.tgz#fece2fdecc0b8d6065d3c420d9681b719b827047"
   integrity sha512-/P7s9edP6EoLD09EX2HPqsy1u0v4zYcurMy4ByExArvj7t0UDJlpxp88nISFtMkQe+aofaO9dR0fd61ZwX0O6g==
 
 fs-exists-sync@^0.1.0:
